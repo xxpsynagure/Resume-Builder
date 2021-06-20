@@ -123,7 +123,7 @@ class loginclass {
     JMenuBar menuBar = new JMenuBar();
 
     JMenu helpMenu = new JMenu("Settings");
-    JMenuItem gobackItem = new JMenuItem("Go Back");
+    JMenuItem gobackItem = new JMenuItem("Logout");
     JMenuItem exitItem = new JMenuItem("exit();");
 
     gobackItem.addActionListener(new ActionListener() {
@@ -237,7 +237,7 @@ class registerclass {
     JMenuBar menuBar = new JMenuBar();
 
     JMenu helpMenu = new JMenu("Settings");
-    JMenuItem gobackItem = new JMenuItem("Go Back");
+    JMenuItem gobackItem = new JMenuItem("Logout");
     JMenuItem exitItem = new JMenuItem("exit();");
 
     gobackItem.addActionListener(new ActionListener() {
