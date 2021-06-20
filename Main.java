@@ -122,7 +122,7 @@ class loginclass {
 
     JMenuBar menuBar = new JMenuBar();
 
-    JMenu helpMenu = new JMenu("Help");
+    JMenu helpMenu = new JMenu("Settings");
     JMenuItem gobackItem = new JMenuItem("Go Back");
     JMenuItem exitItem = new JMenuItem("exit();");
 
@@ -236,7 +236,7 @@ class registerclass {
 
     JMenuBar menuBar = new JMenuBar();
 
-    JMenu helpMenu = new JMenu("Help");
+    JMenu helpMenu = new JMenu("Settings");
     JMenuItem gobackItem = new JMenuItem("Go Back");
     JMenuItem exitItem = new JMenuItem("exit();");
 
