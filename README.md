@@ -2,4 +2,6 @@
 
 Repository created for OOC mini projects
 (In progress)
-sup bois
+
+
+Intergrated with Atom editor
