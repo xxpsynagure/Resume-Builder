@@ -6,7 +6,7 @@ import java.awt.*;
 /*                                          INTRODUCTION FRAME CLASS                                            */
 class introclass {
   public void introfunction() {
-    JFrame introFrame = new JFrame("Intro Page");
+    JFrame introFrame = new JFrame("Introduction Page");
     introFrame.setSize(500, 500);
     introFrame.setLayout(null);
     introFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,8 +53,8 @@ class introclass {
       @Override
       public void actionPerformed(ActionEvent e) {
         registerclass registercall = new registerclass();
-        // JOptionPane.showMessageDialog(null, "Under Production", "Message box",
-        // JOptionPane.INFORMATION_MESSAGE);
+        introFrame.dispose();
+        // JOptionPane.showMessageDialog(null, "Under Production", "Message box", JOptionPane.INFORMATION_MESSAGE);
         registercall.registerfunction();
       }
     });
@@ -77,25 +77,28 @@ class loginclass {
     JLabel title = new JLabel("CV Login");
     title.setBounds(100, 20, 200, 80);
     title.setForeground(Color.white);
+    title.setFont(new Font("MV Boli", Font.BOLD, 15));
     loginFrame.add(title);
 
-    JLabel usernameT = new JLabel("USERNAME:");
-    usernameT.setBounds(50, 100, 100, 30);
-    usernameT.setForeground(Color.white);
+    JLabel usernameL = new JLabel("USERNAME:");
+    usernameL.setBounds(50, 100, 100, 30);
+    usernameL.setForeground(Color.white);
+    usernameL.setFont(new Font("MV Boli", Font.PLAIN, 15));
+    loginFrame.add(usernameL);
+
+    JLabel passwordL = new JLabel("PASSWORD:");
+    passwordL.setBounds(50, 150, 100, 30);
+    passwordL.setForeground(Color.white);
+    passwordL.setFont(new Font("MV Boli", Font.PLAIN, 15));
+    loginFrame.add(passwordL);
+
+    JTextField usernameT = new JTextField("USERNAME");
+    usernameT.setBounds(150, 100, 100, 30);
     loginFrame.add(usernameT);
 
-    JLabel passwordT = new JLabel("PASSWORD:");
-    passwordT.setBounds(50, 150, 100, 30);
-    passwordT.setForeground(Color.white);
+    JPasswordField passwordT = new JPasswordField();
+    passwordT.setBounds(150, 150, 100, 30);
     loginFrame.add(passwordT);
-
-    JTextField username = new JTextField("USERNAME");
-    username.setBounds(150, 100, 100, 30);
-    loginFrame.add(username);
-
-    JPasswordField password = new JPasswordField();
-    password.setBounds(150, 150, 100, 30);
-    loginFrame.add(password);
 
     JButton loginbtn = new JButton("LOGIN");
     loginbtn.setBounds(100, 200, 80, 30);
@@ -108,8 +111,8 @@ class loginclass {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        String name = username.getText();
-        char[] pass = password.getPassword();
+        String name = usernameT.getText();
+        char[] pass = passwordT.getPassword();
         System.out.println(name);
         System.out.println(pass);
         loginFrame.dispose();
@@ -141,8 +144,8 @@ class loginclass {
       }
     });
 
-    helpMenu.setMnemonic(KeyEvent.VK_H);
-    exitItem.setMnemonic(KeyEvent.VK_E); // E for exit
+    helpMenu.setMnemonic(KeyEvent.VK_H); // press alt+H to open help window menubar
+    exitItem.setMnemonic(KeyEvent.VK_F4); // press alt+F4 to exit the app
 
     helpMenu.add(gobackItem);
     helpMenu.add(exitItem);
@@ -168,6 +171,8 @@ class registerclass {
 
     JLabel nameL = new JLabel("Enter your name:");
     nameL.setBounds(100, 50, 200, 30);
+    nameL.setForeground(Color.white);
+    nameL.setFont(new Font("MV Boli", Font.PLAIN, 15));
     registerFrame.add(nameL);
 
     /*String[] surlist = { "Mr", "Mrs" };
@@ -177,21 +182,104 @@ class registerclass {
     */
 
     JTextField nameT = new JTextField();
-    nameT.setBounds(280, 50, 100, 30);
+    nameT.setBounds(250, 50, 100, 30);
     registerFrame.add(nameT);
 
-    registerFrame.getContentPane().setBackground(Color.pink);
+    JLabel mailidL = new JLabel("Mail ID: ");
+    mailidL.setBounds(100, 100, 200, 30);
+    mailidL.setForeground(Color.white);
+    mailidL.setFont(new Font("MV Boli", Font.PLAIN, 15));
+    registerFrame.add(mailidL);
+
+    JTextField mailidT = new JTextField();
+    mailidT.setBounds(250, 100, 200, 30);
+    registerFrame.add(mailidT);
+
+    JLabel usernameL = new JLabel("USERNAME: ");
+    usernameL.setBounds(100, 150, 200, 30);
+    usernameL.setForeground(Color.white);
+    usernameL.setFont(new Font("MV Boli", Font.PLAIN, 15));
+    registerFrame.add(usernameL);
+
+    JTextField usernameT = new JTextField();
+    usernameT.setBounds(250, 150, 200, 30);
+    registerFrame.add(usernameT);
+
+    JLabel passwordL = new JLabel("PASSWORD: ");
+    passwordL.setBounds(100, 200, 200, 30);
+    passwordL.setForeground(Color.white);
+    passwordL.setFont(new Font("MV Boli", Font.PLAIN, 15));
+    registerFrame.add(passwordL);
+
+    JPasswordField passwordT = new JPasswordField();
+    passwordT.setBounds(250, 200, 100, 30);
+    registerFrame.add(passwordT);
+
+    JButton registerbtn = new JButton("REGISTER");
+    registerbtn.setBounds(200, 300, 100, 30);
+    registerbtn.setFocusable(false);
+    registerFrame.add(registerbtn);
+
+    registerbtn.addActionListener(new ActionListener(){
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        String Name = nameT.getText();
+        String mail = mailidT.getText();
+        String userName = usernameT.getText();
+        char[] password = passwordT.getPassword();
+        System.out.println(Name+"_"+mail+"_"+userName+"_");
+        System.out.println(password);
+        registerFrame.dispose();
+      }
+    });
+
+    JMenuBar menuBar = new JMenuBar();
+
+    JMenu helpMenu = new JMenu("Help");
+    JMenuItem gobackItem = new JMenuItem("Go Back");
+    JMenuItem exitItem = new JMenuItem("exit();");
+
+    gobackItem.addActionListener(new ActionListener() {
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        introclass introcall = new introclass();
+        registerFrame.dispose();
+        introcall.introfunction();
+      }
+    });
+
+    exitItem.addActionListener(new ActionListener() {
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        System.exit(0);
+      }
+    });
+
+    helpMenu.setMnemonic(KeyEvent.VK_H);
+    exitItem.setMnemonic(KeyEvent.VK_E); // press alt+F4 to exit the app
+
+    helpMenu.add(gobackItem);
+    helpMenu.add(exitItem);
+
+    menuBar.add(helpMenu);
+
+    registerFrame.setJMenuBar(menuBar);
+
+    registerFrame.getContentPane().setBackground(Color.black);
     registerFrame.setVisible(true);
   }
 }
 // --------------------------------------------------------------------------------------------------------------------
 // ====================================================================================================================
 
-/* MAIN CLASS */
+/*                                                MAIN CLASS                                                                  */
 class Main {
   public static void main(String args[]) {
     introclass introcall = new introclass();
     introcall.introfunction();
-    System.out.println("End of what PK has done");
+
   }
 }
