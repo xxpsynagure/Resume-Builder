@@ -6,27 +6,27 @@ import java.awt.*;
 /*                                          INTRODUCTION FRAME CLASS                                            */
 class introclass {
   public void introfunction() {
-    JFrame introFrame = new JFrame("Introduction Page");
-    introFrame.setSize(500, 500);
-    introFrame.setLayout(null);
-    introFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    introFrame.setResizable(false);
+    JFrame introFrame = new JFrame("Introduction Page"); // Creating a JFrame for Itroduction page
+    introFrame.setSize(500, 500); // setting frame size to 500x500 pixels
+    introFrame.setLayout(null); // setting the layout to null so that we can give bounds to the components in the frame
+    introFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ends the program when the frame is closed
+    introFrame.setResizable(false); // setResizable is set to false so that the frame cannot be resized by dragging using mouse
 
-    JLabel title = new JLabel("CURRICULUM VITAE");
-    title.setBounds(150, 50, 200, 40);
-    title.setForeground(Color.white);
-    title.setFont(new Font("MV Boli", Font.BOLD, 15));
-    introFrame.add(title);
+    JLabel title = new JLabel("CURRICULUM VITAE"); // Creating a JLabel for title
+    title.setBounds(150, 50, 200, 40); // setting its bounds
+    title.setForeground(Color.white); // setting text color
+    title.setFont(new Font("MV Boli", Font.BOLD, 15)); // setting font style and size
+    introFrame.add(title); // adding the title label into the  Introduction frame
 
-    JButton loginbtn = new JButton("SIGN IN");
-    loginbtn.setBounds(100, 350, 100, 40);
-    loginbtn.setFocusable(false);
-    introFrame.add(loginbtn);
+    JButton loginbtn = new JButton("SIGN IN"); // Creating a button for "sign in"
+    loginbtn.setBounds(100, 350, 100, 40); // setting its bounds
+    loginbtn.setFocusable(false); // this is to make the button to add a rectangle to itself when clicked
+    introFrame.add(loginbtn); // adding the "sign in" button into the INTRODUCTION frame
 
-    JButton registerbtn = new JButton("SIGN UP");
-    registerbtn.setBounds(300, 350, 100, 40);
-    registerbtn.setFocusable(false);
-    introFrame.add(registerbtn);
+    JButton registerbtn = new JButton("SIGN UP"); // Creating a button for "sign up"
+    registerbtn.setBounds(300, 350, 100, 40); // setting its bounds
+    registerbtn.setFocusable(false); // this is to make the button to add a rectangle to itself when clicked
+    introFrame.add(registerbtn); // adding the "sign up" button into the INTRODUCTION frame
 
     ImageIcon img = new ImageIcon("leaflogo.jpg");
     introFrame.setIconImage(img.getImage());
