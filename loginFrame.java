@@ -76,12 +76,13 @@ public class loginFrame {
                 
                 frame.add(incorrect);
                 frame.add(btn);
-                
+
                 frame.revalidate();
                 frame.repaint();
             }
         });
 
+        frame.setLocationRelativeTo(null); //makes it so the JFrame opens in the middle of the screen instead of top-left
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
         frame.setVisible(true);
