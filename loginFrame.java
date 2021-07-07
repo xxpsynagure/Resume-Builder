@@ -64,6 +64,23 @@ public class loginFrame {
             }
 
         });
+        //Creates an error message when the login button is clicked
+        btn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                btn.remove(btn);
+                JLabel incorrect = new JLabel("Incorrect Username or Password");
+                incorrect.setForeground(Color.red);
+                incorrect.setBounds(50, 300, 200, 25);
+                
+                btn.setBounds(50, 325, 75, 25);
+                
+                frame.add(incorrect);
+                frame.add(btn);
+                
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
