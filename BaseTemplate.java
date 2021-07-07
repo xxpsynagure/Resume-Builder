@@ -1,9 +1,9 @@
 import javax.swing.JFrame;
 //base template of where the panes should be added
 
-public abstract class baseFrame extends JFrame{
+public abstract class BaseTemplate extends JFrame{
     //demo code 
-    baseFrame(){
+    BaseTemplate(){
         //demo code
         setTitle("Resume Builder");
         setSize(1000,600);

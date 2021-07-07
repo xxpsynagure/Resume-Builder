@@ -3,7 +3,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 //this will probably be the page with all the buttons
-public class IntroPage extends baseFrame {
+public class IntroPage extends BaseTemplate {
 
     IntroPage(){
         //demo code
