@@ -2,9 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Practice
- */
 public class Practice {
 
     public static void main(String[] args) {
@@ -49,12 +46,12 @@ public class Practice {
 
         ImageIcon image = new ImageIcon("logo1.png");
         JLabel lbl = new JLabel();
-        lbl.setBounds(0, 0, 350, 100);
+        lbl.setBounds(50, 10, 350, 100);
         lbl.setIcon(image);
         lbl.setText("Resume Builder");
-        lbl.setVerticalTextPosition(JLabel.BOTTOM);
+        //lbl.setVerticalTextPosition(JLabel.BOTTOM);
         lbl.setIconTextGap(-10);
-        lbl.setFont(new Font("Montserrat", Font.ITALIC, 26));
+        lbl.setFont(new Font("Mv Boli", Font.PLAIN, 26));
         frame.add(lbl);
 
         chkbox.addActionListener(new ActionListener() {
