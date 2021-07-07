@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class loginFrame {
 
-    public static void main(String[] args) {
+    loginFrame(){
 
         JFrame frame = new JFrame();
         frame.setTitle("Resume Builder");
