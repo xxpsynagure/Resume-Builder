@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 
 //loginframe
-public class LoginFrame {
+class LoginFrame {
 
     JFrame frame;
     JPanel panel, panel2;
@@ -100,7 +100,7 @@ public class LoginFrame {
                     //IntroPage intro = new IntroPage();
                     JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
                     frame.dispose();
-                    baseFrame bthingy = new baseFrame();
+                    IntroPage intro = new IntroPage();
                 }
                 else{
                     loginBtn.remove(loginBtn);
