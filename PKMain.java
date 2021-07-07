@@ -277,7 +277,7 @@ class registerclass {
 // ====================================================================================================================
 
 /*                                                MAIN CLASS                                                                  */
-class Main {
+class PKMain {
   public static void main(String args[]) {
     introclass introcall = new introclass();
     introcall.introfunction();

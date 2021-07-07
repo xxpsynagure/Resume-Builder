@@ -1,7 +1,11 @@
 # Resume-Builder
 
-Repository created for OOC mini projects
-(In progress)
+This is PK's branch
 
 
-Integrated with Atom editor
+Pk will try to do changes in this branch so that it dosen't make a conflit in the Main file and in Main branch.
+
+### Thank You
+
+
+Added "sign in" and "sign up" Panel
