@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 //loginframe
-public class loginFrame {
-
-    loginFrame(){
+class LoginFrame {
+    
+    LoginFrame(){
 
         JFrame frame = new JFrame();
         frame.setTitle("Resume Builder");
@@ -67,18 +67,30 @@ public class loginFrame {
         //Creates an error message when the login button is clicked
         btn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                btn.remove(btn);
-                JLabel incorrect = new JLabel("Incorrect Username or Password");
-                incorrect.setForeground(Color.red);
-                incorrect.setBounds(50, 300, 200, 25);
+                //added username and password
+                String usertxt= Usernametxt.getText();
+                String passtxt= String.valueOf(Passwordtxt.getPassword());
+                System.out.println(usertxt);
+                System.out.println(passtxt);
+                if(usertxt.equals("resume") && passtxt.equals("resume")){
+                IntroPage intro = new IntroPage();
+                frame.dispose();
+                }
+                else{
+                    btn.remove(btn);
+                    JLabel incorrect = new JLabel("Incorrect Username or Password");
+                    incorrect.setForeground(Color.red);
+                    incorrect.setBounds(50, 300, 200, 25);
+                    
+                    btn.setBounds(50, 325, 75, 25);
+                    
+                    frame.add(incorrect);
+                    frame.add(btn);
+    
+                    frame.revalidate();
+                    frame.repaint();
+                }
                 
-                btn.setBounds(50, 325, 75, 25);
-                
-                frame.add(incorrect);
-                frame.add(btn);
-
-                frame.revalidate();
-                frame.repaint();
             }
         });
 
