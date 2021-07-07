@@ -4,12 +4,13 @@ import java.awt.event.*;
 
 
 //loginframe
-public class loginFrame {
+public class LoginFrame {
 
     JFrame frame;
     JPanel panel, panel2;
 
-    loginFrame(){
+    LoginFrame(){
+
 
         JFrame frame = new JFrame();
         frame.setTitle("Resume Builder");
@@ -90,7 +91,7 @@ public class loginFrame {
             }
 
         });
-
+     
         loginBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String usertxt= Usernametxt.getText();
