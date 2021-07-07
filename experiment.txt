@@ -1,1 +1,5 @@
 shehzad was here
+Guys, I am trying to do some time sensitive stuff using the markets and news articles. I heard Python is the most popular but not the fastest or most powerful for that. Some suggested C++. Do you guys agree with that or are there other programs more powerful?
+
+
+Hey Folks! I just joined this chat and I must say I love the idea behind it :100:  I have one doubt that I would like to brainstorm and thought that maybe here would be a great opportunity to do so.  I am using a SARIMAX model to forecast sales and use an exogenous variable called "lockdown" that will get the value 1 for the months where the nr of products sold was not so good due to lockdown restrictions. I got good results when I performed it but do you think this would be a great model to forecast sales with a time series that has some months impacted by corona? What are your thoughts on this? What other models do you think would perform quite well in this case? Any idea is more than welcome. Please also tell me if this is not the right chat to write this type of questions
