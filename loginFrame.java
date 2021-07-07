@@ -53,7 +53,7 @@ class LoginFrame {
         panel.add(chkbox);
 
         JButton loginBtn = new JButton("Sign in");
-        loginBtn.setBounds(50, 330, 100, 25);
+        loginBtn.setBounds(50, 310, 100, 25);
         loginBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
         loginBtn.setBackground(new Color(0, 95, 135));
         loginBtn.setForeground(new Color(255, 255, 255));
@@ -62,7 +62,7 @@ class LoginFrame {
         panel.add(loginBtn);
 
         JButton registerBtn = new JButton("Sign up");
-        registerBtn.setBounds(175, 330, 100, 25);
+        registerBtn.setBounds(175, 310, 100, 25);
         registerBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
         registerBtn.setBackground(new Color(0, 95, 135));
         registerBtn.setForeground(new Color(255, 255, 255));
@@ -109,9 +109,11 @@ class LoginFrame {
                     incorrect.setBounds(50, 300, 200, 25);
                     
                     loginBtn.setBounds(50, 330, 100, 25);
+                    registerBtn.setBounds(175, 330, 100, 25);
                     
                     panel.add(incorrect);
                     panel.add(loginBtn);
+                    panel.add(registerBtn);
     
                     panel.revalidate();
                     panel.repaint();
@@ -128,7 +130,7 @@ class LoginFrame {
         });
 
 
-
+        frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.setVisible(true);
 
