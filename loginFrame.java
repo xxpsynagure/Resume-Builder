@@ -8,16 +8,21 @@ class LoginFrame {
 
     JFrame frame;
     JPanel panel, panel2;
-
+    //separated the constructor LoginFrame and loginPanel to implement the backBtn
     LoginFrame(){
-
-
-        JFrame frame = new JFrame();
+        
+        frame = new JFrame();
         frame.setTitle("Resume Builder");
         frame.setSize(350, 600);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
+        loginPanel(frame);
+
+    }
+
+    public void loginPanel(JFrame frame){
+
         
         // Testing JPanel and adding components
         JPanel panel = new JPanel();
@@ -128,65 +133,85 @@ class LoginFrame {
                 registerPanel(frame);
             }
         });
-
+        
 
         frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.setVisible(true);
-
+        
     }
-
+    
     public void registerPanel(JFrame frame) {
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 0, 350, 600);
         panel2.setBackground(new Color(150, 150, 150));
         panel2.setLayout(null);
-
+        
         JLabel name = new JLabel("Enter your name");
         name.setBounds(50, 100, 150, 25);
         name.setFont(new Font("Montserrat", Font.PLAIN, 15));
         panel2.add(name);
-
+        
         JTextField nametxt = new JTextField();
         nametxt.setBounds(50, 125, 200, 25);
         panel2.add(nametxt);
-
+        
         JLabel email = new JLabel("Email Id");
         email.setBounds(50, 160, 100, 25);
         email.setFont(new Font("Montserrat", Font.PLAIN, 15));
         panel2.add(email);
-
+        
         JTextField emailtxt = new JTextField();
         emailtxt.setBounds(50, 185, 200, 25);
         panel2.add(emailtxt);
-
+        
         JLabel usernameR = new JLabel("Username");
         usernameR.setBounds(50, 220, 100, 25);
         usernameR.setFont(new Font("Montserrat", Font.PLAIN, 15));
         panel2.add(usernameR);
-
+        
         JTextField usernametxt = new JTextField();
         usernametxt.setBounds(50, 245, 200, 25);
         panel2.add(usernametxt);
-
+        
         JLabel password = new JLabel("Password");
         password.setBounds(50, 280, 100, 25);
         password.setFont(new Font("Montserrat", Font.PLAIN, 15));
         panel2.add(password);
-
+        
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 305, 200, 25);
         panel2.add(Passwordtxt);
-
+        
         JButton registerBtnR = new JButton("Sign up");
-        registerBtnR.setBounds(100, 350, 100, 25);
+        registerBtnR.setBounds(170, 350, 100, 25);
         registerBtnR.setFont(new Font("Montserrat", Font.PLAIN, 15));
         registerBtnR.setBackground(new Color(0, 95, 135));
         registerBtnR.setForeground(new Color(255, 255, 255));
         registerBtnR.setOpaque(true);
         registerBtnR.setFocusable(false);
         panel2.add(registerBtnR);
+        
+        //backBtn takes the panel back to the loginPanel
+        JButton backBtn = new JButton("Back");
+        backBtn.setBounds(50, 350, 100, 25);
+        backBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        backBtn.setBackground(new Color(0, 95, 135));
+        backBtn.setForeground(new Color(255, 255, 255));
+        backBtn.setOpaque(true);
+        backBtn.setFocusable(false);
+        panel2.add(backBtn);
+        
+        backBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                panel2.setVisible(false);
 
+                loginPanel(frame);
+            }
+        });
+        
+        
+        
         frame.add(panel2);
         
     }
