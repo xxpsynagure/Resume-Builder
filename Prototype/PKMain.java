@@ -1,3 +1,5 @@
+package Prototype;
+
 import javax.swing.*;
 //import javax.swing.plaf.FontUIResource;
 import java.awt.event.*;

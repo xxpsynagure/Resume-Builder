@@ -1,7 +1,10 @@
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.event.*;
+
 //base template of where the panes should be added
 
-public abstract class BaseTemplate extends JFrame{
+
+public abstract class BaseTemplate extends JFrame {
     //demo code 
     BaseTemplate(){
         //demo code
@@ -11,6 +14,8 @@ public abstract class BaseTemplate extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
+        
+
     }
 }
     

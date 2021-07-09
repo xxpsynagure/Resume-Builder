@@ -4,7 +4,8 @@ import java.awt.event.*;
 
 
 //loginframe
-class LoginFrame {
+class LoginFrame
+ {
 
     JFrame frame;
     JPanel panel, panel2;
@@ -130,9 +131,21 @@ class LoginFrame {
         registerBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
-                registerPanel(frame);
+                registerPanel();
             }
         });
+
+        //loginBtn.setMnemonic(KeyEvent.VK_ENTER);
+
+        Passwordtxt.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {}
+            public void keyPressed(KeyEvent f) {
+                if( f.getKeyCode()  == KeyEvent.VK_ENTER){
+                    loginBtn.doClick();
+                }
+            }
+            public void keyReleased(KeyEvent g) {}
+        });;
         
 
         frame.setLocationRelativeTo(null);
@@ -141,7 +154,7 @@ class LoginFrame {
         
     }
     
-    public void registerPanel(JFrame frame) {
+    public void registerPanel() {
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 0, 350, 600);
         panel2.setBackground(new Color(150, 150, 150));
@@ -201,6 +214,12 @@ class LoginFrame {
         backBtn.setOpaque(true);
         backBtn.setFocusable(false);
         panel2.add(backBtn);
+
+        registerBtnR.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                IntroPage intro = new IntroPage();
+            }
+        });
         
         backBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -209,11 +228,25 @@ class LoginFrame {
                 loginPanel(frame);
             }
         });
+
         
+        //registerBtnR.setMnemonic(KeyEvent.VK_ENTER);
+
+        Passwordtxt.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {}
+            public void keyPressed(KeyEvent f) {
+                if( f.getKeyCode()  == KeyEvent.VK_ENTER){
+                    registerBtnR.doClick();
+                }
+            }
+            public void keyReleased(KeyEvent g) {}
+        });;
         
-        
+
         frame.add(panel2);
         
-    }
+    }    
+    
     
 }
+
