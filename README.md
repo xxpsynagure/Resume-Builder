@@ -1,11 +1,8 @@
 # Resume-Builder
 
-This is PK's branch
+-login page done
+-Register page done
 
+intropage yet to be done
 
-Pk will try to do changes in this branch so that it dosen't make a conflit in the Main file and in Main branch.
-
-### Thank You
-
-
-Added "sign in" and "sign up" Panel
+# deadline 15 july 2021

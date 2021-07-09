@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.event.*;
 
 //base template of where the panes should be added
 
