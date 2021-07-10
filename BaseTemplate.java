@@ -11,11 +11,10 @@ public abstract class BaseTemplate extends JFrame {
     BaseTemplate(){
         //demo code
         setTitle("Resume Builder");
-        setSize(1000,600);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(null);
+        //setLocationRelativeTo(null);
+        //setLayout(null);
         
         //menuBar added to abstract class
         JMenuBar menuBar = new JMenuBar();
