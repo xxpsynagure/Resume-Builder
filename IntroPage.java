@@ -22,26 +22,31 @@ public class IntroPage extends BaseTemplate {
         JPanel panelBtn1 = new JPanel();
         panelBtn1.setBackground(Color.white);
         panelBtn1.setBounds(192, 206, 150, 150);
+        mouseFunctions(panelBtn1);
         intro.add(panelBtn1);
         
         JPanel panelBtn2 = new JPanel();
         panelBtn2.setBackground(Color.white);
         panelBtn2.setBounds(462, 206, 150, 150);
+        mouseFunctions(panelBtn2);
         intro.add(panelBtn2);
         
         JPanel panelBtn3 = new JPanel();
         panelBtn3.setBackground(Color.white);
         panelBtn3.setBounds(732, 206, 150, 150);
+        mouseFunctions(panelBtn3);
         intro.add(panelBtn3);
         
         JPanel panelBtn4 = new JPanel();
         panelBtn4.setBackground(Color.white);
         panelBtn4.setBounds(192, 406, 150, 150);
+        mouseFunctions(panelBtn4);
         intro.add(panelBtn4);
         
         JPanel panelBtn5 = new JPanel();
         panelBtn5.setBackground(Color.white);
         panelBtn5.setBounds(462, 406, 150, 150);
+        mouseFunctions(panelBtn5);
         intro.add(panelBtn5);
         
         add(intro);

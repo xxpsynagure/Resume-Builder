@@ -15,7 +15,7 @@ public abstract class BaseTemplate extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         //setLocationRelativeTo(null);
         //setLayout(null);
-        
+
         //menuBar added to abstract class
         JMenuBar menuBar = new JMenuBar();
         JMenu settings = new JMenu("Help");
@@ -46,5 +46,20 @@ public abstract class BaseTemplate extends JFrame {
         add(navBar);
 
     }
+    
+    void mouseFunctions(JPanel panel){
+        panel.addMouseListener(new MouseAdapter(){
+            public void mouseEntered(MouseEvent e){
+                panel.setBackground(Color.blue);
+            }
+            public void mouseExited(MouseEvent e){
+                panel.setBackground(Color.white);
+            }
+            public void mouseClicked(MouseEvent e){
+                LoginFrame login = new LoginFrame();
+            }
+        });
+    }
+    
 }
     
