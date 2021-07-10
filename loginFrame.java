@@ -243,7 +243,7 @@ class LoginFrame
         });;
         
 
-        frame.add(panel2);
+        frame.add(panel2);//add to the frame
         
     }    
     
