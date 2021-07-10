@@ -19,7 +19,7 @@ public abstract class BaseTemplate extends JFrame {
         
         //menuBar added to abstract class
         JMenuBar menuBar = new JMenuBar();
-        JMenu settings = new JMenu("Settings");
+        JMenu settings = new JMenu("Help");
         JMenuItem logout = new JMenuItem("Log out");
         settings.add(logout);
         menuBar.add(settings);
@@ -36,8 +36,8 @@ public abstract class BaseTemplate extends JFrame {
 
         setJMenuBar(menuBar);
 
-        settings.setMnemonic(KeyEvent.VK_S);
-        logout.setMnemonic(KeyEvent.VK_L); // logouts of the introPage by pressing the BackSpace key
+        settings.setMnemonic(KeyEvent.VK_H); // access the help menu by pressing the key alt+H
+        logout.setMnemonic(KeyEvent.VK_L); // logouts of the introPage by pressing the L key
 
 
         //Demo navigation Bar
