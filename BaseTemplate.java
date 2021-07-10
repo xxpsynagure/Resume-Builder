@@ -36,6 +36,10 @@ public abstract class BaseTemplate extends JFrame {
 
         setJMenuBar(menuBar);
 
+        settings.setMnemonic(KeyEvent.VK_S);
+        logout.setMnemonic(KeyEvent.VK_L); // logouts of the introPage by pressing the BackSpace key
+
+
         //Demo navigation Bar
         JPanel navBar = new JPanel();
         navBar.setBackground(Color.white);
