@@ -55,9 +55,9 @@ public abstract class BaseTemplate extends JFrame {
             public void mouseExited(MouseEvent e){
                 panel.setBackground(Color.white);
             }
-            public void mouseClicked(MouseEvent e){
-                LoginFrame login = new LoginFrame();
-            }
+            // public void mouseClicked(MouseEvent e){
+            //     LoginFrame login = new LoginFrame();
+            // }
         });
     }
     
