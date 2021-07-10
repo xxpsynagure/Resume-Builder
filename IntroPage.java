@@ -1,4 +1,4 @@
-import java.awt.Color;
+import java.awt.*;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
@@ -15,10 +15,16 @@ public class IntroPage extends BaseTemplate {
         //intro.setSize(1000, 600);
         intro.setLayout(null);
         
+        JLabel mainttl=new JLabel("Build you Resume build your future");
+        mainttl.setBounds(80,0,800,80);
+        mainttl.setFont(new Font("Mv Boli", Font.BOLD, 32));
+        intro.add(mainttl);
+
         JLabel welcome = new JLabel("Welcome to IntroPage");
         welcome.setBounds(100, 100, 200, 25);
+        welcome.setFont(new Font("Serif",Font.BOLD,20));
         intro.add(welcome);
-        
+         
         JPanel panelBtn1 = new JPanel();
         panelBtn1.setBackground(Color.white);
         panelBtn1.setBounds(192, 206, 150, 150);
