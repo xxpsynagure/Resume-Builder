@@ -84,6 +84,7 @@ class LoginFrame
         lbl.setIconTextGap(-10);
         lbl.setFont(new Font("Mv Boli", Font.BOLD, 26));
         panel.add(lbl);
+
         JLabel ttl=new JLabel("Create your own professional cv");
         ttl.setBounds(55,70,300,30);
         ttl.setFont(new Font("Mv Boli", Font.BOLD, 14));
@@ -129,7 +130,6 @@ class LoginFrame
                 
             }
         });
-
         registerBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
