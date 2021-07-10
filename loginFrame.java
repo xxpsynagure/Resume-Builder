@@ -12,7 +12,8 @@ class LoginFrame
     //separated the constructor LoginFrame and loginPanel to implement the backBtn
     LoginFrame(){
         
-        frame = new JFrame("Resume Builder");
+        frame = new JFrame();
+        frame.setTitle("Resume Builder");
         frame.setSize(350, 600);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,18 +77,15 @@ class LoginFrame
         panel.add(registerBtn);
 
         //ImageIcon image = new ImageIcon("logo.png");
-        JLabel lbl = new JLabel("Resume Builder");
+        JLabel lbl = new JLabel();
         lbl.setBounds(55, 10, 350, 100);
         //lbl.setIcon(image);
+        lbl.setText("Resume Builder");
         lbl.setVerticalTextPosition(JLabel.TOP);
         lbl.setHorizontalTextPosition(JLabel.CENTER);
         lbl.setIconTextGap(-10);
         lbl.setFont(new Font("Mv Boli", Font.BOLD, 26));
         panel.add(lbl);
-        JLabel ttl=new JLabel("Create your own professional cv");
-        ttl.setBounds(55,70,300,30);
-        ttl.setFont(new Font("Mv Boli", Font.BOLD, 14));
-        panel.add(ttl);
 
         chkbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
