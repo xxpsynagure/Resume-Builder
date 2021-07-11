@@ -112,6 +112,5 @@ public abstract class BaseTemplate {
              }
         });
     }
-    
 }
     
