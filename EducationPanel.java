@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class EducationPanel {
+public class EducationPanel extends BaseTemplate{
     EducationPanel(JFrame frame,JPanel panel) {
+        panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.gray);
         panel.setLayout(null);
