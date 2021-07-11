@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.*;
 
 //base template of where the panes should be added
@@ -75,30 +74,55 @@ public abstract class BaseTemplate {
         navPanel1.setBackground(Color.lightGray);
         navPanel1.setBounds(12, 34, 75, 75);
         mouseFunctions(navPanel1, 6);
+        ImageIcon navImage1 = new ImageIcon("home.png");
+        navImage1=navResizer(navImage1);
+        JLabel navLabel1 = new JLabel();
+        navLabel1.setIcon(navImage1);
+        navPanel1.add(navLabel1);
         navBar.add(navPanel1);
 
         JPanel navPanel2 = new JPanel();
         navPanel2.setBackground(Color.lightGray);
         navPanel2.setBounds(12, 129, 75, 75);
         mouseFunctions(navPanel2, 1);
+        ImageIcon navImage2 = new ImageIcon("graduation-cap.png");
+        navImage2=navResizer(navImage2);
+        JLabel navLabel2 = new JLabel();
+        navLabel2.setIcon(navImage2);
+        navPanel2.add(navLabel2);
         navBar.add(navPanel2);
 
         JPanel navPanel3 = new JPanel();
         navPanel3.setBackground(Color.lightGray);
         navPanel3.setBounds(12, 224, 75, 75);
         mouseFunctions(navPanel3, 2);
+        ImageIcon navImage3 = new ImageIcon("man-user.png");
+        navImage3=navResizer(navImage3);
+        JLabel navLabel3 = new JLabel();
+        navLabel3.setIcon(navImage3);
+        navPanel3.add(navLabel3);
         navBar.add(navPanel3);
 
         JPanel navPanel4 = new JPanel();
         navPanel4.setBackground(Color.lightGray);
         navPanel4.setBounds(12, 319, 75, 75);
         mouseFunctions(navPanel4, 3);
+        ImageIcon navImage4 = new ImageIcon("portfolio.png");
+        navImage4=navResizer(navImage4);
+        JLabel navLabel4 = new JLabel();
+        navLabel4.setIcon(navImage4);
+        navPanel4.add(navLabel4);
         navBar.add(navPanel4);
 
         JPanel navPanel5 = new JPanel();
         navPanel5.setBackground(Color.lightGray);
         navPanel5.setBounds(12, 414, 75, 75);
         mouseFunctions(navPanel5, 4);
+        ImageIcon navImage5 = new ImageIcon("hobbie.png");
+        navImage5=navResizer(navImage5);
+        JLabel navLabel5 = new JLabel();
+        navLabel5.setIcon(navImage5);
+        navPanel5.add(navLabel5);
         navBar.add(navPanel5);
 
         frame.add(navBar);
@@ -148,21 +172,35 @@ public abstract class BaseTemplate {
              }
         });
     }
+
     void panelCloser(){
+
         eduPanel.setVisible(false);
         profPanel.setVisible(false);
         curPanel.setVisible(false);
         skillPanel.setVisible(false);
         sumPanel.setVisible(false);
+
     }
+
     //ImageIcon imageIcon1 = new ImageIcon("portfolio.png"); // load the image to a imageIcon
         // Image image = imageIcon1.getImage(); // transform it 
         // Image newimg = image.getScaledInstance(110, 110,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         //imageIcon1 = new ImageIcon(newimg);
     ImageIcon resizer(ImageIcon image){
+
         Image imageget = image.getImage(); // transform it 
         Image newimg = imageget.getScaledInstance(110, 110,  java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(newimg);
+
+    }
+
+    ImageIcon navResizer(ImageIcon image){
+
+        Image navImage = image.getImage(); // transform it 
+        Image newNavImg = navImage.getScaledInstance(65, 65,  java.awt.Image.SCALE_SMOOTH);
+        return new ImageIcon(newNavImg);
+
     }
 }
     
