@@ -275,7 +275,6 @@ class LoginFrame
             public void actionPerformed(ActionEvent e) {
 
                 // create a function to verify the empty fields  
-    
                 String fname = nametxt.getText();
                 String uname = usernameR.getText();
                 String emaill = email.getText();
@@ -294,12 +293,31 @@ class LoginFrame
                     JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
                 }
         
-                // if everything is ok
+                //check if username already exists
                 else{
-                    IntroPage intro = new IntroPage();
-                }
 
-                
+                    try {
+                        String query = "SELECT * FROM REGISTRATION WHERE NAME =";
+                        Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
+                        PreparedStatement st = (PreparedStatement) connection.prepareStatement(query);
+                        
+                        st.setString(1,uname);
+                        ResultSet rs = st.executeQuery();
+                    
+                        if(rs.next())
+                        {
+                            JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
+                        }
+                        else{
+
+                            IntroPage intro = new IntroPage();
+                        }
+                        
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            
             }
         });
         
@@ -327,5 +345,45 @@ class LoginFrame
         frame.add(panel2);//add to the frame
     }
 
+   /* 
+    // a function to check if the entered username already exists in the database
+    public void checkUsername(String username){
+        
+        //PreparedStatement st;
+        //ResultSet rs;
+        //boolean username_exist = false;
+        
+        //String query = "SELECT * FROM REGISTRATION WHERE name=?";
+        
+        try {
+            
+            //st = My_CNX.getConnection().prepareStatement(query);
+            //st.setString(1, username);
+            //rs = st.executeQuery();
+            Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
+            PreparedStatement st = (PreparedStatement) connection
+                        .prepareStatement("SELECT NAME FROM REGISTRATION WHERE NAME=?");
+            st.setString(1, username);
+            ResultSet rs = st.executeQuery();
+        
+            if(rs.next())
+            {
+                //return true;
+                //username_exist = true;
+                JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
+            }
+            else{
+                IntroPage intro = new IntroPage();
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        //return username_exist;
+        //return false;
+
+    }*/
+    
    
 }
