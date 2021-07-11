@@ -108,7 +108,7 @@ class LoginFrame
                 String usertxt= Usernametxt.getText();
                 String passtxt= String.valueOf(Passwordtxt.getPassword());
                 
-                try{
+                /*try{
                     Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
                     PreparedStatement st = (PreparedStatement) connection
                         .prepareStatement("Select name, password from registration where name=? and password=?");
@@ -141,11 +141,11 @@ class LoginFrame
                 }
                 catch (SQLException sqlException) {
                     sqlException.printStackTrace();
-                }
+                }*/
 
 
 
-/*
+
                 if(usertxt.equals("resume") && passtxt.equals("resume")){
                     //IntroPage intro = new IntroPage();
                     JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
@@ -168,7 +168,7 @@ class LoginFrame
                     panel.revalidate();
                     panel.repaint();
                 }
-                */
+                
                 
             }
         });
