@@ -9,8 +9,9 @@ import java.awt.event.*;
 public abstract class BaseTemplate {
     //demo code 
     JFrame frame = new JFrame();
-
     JPanel intro = new JPanel();
+
+    JPanel navBar = new JPanel();
 
     JPanel eduPanel= new JPanel();
     JPanel profPanel= new JPanel();
@@ -49,11 +50,7 @@ public abstract class BaseTemplate {
         
         goback.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                eduPanel.setVisible(false);
-                profPanel.setVisible(false);
-                curPanel.setVisible(false);
-                skillPanel.setVisible(false);
-                sumPanel.setVisible(false);
+                panelAdjuster();
                 intro.setVisible(true);
             }
         }); 
@@ -66,7 +63,6 @@ public abstract class BaseTemplate {
 
 
         //Demo navigation Bar
-        JPanel navBar = new JPanel();
         navBar.setBackground(Color.white);
         navBar.setBounds(0, 0, 100, 600);
         navBar.setLayout(null);
@@ -144,26 +140,28 @@ public abstract class BaseTemplate {
                         intro.setVisible(false);
                  switch (i) {
                      case 1:
-                        panelCloser();
-                        EducationPanel education = new EducationPanel(frame,eduPanel);
+                        panelAdjuster();
+                        eduPanel.setVisible(true);
                         break;
                      case 2:
-                        panelCloser();
-                        ProfilePanel profile = new ProfilePanel(frame,profPanel);
+                        panelAdjuster();
+                        profPanel.setVisible(true);
                         break;
                      case 3:
-                        panelCloser();
-                        SkillsPanel skill = new SkillsPanel(frame,skillPanel);
+                        panelAdjuster();
+                        curPanel.setVisible(true);
                         break;
                      case 4:
-                        panelCloser();
-                        HobbiesPanel hobbies = new HobbiesPanel(frame,curPanel);
+                        panelAdjuster();
+                        skillPanel.setVisible(true);
                         break;
                      case 5:
-                        panelCloser();
-                        Summarize summarize = new Summarize(frame,sumPanel);
+                        panelAdjuster();
+                        sumPanel.setVisible(true);
                         break;
                      case 6:
+                        panelAdjuster();
+                        navBar.setVisible(false);
                         intro.setVisible(true);
                         break;
                      default:
@@ -174,13 +172,14 @@ public abstract class BaseTemplate {
         });
     }
 
-    void panelCloser(){
+    void panelAdjuster(){
 
         eduPanel.setVisible(false);
         profPanel.setVisible(false);
         curPanel.setVisible(false);
         skillPanel.setVisible(false);
         sumPanel.setVisible(false);
+        navBar.setVisible(true);
 
     }
 
@@ -202,6 +201,18 @@ public abstract class BaseTemplate {
         Image newNavImg = navImage.getScaledInstance(65, 65,  java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(newNavImg);
 
+    }
+    void initializer(){
+        EducationPanel education = new EducationPanel(frame,eduPanel);
+        eduPanel.setVisible(false);
+        ProfilePanel profile = new ProfilePanel(frame,profPanel);
+        profPanel.setVisible(false);
+        SkillsPanel skill = new SkillsPanel(frame,skillPanel);
+        skillPanel.setVisible(false);
+        HobbiesPanel hobbies = new HobbiesPanel(frame,curPanel);
+        curPanel.setVisible(false);
+        Summarize summarize = new Summarize(frame,sumPanel);
+        sumPanel.setVisible(false);
     }
 }
     
