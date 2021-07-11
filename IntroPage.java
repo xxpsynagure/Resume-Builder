@@ -10,6 +10,7 @@ public class IntroPage extends BaseTemplate {
 
     IntroPage(){
         //demo code
+        navBar.setVisible(false);
         intro.setPreferredSize(new Dimension(1000,600));
         intro.setBackground(Color.gray);
         //intro.setSize(1000, 600);
@@ -74,6 +75,8 @@ public class IntroPage extends BaseTemplate {
         panelBtn5.setBounds(462, 406, 150, 150);
         mouseFunctions(panelBtn5,5);
         intro.add(panelBtn5);
+
+        initializer();
         
         frame.add(intro);
         frame.pack();
