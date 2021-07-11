@@ -13,6 +13,12 @@ public abstract class BaseTemplate {
 
     JPanel intro = new JPanel();
 
+    JPanel eduPanel= new JPanel();
+    JPanel profPanel= new JPanel();
+    JPanel curPanel= new JPanel();
+    JPanel skillPanel= new JPanel();
+    JPanel sumPanel= new JPanel();
+
     BaseTemplate(){
         //demo code
         frame.setTitle("Resume Builder");
@@ -34,6 +40,7 @@ public abstract class BaseTemplate {
         logout.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
+
                 LoginFrame login = new LoginFrame();
                 //frame.dispose();
 
@@ -42,6 +49,11 @@ public abstract class BaseTemplate {
         
         goback.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                eduPanel.setVisible(false);
+                profPanel.setVisible(false);
+                curPanel.setVisible(false);
+                skillPanel.setVisible(false);
+                sumPanel.setVisible(false);
                 intro.setVisible(true);
             }
         }); 
@@ -75,23 +87,23 @@ public abstract class BaseTemplate {
                  switch (i) {
                      case 1:
                         intro.setVisible(false);
-                        EducationPanel edu = new EducationPanel(frame);
+                        EducationPanel education = new EducationPanel(frame,eduPanel);
                         break;
                      case 2:
                         intro.setVisible(false);
-                        ProfilePanel prof = new ProfilePanel(frame);
+                        ProfilePanel profile = new ProfilePanel(frame,profPanel);
                         break;
                      case 3:
                         intro.setVisible(false);
-                        SkillsPanel skill = new SkillsPanel(frame);
+                        SkillsPanel skill = new SkillsPanel(frame,skillPanel);
                         break;
                      case 4:
                         intro.setVisible(false);
-                        Curriculum curri = new Curriculum(frame);
+                        Curriculum curriculum = new Curriculum(frame,curPanel);
                         break;
                      case 5:
                         intro.setVisible(false);
-                        Summarize summarize = new Summarize(frame);
+                        Summarize summarize = new Summarize(frame,sumPanel);
                         break;
                      default:
                          break;
@@ -99,6 +111,11 @@ public abstract class BaseTemplate {
                  
              }
         });
+    }
+    void templatepasser(){
+        BaseTemplate base = new BaseTemplate(){
+            JP
+        }
     }
     
 }
