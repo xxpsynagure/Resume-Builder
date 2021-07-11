@@ -112,11 +112,6 @@ public abstract class BaseTemplate {
              }
         });
     }
-    void templatepasser(){
-        BaseTemplate base = new BaseTemplate(){
-            JP
-        }
-    }
     
 }
     
