@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.sql.*;
 
 //loginframe
 class LoginFrame
@@ -107,6 +107,45 @@ class LoginFrame
             public void actionPerformed(ActionEvent e) {
                 String usertxt= Usernametxt.getText();
                 String passtxt= String.valueOf(Passwordtxt.getPassword());
+                
+                try{
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
+                    PreparedStatement st = (PreparedStatement) connection
+                        .prepareStatement("Select name, password from registration where name=? and password=?");
+                    st.setString(1, usertxt);
+                    st.setString(2, passtxt);
+                    ResultSet rs = st.executeQuery();
+
+                    if(rs.next()){
+                        //IntroPage intro = new IntroPage();
+                        JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
+                        frame.dispose();
+                        IntroPage intro = new IntroPage();
+                    }
+                    else{
+                        loginBtn.remove(loginBtn);
+                        JLabel incorrect = new JLabel("Incorrect Username or Password");
+                        incorrect.setForeground(Color.red);
+                        incorrect.setBounds(50, 300, 200, 25);
+                        
+                        loginBtn.setBounds(50, 330, 100, 25);
+                        registerBtn.setBounds(175, 330, 100, 25);
+                        
+                        panel.add(incorrect);
+                        panel.add(loginBtn);
+                        panel.add(registerBtn);
+        
+                        panel.revalidate();
+                        panel.repaint();
+                    }
+                }
+                catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+
+
+
+/*
                 if(usertxt.equals("resume") && passtxt.equals("resume")){
                     //IntroPage intro = new IntroPage();
                     JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
@@ -129,6 +168,7 @@ class LoginFrame
                     panel.revalidate();
                     panel.repaint();
                 }
+                */
                 
             }
         });
