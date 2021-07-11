@@ -67,15 +67,21 @@ public class ProfilePanel extends BaseTemplate{
 
         JRadioButton male = new JRadioButton("Male");
         male.setBounds(620, 231, 15, 11);
+        male.setSelected(true);
         panel.add(male);
 
         JRadioButton female = new JRadioButton("Female");
         female.setBounds(708, 231, 15, 11);
         panel.add(female);
 
-        JRadioButton others = new JRadioButton("Others");
-        others.setBounds(808, 231, 15, 11);
-        panel.add(others);
+        JRadioButton other = new JRadioButton("Other");
+        other.setBounds(808, 231, 15, 11);
+        panel.add(other);
+
+        ButtonGroup bgGender = new ButtonGroup();
+        bgGender.add(male);
+        bgGender.add(female);
+        bgGender.add(other);
 
 
         JLabel dobL = new JLabel("Date of Birth");

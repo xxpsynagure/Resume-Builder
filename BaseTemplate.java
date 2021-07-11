@@ -31,6 +31,7 @@ public abstract class BaseTemplate {
         JMenu settings = new JMenu("Help");
         JMenuItem logout = new JMenuItem("Log out");
         JMenuItem goback = new JMenuItem("Go Back");
+        
         settings.add(logout);
         settings.add(goback);
         menuBar.add(settings);
