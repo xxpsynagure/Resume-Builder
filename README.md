@@ -12,11 +12,11 @@ intropage yet to be done
 * JButton - checked
 * JToggleButoon
 * JCheckBox - checked
-* JRadioButton
+* JRadioButton - checked
 * JTabbedButton
 * JScrollPane
 * JList
-* JComboBox
+* JComboBox - checked
 * JTree
 * JTable
 * JMenu - checked
