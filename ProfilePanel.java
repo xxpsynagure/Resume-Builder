@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class ProfilePanel extends BaseTemplate{
+public class ProfilePanel {
     ProfilePanel(JFrame frame,JPanel panel) {
         //panel = new JPanel();
         panel.setVisible(true);

@@ -157,7 +157,7 @@ public abstract class BaseTemplate {
                         break;
                      case 4:
                         panelCloser();
-                        Hobbies hobbies = new Hobbies(frame,curPanel);
+                        HobbiesPanel hobbies = new HobbiesPanel(frame,curPanel);
                         break;
                      case 5:
                         panelCloser();

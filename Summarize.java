@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Summarize extends BaseTemplate{
+public class Summarize {
     Summarize(JFrame frame, JPanel panel) {
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
