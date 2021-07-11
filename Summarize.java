@@ -8,9 +8,10 @@ public class Summarize {
         panel.setBackground(Color.gray);
         panel.setLayout(null);
 
-        JLabel welcomeSumz = new JLabel("Welcome to Summarize page");
-        welcomeSumz.setBounds(100, 100, 200, 25);
-        panel.add(welcomeSumz);
+        JLabel title1 = new JLabel("Welcome to Summarize page");
+        title1.setBounds(373, 28, 357, 43);
+        title1.setFont(new Font("Roboto", Font.BOLD, 37));
+        panel.add(title1);
 
         
         frame.add(panel);

@@ -31,10 +31,10 @@ public abstract class BaseTemplate {
         JMenuBar menuBar = new JMenuBar();
         JMenu settings = new JMenu("Help");
         JMenuItem logout = new JMenuItem("Log out");
-        JMenuItem goback = new JMenuItem("Go Back");
+        //JMenuItem goback = new JMenuItem("Go Back");
         
         settings.add(logout);
-        settings.add(goback);
+        //settings.add(goback);
         menuBar.add(settings);
 
         //actionListener added to logout menuitem which leads back to the login page
@@ -47,19 +47,19 @@ public abstract class BaseTemplate {
 
             }
         });
-        
+/*        
         goback.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panelAdjuster();
                 intro.setVisible(true);
             }
-        }); 
+        }); */
         
         frame.setJMenuBar(menuBar);
 
         settings.setMnemonic(KeyEvent.VK_H); // access the help menu by pressing the key alt+H
         logout.setMnemonic(KeyEvent.VK_L); // logouts of the introPage by pressing the L key
-        goback.setMnemonic(KeyEvent.VK_B);
+        //goback.setMnemonic(KeyEvent.VK_B);
 
 
         //Demo navigation Bar
@@ -141,19 +141,19 @@ public abstract class BaseTemplate {
                  switch (i) {
                      case 1:
                         panelAdjuster();
-                        eduPanel.setVisible(true);
+                        profPanel.setVisible(true);
                         break;
                      case 2:
                         panelAdjuster();
-                        profPanel.setVisible(true);
+                        eduPanel.setVisible(true);
                         break;
                      case 3:
                         panelAdjuster();
-                        curPanel.setVisible(true);
+                        skillPanel.setVisible(true);
                         break;
                      case 4:
                         panelAdjuster();
-                        skillPanel.setVisible(true);
+                        curPanel.setVisible(true);
                         break;
                      case 5:
                         panelAdjuster();
