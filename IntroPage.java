@@ -16,12 +16,12 @@ public class IntroPage extends BaseTemplate {
         intro.setLayout(null);
         
         JLabel mainttl=new JLabel("Build you Resume build your future");
-        mainttl.setBounds(80,0,800,80);
+        mainttl.setBounds(120,0,800,80);
         mainttl.setFont(new Font("Mv Boli", Font.BOLD, 32));
         intro.add(mainttl);
 
         JLabel welcome = new JLabel("Welcome to IntroPage");
-        welcome.setBounds(100, 100, 200, 25);
+        welcome.setBounds(120, 100, 200, 25);
         welcome.setFont(new Font("Serif",Font.BOLD,20));
         intro.add(welcome);
          
