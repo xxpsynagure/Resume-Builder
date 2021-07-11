@@ -108,7 +108,7 @@ class LoginFrame
                 String usertxt= Usernametxt.getText();
                 String passtxt= String.valueOf(Passwordtxt.getPassword());
                 
-                /*try{
+                try{
                     Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
                     PreparedStatement st = (PreparedStatement) connection
                         .prepareStatement("Select name, password from registration where name=? and password=?");
@@ -118,7 +118,7 @@ class LoginFrame
 
                     if(rs.next()){
                         //IntroPage intro = new IntroPage();
-                        JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Login Successful", "Message box", JOptionPane.INFORMATION_MESSAGE);
                         frame.dispose();
                         IntroPage intro = new IntroPage();
                     }
@@ -141,11 +141,11 @@ class LoginFrame
                 }
                 catch (SQLException sqlException) {
                     sqlException.printStackTrace();
-                }*/
+                }
 
 
 
-
+/*
                 if(usertxt.equals("resume") && passtxt.equals("resume")){
                     //IntroPage intro = new IntroPage();
                     JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
@@ -168,10 +168,11 @@ class LoginFrame
                     panel.revalidate();
                     panel.repaint();
                 }
-                
+                */
                 
             }
         });
+
         registerBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
@@ -198,6 +199,7 @@ class LoginFrame
         
     }
     
+    //register panel
     public void registerPanel() {
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 0, 350, 600);
@@ -239,19 +241,29 @@ class LoginFrame
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 305, 200, 25);
         panel2.add(Passwordtxt);
+
+        JLabel confirmpassword = new JLabel("Confirm Password");
+        confirmpassword.setBounds(50, 340, 160, 25);
+        confirmpassword.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        panel2.add(confirmpassword);
         
+        JPasswordField ConfirmPasswordtxt = new JPasswordField();
+        ConfirmPasswordtxt.setBounds(50, 365, 200, 25);
+        panel2.add(ConfirmPasswordtxt);
+
         JButton registerBtnR = new JButton("Sign up");
-        registerBtnR.setBounds(170, 350, 100, 25);
+        registerBtnR.setBounds(170, 410, 100, 25);
         registerBtnR.setFont(new Font("Montserrat", Font.PLAIN, 15));
         registerBtnR.setBackground(new Color(0, 95, 135));
         registerBtnR.setForeground(new Color(255, 255, 255));
         registerBtnR.setOpaque(true);
         registerBtnR.setFocusable(false);
         panel2.add(registerBtnR);
+
         
         //backBtn takes the panel back to the loginPanel
         JButton backBtn = new JButton("Back");
-        backBtn.setBounds(50, 350, 100, 25);
+        backBtn.setBounds(50, 410, 100, 25);
         backBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
         backBtn.setBackground(new Color(0, 95, 135));
         backBtn.setForeground(new Color(255, 255, 255));
@@ -261,7 +273,33 @@ class LoginFrame
 
         registerBtnR.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                IntroPage intro = new IntroPage();
+
+                // create a function to verify the empty fields  
+    
+                String fname = nametxt.getText();
+                String uname = usernameR.getText();
+                String emaill = email.getText();
+                String pass1 = String.valueOf(Passwordtxt.getPassword());
+                String pass2 = String.valueOf(ConfirmPasswordtxt.getPassword());
+        
+                // check empty fields
+                if(fname.trim().equals("") || uname.trim().equals("") || emaill.trim().equals("") || pass1.trim().equals("") || pass2.trim().equals(""))
+                {
+                    JOptionPane.showMessageDialog(null, "One Or More Fields Are Empty","Empty Fields",2);
+                }
+        
+                // check if the two password are equals or not
+                else if(!pass1.equals(pass2))
+                {
+                    JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
+                }
+        
+                // if everything is ok
+                else{
+                    IntroPage intro = new IntroPage();
+                }
+
+                
             }
         });
         
@@ -286,11 +324,8 @@ class LoginFrame
             public void keyReleased(KeyEvent g) {}
         });;
         
-
         frame.add(panel2);//add to the frame
-        
-    }    
-    
-    
-}
+    }
 
+   
+}
