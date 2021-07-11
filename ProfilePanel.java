@@ -66,22 +66,26 @@ public class ProfilePanel extends BaseTemplate{
         panel.add(gender);
 
         JRadioButton male = new JRadioButton("Male");
-        male.setBounds(620, 231, 15, 11);
+        male.setBackground(Color.gray);
+        male.setBounds(620, 231, 70, 11);
         male.setSelected(true);
         panel.add(male);
 
         JRadioButton female = new JRadioButton("Female");
-        female.setBounds(708, 231, 15, 11);
+        female.setBackground(Color.gray);
+        female.setBounds(708, 231, 70, 11);
         panel.add(female);
 
         JRadioButton other = new JRadioButton("Other");
-        other.setBounds(808, 231, 15, 11);
+        other.setBackground(Color.gray);
+        other.setBounds(808, 231, 70, 11);
         panel.add(other);
 
         ButtonGroup bgGender = new ButtonGroup();
         bgGender.add(male);
         bgGender.add(female);
         bgGender.add(other);
+
 
 
         JLabel dobL = new JLabel("Date of Birth");
@@ -108,7 +112,7 @@ public class ProfilePanel extends BaseTemplate{
         panel.add(subtitle);
 
         JLabel streetL = new JLabel("Street");
-        streetL.setBounds(161, 405, 37, 16);
+        streetL.setBounds(161, 405, 50, 16);
         streetL.setFont(new Font("Roboto", 0, 14));
         panel.add(streetL);
 
@@ -135,7 +139,7 @@ public class ProfilePanel extends BaseTemplate{
         panel.add(city);
 
         JLabel districtL = new JLabel("District");
-        districtL.setBounds(161, 482, 37, 16);
+        districtL.setBounds(161, 482, 50, 16);
         districtL.setFont(new Font("Roboto", 0, 14));
         panel.add(districtL);
 
@@ -153,7 +157,7 @@ public class ProfilePanel extends BaseTemplate{
         panel.add(state);
 
         JLabel countryL = new JLabel("Country");
-        countryL.setBounds(696, 482, 37, 16);
+        countryL.setBounds(696, 482, 50, 16);
         countryL.setFont(new Font("Roboto", 0, 14));
         panel.add(countryL);
 
