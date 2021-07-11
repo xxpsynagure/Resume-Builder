@@ -1,5 +1,5 @@
 import javax.swing.*;
-
+import java.awt.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.*;
@@ -76,10 +76,10 @@ public abstract class BaseTemplate {
     void mouseFunctions(JPanel panel, int i){
         panel.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent e){
-                panel.setBackground(Color.blue);
+                panel.setBackground(Color.decode("#4895ef"));
             }
             public void mouseExited(MouseEvent e){
-                panel.setBackground(Color.white);
+                panel.setBackground(Color.lightGray);
             }
              public void mouseClicked(MouseEvent e){
                  // switch statement used to correctly identify which panel is clicked and
@@ -99,7 +99,7 @@ public abstract class BaseTemplate {
                         break;
                      case 4:
                         intro.setVisible(false);
-                        Curriculum curriculum = new Curriculum(frame,curPanel);
+                        Hobbies hobbies = new Hobbies(frame,curPanel);
                         break;
                      case 5:
                         intro.setVisible(false);
@@ -111,6 +111,15 @@ public abstract class BaseTemplate {
                  
              }
         });
+    }
+    //ImageIcon imageIcon1 = new ImageIcon("portfolio.png"); // load the image to a imageIcon
+        // Image image = imageIcon1.getImage(); // transform it 
+        // Image newimg = image.getScaledInstance(110, 110,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        //imageIcon1 = new ImageIcon(newimg);
+    ImageIcon resizer(ImageIcon image){
+        Image imageget = image.getImage(); // transform it 
+        Image newimg = imageget.getScaledInstance(110, 110,  java.awt.Image.SCALE_SMOOTH);
+        return new ImageIcon(newimg);
     }
 }
     

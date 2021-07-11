@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Curriculum extends BaseTemplate{
-    Curriculum(JFrame frame,JPanel panel) {
+public class Hobbies extends BaseTemplate{
+    Hobbies(JFrame frame,JPanel panel) {
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.gray);
