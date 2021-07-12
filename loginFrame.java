@@ -105,15 +105,11 @@ class LoginFrame
      
         loginBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String usertxt= Usernametxt.getText();
-                String passtxt= String.valueOf(Passwordtxt.getPassword());
                 
                 try{
                     Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
                     PreparedStatement st = (PreparedStatement) connection
-                        .prepareStatement("Select name, password from registration where name=? and password=?");
-                    st.setString(1, usertxt);
-                    st.setString(2, passtxt);
+                        .prepareStatement("Select username, password from registration where name='"+ Usernametxt.getText() +"' and password='"+ String.valueOf(Passwordtxt.getPassword()) + "'" );
                     ResultSet rs = st.executeQuery();
 
                     if(rs.next()){
@@ -138,6 +134,7 @@ class LoginFrame
                         panel.revalidate();
                         panel.repaint();
                     }
+                    connection.close();
                 }
                 catch (SQLException sqlException) {
                     sqlException.printStackTrace();
@@ -276,11 +273,11 @@ class LoginFrame
 
                 // create a function to verify the empty fields  
                 String fname = nametxt.getText();
-                String uname = usernameR.getText();
-                String emaill = email.getText();
+                String uname = usernametxt.getText();
+                String emaill = emailtxt.getText();
                 String pass1 = String.valueOf(Passwordtxt.getPassword());
                 String pass2 = String.valueOf(ConfirmPasswordtxt.getPassword());
-        
+                
                 // check empty fields
                 if(fname.trim().equals("") || uname.trim().equals("") || emaill.trim().equals("") || pass1.trim().equals("") || pass2.trim().equals(""))
                 {
@@ -291,32 +288,29 @@ class LoginFrame
                 else if(!pass1.equals(pass2))
                 {
                     JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
-                }
-        
-                //check if username already exists
-                else{
+                } 
 
-                    try {
-                        String query = "SELECT * FROM REGISTRATION WHERE NAME =";
-                        Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
-                        PreparedStatement st = (PreparedStatement) connection.prepareStatement(query);
-                        
-                        st.setString(1,uname);
-                        ResultSet rs = st.executeQuery();
-                    
-                        if(rs.next())
-                        {
-                            JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
-                        }
-                        else{
+                //true if username exists
+                //for validated credentials
+                else if(!checkUsername(uname))
+                {
+                    try{
+                        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
+                        String sql= "INSERT INTO REGISTRATION (USERNAME, PASSWORD,NAME,EMAIL) VALUES (?,?,?,?)";
+                        PreparedStatement ps=conn.prepareStatement(sql);
+                        ps.setString(1,uname);
+                        ps.setString(2,pass1);
+                        ps.setString(3,fname);
+                        ps.setString(4,emaill);
+                        ps.executeUpdate();
+                        conn.close();
+                        IntroPage intro = new IntroPage();
+                    }
+                    catch(SQLException ex){
 
-                            IntroPage intro = new IntroPage();
-                        }
-                        
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
                     }
                 }
+                       
             
             }
         });
@@ -345,21 +339,11 @@ class LoginFrame
         frame.add(panel2);//add to the frame
     }
 
-   /* 
+    
     // a function to check if the entered username already exists in the database
-    public void checkUsername(String username){
-        
-        //PreparedStatement st;
-        //ResultSet rs;
-        //boolean username_exist = false;
-        
-        //String query = "SELECT * FROM REGISTRATION WHERE name=?";
-        
+    public Boolean checkUsername(String username){
+        boolean username_exist = false;
         try {
-            
-            //st = My_CNX.getConnection().prepareStatement(query);
-            //st.setString(1, username);
-            //rs = st.executeQuery();
             Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
             PreparedStatement st = (PreparedStatement) connection
                         .prepareStatement("SELECT NAME FROM REGISTRATION WHERE NAME=?");
@@ -368,22 +352,20 @@ class LoginFrame
         
             if(rs.next())
             {
-                //return true;
-                //username_exist = true;
+                username_exist=true;
                 JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
             }
             else{
                 IntroPage intro = new IntroPage();
             }
-            
+            connection.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        //return username_exist;
-        //return false;
-
-    }*/
+        return username_exist;
+        
+    }
     
    
 }
