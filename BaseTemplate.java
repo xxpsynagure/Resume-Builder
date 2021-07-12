@@ -203,15 +203,15 @@ public abstract class BaseTemplate {
 
     }
     void initializer(){
-        EducationPanel education = new EducationPanel(frame,eduPanel);
+        new EducationPanel(frame,eduPanel);
         eduPanel.setVisible(false);
-        ProfilePanel profile = new ProfilePanel(frame,profPanel);
+        new ProfilePanel(frame,profPanel);
         profPanel.setVisible(false);
-        SkillsPanel skill = new SkillsPanel(frame,skillPanel);
+        new SkillsPanel(frame,skillPanel);
         skillPanel.setVisible(false);
-        HobbiesPanel hobbies = new HobbiesPanel(frame,curPanel);
+        new HobbiesPanel(frame,curPanel);
         curPanel.setVisible(false);
-        Summarize summarize = new Summarize(frame,sumPanel);
+        new Summarize(frame,sumPanel);
         sumPanel.setVisible(false);
     }
 }
