@@ -81,7 +81,7 @@ public abstract class BaseTemplate {
         JPanel navPanel2 = new JPanel();
         navPanel2.setBackground(Color.lightGray);
         navPanel2.setBounds(12, 129, 75, 75);
-        mouseFunctions(navPanel2, 2);
+        mouseFunctions(navPanel2, 1);
         ImageIcon navImage2 = new ImageIcon("man-user.png");
         navImage2=navResizer(navImage2);
         JLabel navLabel2 = new JLabel();
@@ -92,7 +92,7 @@ public abstract class BaseTemplate {
         JPanel navPanel3 = new JPanel();
         navPanel3.setBackground(Color.lightGray);
         navPanel3.setBounds(12, 224, 75, 75);
-        mouseFunctions(navPanel3, 1);
+        mouseFunctions(navPanel3, 2);
         ImageIcon navImage3 = new ImageIcon("graduation-cap.png");
         navImage3=navResizer(navImage3);
         JLabel navLabel3 = new JLabel();

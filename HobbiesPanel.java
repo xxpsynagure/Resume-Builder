@@ -18,8 +18,11 @@ public class HobbiesPanel {
         hobbiesL.setFont(new Font("Roboto", 0, 14));
         panel.add(hobbiesL);
 
-        JTextField hobbies = new JTextField();
+        JTextArea hobbies = new JTextArea();
         hobbies.setBounds(209, 141, 303, 73);
+        hobbies.setLineWrap(true);
+        hobbies.setWrapStyleWord(true);
+        hobbies.setToolTipText("do not exceed more than 30 words");
         panel.add(hobbies);
 
         JLabel voidL = new JLabel("VOID");
@@ -27,8 +30,11 @@ public class HobbiesPanel {
         voidL.setFont(new Font("Roboto", 0, 14));
         panel.add(voidL);
 
-        JTextField voidTxt = new JTextField();
+        JTextArea voidTxt = new JTextArea();
         voidTxt.setBounds(605, 141, 303, 73);
+        voidTxt.setLineWrap(true);
+        voidTxt.setWrapStyleWord(true);
+        voidTxt.setToolTipText("do not exceed more than 30 words");
         panel.add(voidTxt);
 
         JLabel dec = new JLabel("Declaration");

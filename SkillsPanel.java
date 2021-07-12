@@ -28,6 +28,7 @@ public class SkillsPanel {
         job.setBounds(177,100,505,74);
         job.setLineWrap(true);
         job.setWrapStyleWord(true);
+        job.setToolTipText("do not exceed more than 50 words");
         panel.add(job);
     //----------------------------------------------------------------
 
@@ -41,6 +42,7 @@ public class SkillsPanel {
         intern.setBounds(177,204,505,74);
         intern.setLineWrap(true);
         intern.setWrapStyleWord(true);
+        intern.setToolTipText("do not exceed more than 50 words");
         panel.add(intern);
     //----------------------------------------------------------
 
@@ -54,6 +56,7 @@ public class SkillsPanel {
         courses.setBounds(177,310,505,74);
         courses.setLineWrap(true);
         courses.setWrapStyleWord(true);
+        courses.setToolTipText("do not exceed more than 50 words");
         panel.add(courses);
     //---------------------------------------------------------
 
@@ -67,6 +70,7 @@ public class SkillsPanel {
         skill.setBounds(177,430,505,74);
         skill.setLineWrap(true);
         skill.setWrapStyleWord(true);
+        skill.setToolTipText("do not exceed more than 50 words");
         panel.add(skill);
     //----------------------------------------------------------
 
@@ -80,6 +84,7 @@ public class SkillsPanel {
         port.setBounds(738,168,218,93);
         port.setLineWrap(true);
         port.setWrapStyleWord(true);
+        port.setToolTipText("do not exceed more than 50 words");
         panel.add(port);
     //------------------------------------------------------------
 
@@ -93,6 +98,7 @@ public class SkillsPanel {
         achieve.setBounds(738,360,218,93);
         achieve.setWrapStyleWord(true);
         achieve.setLineWrap(true);
+        achieve.setToolTipText("do not exceed more than 50 words");
         panel.add(achieve);
     
     }

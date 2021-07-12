@@ -50,6 +50,7 @@ public class ProfilePanel {
 
         JTextField phno = new JTextField();
         phno.setBounds(161, 226, 147, 22);
+        phno.setToolTipText("Enter the phone number followed by your country code");
         panel.add(phno);
 
         JLabel emailL = new JLabel("Email Address");
@@ -58,7 +59,7 @@ public class ProfilePanel {
         panel.add(emailL);
 
         JTextField email = new JTextField();
-        email.setBounds(381, 226, 147, 22);
+        email.setBounds(381, 226, 200, 22);
         panel.add(email);
 
         JLabel gender = new JLabel("Gender");
@@ -95,6 +96,7 @@ public class ProfilePanel {
 
         JTextField dob = new JTextField();
         dob.setBounds(161, 307, 147, 22);
+        dob.setToolTipText("dd/mm/yyyy");
         panel.add(dob);
 
         JLabel nationL = new JLabel("Nationality");

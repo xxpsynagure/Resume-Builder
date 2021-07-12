@@ -142,8 +142,8 @@ class LoginFrame
 
 
 
-/*
-                if(usertxt.equals("resume") && passtxt.equals("resume")){
+
+ /*               if(usertxt.equals("resume") && passtxt.equals("resume")){
                     //IntroPage intro = new IntroPage();
                     JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
                     frame.dispose();
@@ -164,8 +164,8 @@ class LoginFrame
     
                     panel.revalidate();
                     panel.repaint();
-                }
-                */
+                }*/
+                
                 
             }
         });
@@ -237,6 +237,7 @@ class LoginFrame
         
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 305, 200, 25);
+        Passwordtxt.setToolTipText("must contain 8 characters with atleast one special character eg:@#$");
         panel2.add(Passwordtxt);
 
         JLabel confirmpassword = new JLabel("Confirm Password");
@@ -246,6 +247,7 @@ class LoginFrame
         
         JPasswordField ConfirmPasswordtxt = new JPasswordField();
         ConfirmPasswordtxt.setBounds(50, 365, 200, 25);
+        ConfirmPasswordtxt.setToolTipText("confirm your password");
         panel2.add(ConfirmPasswordtxt);
 
         JButton registerBtnR = new JButton("Sign up");

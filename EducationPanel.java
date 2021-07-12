@@ -45,6 +45,7 @@ public class EducationPanel {
 
         JTextField SPerformance = new JTextField();
         SPerformance.setBounds(665, 135, 187, 25);
+        SPerformance.setToolTipText("Enter in %age");
         panel.add(SPerformance);
 //--------------------------------------
 
@@ -80,6 +81,7 @@ public class EducationPanel {
 
         JTextField HSPerformance = new JTextField();
         HSPerformance.setBounds(665, 271, 187, 25);
+        HSPerformance.setToolTipText("Enter in %age ");
         panel.add(HSPerformance);
 
         JLabel HStreamL = new JLabel("Stream");
@@ -151,6 +153,7 @@ public class EducationPanel {
 
         JTextField clgPerformance = new JTextField();
         clgPerformance.setBounds(665, 530, 187, 25);
+        clgPerformance.setToolTipText("Enter in %age ");
         panel.add(clgPerformance);
 //----------------------------------------------------------
 
