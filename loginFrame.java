@@ -109,7 +109,7 @@ class LoginFrame
                 try{
                     Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
                     PreparedStatement st = (PreparedStatement) connection
-                        .prepareStatement("Select username, password from registration where name='"+ Usernametxt.getText() +"' and password='"+ String.valueOf(Passwordtxt.getPassword()) + "'" );
+                        .prepareStatement("Select username, password from registration where username='"+ Usernametxt.getText() +"' and password='"+ String.valueOf(Passwordtxt.getPassword()) + "'" );
                     ResultSet rs = st.executeQuery();
 
                     if(rs.next()){
@@ -348,7 +348,7 @@ class LoginFrame
         try {
             Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
             PreparedStatement st = (PreparedStatement) connection
-                        .prepareStatement("SELECT NAME FROM REGISTRATION WHERE NAME=?");
+                        .prepareStatement("SELECT USERNAME FROM REGISTRATION WHERE USERNAME=?");
             st.setString(1, username);
             ResultSet rs = st.executeQuery();
         
@@ -357,16 +357,13 @@ class LoginFrame
                 username_exist=true;
                 JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
             }
-            else{
-                IntroPage intro = new IntroPage();
-            }
             connection.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
         return username_exist;
-        
+
     }
     
    
