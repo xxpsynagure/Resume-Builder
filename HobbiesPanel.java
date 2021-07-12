@@ -24,11 +24,7 @@ public class HobbiesPanel {
         hobbies.setBounds(209, 141, 303, 73);
         hobbies.setLineWrap(true);
         hobbies.setWrapStyleWord(true);
-<<<<<<< HEAD
         hobbies.setToolTipText("do not exceed more than 30 words");
-=======
-        hobbies.setToolTipText("List out the Hobbies");
->>>>>>> 414c500273856bef4b5a45090c17806a1ced4178
         panel.add(hobbies);
 
         JLabel voidL = new JLabel("VOID");
@@ -40,11 +36,7 @@ public class HobbiesPanel {
         voidTxt.setBounds(605, 141, 303, 73);
         voidTxt.setLineWrap(true);
         voidTxt.setWrapStyleWord(true);
-<<<<<<< HEAD
         voidTxt.setToolTipText("do not exceed more than 30 words");
-=======
-        voidTxt.setToolTipText("Not more than 50 words");
->>>>>>> 414c500273856bef4b5a45090c17806a1ced4178
         panel.add(voidTxt);
 //------------------------------------------------------------------
 
