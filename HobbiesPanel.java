@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class HobbiesPanel {
     HobbiesPanel(JFrame frame,JPanel panel) {
@@ -13,41 +14,78 @@ public class HobbiesPanel {
         title1.setFont(new Font("Roboto", Font.BOLD, 37));
         panel.add(title1);
 
+// HOBBIES STARTS
         JLabel hobbiesL = new JLabel("Hobbies");
-        hobbiesL.setBounds(210, 114, 100, 16);
+        hobbiesL.setBounds(210, 114, 100, 14);
         hobbiesL.setFont(new Font("Roboto", 0, 14));
         panel.add(hobbiesL);
 
-        JTextField hobbies = new JTextField();
+        JTextArea hobbies = new JTextArea();
         hobbies.setBounds(209, 141, 303, 73);
+        hobbies.setLineWrap(true);
+        hobbies.setWrapStyleWord(true);
+        hobbies.setToolTipText("List out the Hobbies");
         panel.add(hobbies);
 
         JLabel voidL = new JLabel("VOID");
-        voidL.setBounds(607, 114, 100, 16);
+        voidL.setBounds(607, 114, 100, 14);
         voidL.setFont(new Font("Roboto", 0, 14));
         panel.add(voidL);
 
-        JTextField voidTxt = new JTextField();
+        JTextArea voidTxt = new JTextArea();
         voidTxt.setBounds(605, 141, 303, 73);
+        voidTxt.setLineWrap(true);
+        voidTxt.setWrapStyleWord(true);
+        voidTxt.setToolTipText("Not more than 50 words");
         panel.add(voidTxt);
+//------------------------------------------------------------------
 
-        JLabel dec = new JLabel("Declaration");
-        dec.setBounds(410, 325, 247, 43);
-        dec.setFont(new Font("Roboto", 0, 37));
+// DECLARATION STARTS
+        JLabel dec = new JLabel("DECLARATION");
+        dec.setBounds(410, 325, 350, 43);
+        dec.setFont(new Font("Roboto", Font.BOLD, 37));
         panel.add(dec);
 
-        JTextArea decText = new JTextArea(
-            "I John Doe hereby declare that the above information is true to the best of my knowledge and also try to" +
-            " be involved in the work where I can utilize skills and creativity involved in the system contributes to the" +
-            " growth of organization", 
-                3, 
-                20);
-        decText.setFont(new Font("Serif", 0, 16));
+        JTextArea decText = new JTextArea();
+        decText.setText("I John Doe hereby declare that the above information is true to the best of my knowledge and also try to" +
+        " be involved in the work where I can utilize skills and creativity involved in the system contributes to the" +
+        " growth of organization");
+        decText.setFont(new Font("Serif", 1, 20));
+        decText.setBounds(184, 405, 749, 111);
         decText.setLineWrap(true);
         decText.setWrapStyleWord(true);
         decText.setOpaque(false);
-        decText.setEditable(false);
         panel.add(decText);
+
+        JCheckBox agree = new JCheckBox("I Agree");
+        agree.setBounds(189, 508, 150, 20);
+        agree.setFocusable(false);
+        agree.setFont(new Font("Montserrat", 0, 16));
+        agree.setBackground(Color.gray);
+        panel.add(agree);
+
+        JButton submitBtn = new JButton("Submit");
+        submitBtn.setBounds(850, 540, 100, 50);
+        submitBtn.setOpaque(true);
+        submitBtn.setFocusable(false);
+        submitBtn.setVisible(false);
+        panel.add(submitBtn);
+
+        agree.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(agree.isSelected())
+                    submitBtn.setVisible(true);
+                else
+                    submitBtn.setVisible(false);
+            }
+        });
+    
+        submitBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //Summarize call = new Summarize(frame, panel);
+            }
+        });
+
 
         frame.add(panel);
         frame.pack();
