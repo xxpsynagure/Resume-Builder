@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.*;
 
+import java.util.ArrayList;
 //loginframe
-class LoginFrame
+class LoginFrame extends dbms
  {
 
     JFrame frame;
@@ -23,8 +23,6 @@ class LoginFrame
     }
 
     public void loginPanel(JFrame frame){
-
-        
         // Testing JPanel and adding components
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 350, 600);
@@ -102,47 +100,34 @@ class LoginFrame
             }
 
         });
-     
+
+        //String uname=Usernametxt.getText();
+        //String pword=String.valueOf(Passwordtxt.getPassword());
         loginBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                dbms loginadd = new dbms();
+               if( loginadd.loginUpdate(Usernametxt.getText(),String.valueOf(Passwordtxt.getPassword()))){
+                    JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
+                    frame.dispose();
+                    new IntroPage();
+                }
+                else{
+                    loginBtn.remove(loginBtn);
+                    JLabel incorrect = new JLabel("Incorrect Username or Password");
+                    incorrect.setForeground(Color.red);
+                    incorrect.setBounds(50, 300, 200, 25);
+                    
+                    loginBtn.setBounds(50, 330, 100, 25);
+                    registerBtn.setBounds(175, 330, 100, 25);
+                    
+                    panel.add(incorrect);
+                    panel.add(loginBtn);
+                    panel.add(registerBtn);
+    
+                    panel.revalidate();
+                    panel.repaint();
+                }
                 
-                try{
-                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
-                    PreparedStatement st = (PreparedStatement) connection
-                        .prepareStatement("Select username, password from registration where username='"+ Usernametxt.getText() +"' and password='"+ String.valueOf(Passwordtxt.getPassword()) + "'" );
-                    ResultSet rs = st.executeQuery();
-
-                    if(rs.next()){
-                        //IntroPage intro = new IntroPage();
-                        JOptionPane.showMessageDialog(null, "Login Successful", "Message box", JOptionPane.INFORMATION_MESSAGE);
-                        frame.dispose();
-                        IntroPage intro = new IntroPage();
-                    }
-                    else{
-                        loginBtn.remove(loginBtn);
-                        JLabel incorrect = new JLabel("Incorrect Username or Password");
-                        incorrect.setForeground(Color.red);
-                        incorrect.setBounds(50, 300, 200, 25);
-                        
-                        loginBtn.setBounds(50, 330, 100, 25);
-                        registerBtn.setBounds(175, 330, 100, 25);
-                        
-                        panel.add(incorrect);
-                        panel.add(loginBtn);
-                        panel.add(registerBtn);
-        
-                        panel.revalidate();
-                        panel.repaint();
-                    }
-                    connection.close();
-                }
-                catch (SQLException sqlException) {
-                    sqlException.printStackTrace();
-                }
-
-
-
-
  /*               if(usertxt.equals("resume") && passtxt.equals("resume")){
                     //IntroPage intro = new IntroPage();
                     JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
@@ -279,7 +264,8 @@ class LoginFrame
                 String emaill = emailtxt.getText();
                 String pass1 = String.valueOf(Passwordtxt.getPassword());
                 String pass2 = String.valueOf(ConfirmPasswordtxt.getPassword());
-                
+                dbms add=new dbms();
+
                 // check empty fields
                 if(fname.trim().equals("") || uname.trim().equals("") || emaill.trim().equals("") || pass1.trim().equals("") || pass2.trim().equals(""))
                 {
@@ -294,23 +280,20 @@ class LoginFrame
 
                 //true if username exists
                 //for validated credentials
-                else if(!checkUsername(uname))
+                else if(!add.checkUsername(uname))
                 {
-                    try{
-                        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
-                        String sql= "INSERT INTO REGISTRATION (USERNAME, PASSWORD,NAME,EMAIL) VALUES (?,?,?,?)";
-                        PreparedStatement ps=conn.prepareStatement(sql);
-                        ps.setString(1,uname);
-                        ps.setString(2,pass1);
-                        ps.setString(3,fname);
-                        ps.setString(4,emaill);
-                        ps.executeUpdate();
-                        conn.close();
-                        IntroPage intro = new IntroPage();
-                    }
-                    catch(SQLException ex){
+                    ArrayList<String> registerData = new ArrayList<String>();
+                    registerData.add(uname);
+                    registerData.add(pass1);
+                    registerData.add(fname);
+                    registerData.add(emaill);
 
-                    }
+                    add.registrationUpdate(registerData);
+                    frame.dispose();
+                    new IntroPage();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
                 }
                        
             
@@ -341,30 +324,4 @@ class LoginFrame
         frame.add(panel2);//add to the frame
     }
 
-    
-    // a function to check if the entered username already exists in the database
-    public Boolean checkUsername(String username){
-        boolean username_exist = false;
-        try {
-            Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/project", "root","your_password");
-            PreparedStatement st = (PreparedStatement) connection
-                        .prepareStatement("SELECT USERNAME FROM REGISTRATION WHERE USERNAME=?");
-            st.setString(1, username);
-            ResultSet rs = st.executeQuery();
-        
-            if(rs.next())
-            {
-                username_exist=true;
-                JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
-            }
-            connection.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        
-        return username_exist;
-
-    }
-    
-   
 }

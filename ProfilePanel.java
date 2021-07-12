@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 
 public class ProfilePanel {
     ProfilePanel(JFrame frame,JPanel panel) {
@@ -33,14 +35,14 @@ public class ProfilePanel {
         fName.setBounds(265, 141, 147, 22);
         panel.add(fName);
 
-        JLabel mNameL = new JLabel("last Name");
-        mNameL.setBounds(473, 118, 100, 16);
-        mNameL.setFont(new Font("Roboto", 0, 14));
-        panel.add(mNameL);
+        JLabel lNameL = new JLabel("last Name");
+        lNameL.setBounds(473, 118, 100, 16);
+        lNameL.setFont(new Font("Roboto", 0, 14));
+        panel.add(lNameL);
 
-        JTextField mName = new JTextField();
-        mName.setBounds(473, 141, 147, 22);
-        panel.add(mName);
+        JTextField lName = new JTextField();
+        lName.setBounds(473, 141, 147, 22);
+        panel.add(lName);
 
 
         JLabel phnoL = new JLabel("Phone Number");
@@ -67,17 +69,20 @@ public class ProfilePanel {
         panel.add(gender);
 
         JRadioButton male = new JRadioButton("Male");
+        male.setActionCommand("Male");
         male.setBackground(Color.gray);
         male.setBounds(620, 231, 70, 11);
         male.setSelected(true);
         panel.add(male);
 
         JRadioButton female = new JRadioButton("Female");
+        female.setActionCommand("Female");
         female.setBackground(Color.gray);
         female.setBounds(708, 231, 70, 11);
         panel.add(female);
 
-        JRadioButton other = new JRadioButton("Other");
+        JRadioButton other = new JRadioButton("Others");
+        female.setActionCommand("Others");
         other.setBackground(Color.gray);
         other.setBounds(808, 231, 70, 11);
         panel.add(other);
@@ -108,19 +113,20 @@ public class ProfilePanel {
         nationality.setBounds(381, 307, 147, 22);
         panel.add(nationality);
 
+//-----------------------------------------------------------------       
         JLabel subtitle = new JLabel("Address");
         subtitle.setBounds(161, 358, 100, 28);
         subtitle.setFont(new Font("Roboto", 0, 24));
         panel.add(subtitle);
 
-        JLabel streetL = new JLabel("Street");
-        streetL.setBounds(161, 405, 50, 16);
-        streetL.setFont(new Font("Roboto", 0, 14));
-        panel.add(streetL);
+        JLabel houseNoL = new JLabel("House Number");
+        houseNoL.setBounds(161, 405, 50, 16);
+        houseNoL.setFont(new Font("Roboto", 0, 14));
+        panel.add(houseNoL);
 
-        JTextField street = new JTextField();
-        street.setBounds(161, 428, 215, 22);
-        panel.add(street);
+        JTextField houseNo = new JTextField();
+        houseNo.setBounds(161, 428, 215, 22);
+        panel.add(houseNo);
 
         JLabel areaL = new JLabel("Area");
         areaL.setBounds(420, 405, 37, 16);
@@ -166,6 +172,38 @@ public class ProfilePanel {
         JTextField country = new JTextField();
         country.setBounds(696, 505, 215, 22);
         panel.add(country);
+
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setBounds(908, 572, 100, 20);
+        saveBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        saveBtn.setBackground(new Color(0, 95, 135));
+        saveBtn.setForeground(new Color(255, 255, 255));
+        saveBtn.setOpaque(true);
+        saveBtn.setFocusable(false);
+        panel.add(saveBtn);
+
+        saveBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<String> profileData = new ArrayList<String>();
+                profileData.add(String.valueOf(ttlBox.getSelectedItem()));
+                profileData.add(fName.getText());
+                profileData.add(lName.getText());
+                profileData.add(phno.getText());
+                profileData.add(email.getText());
+                profileData.add(bgGender.getSelection().getActionCommand());
+                profileData.add(dob.getText());
+                profileData.add(nationality.getText());
+                profileData.add(houseNo.getText());
+                profileData.add(area.getText());
+                profileData.add(city.getText());
+                profileData.add(district.getText());
+                profileData.add(state.getText());
+                profileData.add(country.getText());
+
+                dbms add = new dbms();
+                add.profileUpdate(profileData);
+            }
+        });
 
         frame.add(panel);
         frame.pack();

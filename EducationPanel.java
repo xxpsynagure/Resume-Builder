@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 
 public class EducationPanel {
     EducationPanel(JFrame frame,JPanel panel) {
@@ -156,6 +158,37 @@ public class EducationPanel {
         clgPerformance.setToolTipText("Enter in %age ");
         panel.add(clgPerformance);
 //----------------------------------------------------------
+
+JButton saveBtn = new JButton("SAVE");
+saveBtn.setBounds(908, 572, 100, 20);
+saveBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
+saveBtn.setBackground(new Color(0, 95, 135));
+saveBtn.setForeground(new Color(255, 255, 255));
+saveBtn.setOpaque(true);
+saveBtn.setFocusable(false);
+panel.add(saveBtn);
+
+saveBtn.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        ArrayList<String> educationData = new ArrayList<String>();
+        educationData.add(school.getText());
+        educationData.add(SYear.getText());
+        educationData.add(SPerformance.getText());
+        educationData.add(Hschool.getText());
+        educationData.add(HSYear.getText());
+        educationData.add(HSPerformance.getText());
+        educationData.add(HStream.getText());
+        educationData.add(college.getText());
+        educationData.add(startYear.getText());
+        educationData.add(endYear.getText());
+        educationData.add(Degree.getText());
+        educationData.add(clgStream.getText());
+        educationData.add(clgPerformance.getText());
+
+        dbms add = new dbms();
+        add.educationUpdate(educationData);
+    }
+});        
 
         frame.add(panel);
         frame.pack();

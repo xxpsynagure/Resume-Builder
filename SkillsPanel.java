@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 
 public class SkillsPanel {
     SkillsPanel(JFrame frame, JPanel panel) {
@@ -100,6 +102,30 @@ public class SkillsPanel {
         achieve.setLineWrap(true);
         achieve.setToolTipText("do not exceed more than 50 words");
         panel.add(achieve);
+
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setBounds(908, 572, 100, 20);
+        saveBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        saveBtn.setBackground(new Color(0, 95, 135));
+        saveBtn.setForeground(new Color(255, 255, 255));
+        saveBtn.setOpaque(true);
+        saveBtn.setFocusable(false);
+        panel.add(saveBtn);
+
+        saveBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<String> skillsData = new ArrayList<String>();
+                skillsData.add(job.getText());
+                skillsData.add(intern.getText());
+                skillsData.add(courses.getText());
+                skillsData.add(skill.getText());
+                skillsData.add(port.getText());
+                skillsData.add(achieve.getText());
+
+                dbms add = new dbms();
+                add.skillUpdate(skillsData);
+            }
+        });
     
     }
 }

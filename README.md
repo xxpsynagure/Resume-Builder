@@ -1,8 +1,13 @@
 # Resume-Builder
 
--login page done, Register page done
-
-intropage yet to be done
+* login page - done
+* register page - done
+* intropanel - done
+* profile panel - done
+* education panel - done
+* skill panel - done
+* hobbies panel - done
+* summarize - 
 
 # deadline 15 july 2021
 
