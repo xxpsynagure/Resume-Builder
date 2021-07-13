@@ -297,6 +297,7 @@ class LoginFrame extends dbms
                     registerData.add(emaill);
 
                     add.registrationUpdate(registerData);
+                    JOptionPane.showMessageDialog(null, "Registration Successful", "Message box", JOptionPane.INFORMATION_MESSAGE);
                     frame.dispose();
                     new IntroPage();
                 }

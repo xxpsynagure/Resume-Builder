@@ -82,8 +82,8 @@ public class ProfilePanel {
         panel.add(female);
 
         JRadioButton other = new JRadioButton("Others");
-        female.setActionCommand("Others");
-        other.setBackground(Color.decode("#F6D9A1"));
+        other.setActionCommand("Others");
+        other.setBackground(Color.gray);
         other.setBounds(808, 231, 70, 11);
         panel.add(other);
 
@@ -101,7 +101,7 @@ public class ProfilePanel {
 
         JTextField dob = new JTextField();
         dob.setBounds(161, 307, 147, 22);
-        dob.setToolTipText("dd/mm/yyyy");
+        dob.setToolTipText("YYYY-MM-DD");
         panel.add(dob);
 
         JLabel nationL = new JLabel("Nationality");
@@ -119,8 +119,8 @@ public class ProfilePanel {
         subtitle.setFont(new Font("Roboto", 0, 24));
         panel.add(subtitle);
 
-        JLabel houseNoL = new JLabel("House Number");
-        houseNoL.setBounds(161, 405, 110, 16);
+        JLabel houseNoL = new JLabel("House Number / Name");
+        houseNoL.setBounds(161, 405, 150, 16);
         houseNoL.setFont(new Font("Roboto", 0, 14));
         panel.add(houseNoL);
 
@@ -201,7 +201,10 @@ public class ProfilePanel {
                 profileData.add(country.getText());
 
                 dbms add = new dbms();
-                add.profileUpdate(profileData);
+                if(add.profileUpdate(profileData))
+                {
+                    JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
 

@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class HobbiesPanel extends dbms{
     HobbiesPanel(JFrame frame,JPanel panel) {
@@ -89,33 +87,10 @@ public class HobbiesPanel extends dbms{
     
         submitBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //Summarize call = new Summarize(frame, panel);
-                String hobbyList = hobbies.getText();
-                String voidList = voidTxt.getText();
-// dbms trying
-
-                String sql= "INSERT INTO HOBBIESTABLE (HOBBY, VOID) VALUES (?,?)";
-                PreparedStatement ps = null;
-                try {
-                    ps = connection.prepareStatement(sql);
-                    ps.setString(1, hobbyList);
-                    ps.setString(2, voidList);
-                    ps.executeUpdate();
-                    connection.close();
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    } finally {
-                        try {
-                            ps.close();
-                        } catch (SQLException e1) {
-                            ps = null;
-                        }
-                    }
-
+                dbms add = new dbms();
+                add.hobbyUpdate(hobbies.getText(), voidTxt.getText());
             }
         });
-
-    
 
         frame.add(panel);
         frame.pack();

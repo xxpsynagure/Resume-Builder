@@ -130,7 +130,10 @@ public class SkillsPanel {
                 skillsData.add(achieve.getText());
 
                 dbms add = new dbms();
-                add.skillUpdate(skillsData);
+                if(add.skillUpdate(skillsData))
+                {
+                    JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
     
