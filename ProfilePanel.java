@@ -82,7 +82,7 @@ public class ProfilePanel {
         panel.add(female);
 
         JRadioButton other = new JRadioButton("Others");
-        female.setActionCommand("Others");
+        other.setActionCommand("Others");
         other.setBackground(Color.gray);
         other.setBounds(808, 231, 70, 11);
         panel.add(other);

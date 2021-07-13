@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class dbms {
     // REMOTE SERVER
-    //private String database = "jdbc:mysql://sql6.freemysqlhosting.net/sql6424721";
-    //private String username = "sql6424721";
-    //private String password = "hektpFek6Y";
+    private String database = "jdbc:mysql://sql6.freemysqlhosting.net/sql6424721";
+    private String username = "sql6424721";
+    private String password = "hektpFek6Y";
 
     // LOCAL CONNECTION
-    private String database = "jdbc:mysql://127.0.0.1/project";
-    private String username = "root";
-    private String password = "your_password";
+    //private String database = "jdbc:mysql://127.0.0.1/project";
+    //private String username = "root";
+    //private String password = "your_password";
     
     Connection connection = null;
     
@@ -23,11 +23,12 @@ public class dbms {
         
     }
 
-    String user;
+    public static String user;
     
     Boolean loginUpdate(String Usernametxt,String Passwordtxt)
     {   
         user = Usernametxt;
+        System.out.println(user);
         Boolean login=false;
         String sql="SELECT USERNAME, PASSWORD FROM REGISTRATION WHERE USERNAME='"+ Usernametxt +"' AND PASSWORD='"+ Passwordtxt + "'";
         try{
@@ -73,6 +74,7 @@ public class dbms {
     void registrationUpdate(ArrayList<String> registerData)
     {
         user = registerData.get(0);
+        System.out.println(user);
         try{
 
             String sql= "INSERT INTO REGISTRATION (USERNAME, PASSWORD,NAME,EMAIL) VALUES (?,?,?,?)";
@@ -90,11 +92,10 @@ public class dbms {
     }
     void profileUpdate(ArrayList<String> profileData) {
         System.out.println(user);
-        String sql= "INSERT INTO PROFILETABLE (TITLE, FNAME, LNAME, PHNO, EMAIL, GENDER, DOB, NATIONALITY, HOUSENO, AREA, CITY, DISTRICT, STATE, COUNTRY, USERNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,'" + user + "')";
+        String sql= "INSERT INTO PROFILETABLE (USERNAME, TITLE, FNAME, LNAME, PHNO, EMAIL, GENDER, DOB, NATIONALITY, HOUSENO, AREA, CITY, DISTRICT, STATE, COUNTRY) VALUES ('" + user + "',?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            int i;
-            for(i=0; i<profileData.size(); i++){
+            for(int i=0; i<profileData.size(); i++){
             ps.setString(i+1, profileData.get(i));
             }
             //ps.setString(i+1, user);
@@ -106,7 +107,7 @@ public class dbms {
     }
 
     void educationUpdate(ArrayList<String> educationData) {
-        String sql= "INSERT INTO EDUCATIONTABLE (SCHOOL, SYEAR, SPERFORMANCE, HSCHOOL, HSYEAR, HSPERFORMANCE, HSTREAM, COLLEGE, STARTYEAR, ENDYEAR, DEGREE, CLGSTREAM, CLGPERFORMANCE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql= "INSERT INTO EDUCATIONTABLE (USERNAME, SCHOOL, SYEAR, SPERFORMANCE, HSCHOOL, HSYEAR, HSPERFORMANCE, HSTREAM, COLLEGE, STARTYEAR, ENDYEAR, DEGREE, CLGSTREAM, CLGPERFORMANCE) VALUES ('" + user + "',?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             for(int i=0; i<educationData.size(); i++){
@@ -121,12 +122,25 @@ public class dbms {
     
 
     void skillUpdate(ArrayList<String> skillsData) {
-        String sql= "INSERT INTO SKILLTABLE (JOBEXP, INTERNSHIP, COURSES, SKLANDLANG, PORTFOLIO, ACHIEVEMENTS) VALUES (?,?,?,?,?,?)";
+        String sql= "INSERT INTO SKILLTABLE (USERNAME, JOBEXP, INTERNSHIP, COURSES, SKLANDLANG, PORTFOLIO, ACHIEVEMENTS) VALUES ('" + user + "',?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             for(int i=0; i<skillsData.size(); i++){
             ps.setString(i+1, skillsData.get(i));
             }
+            ps.executeUpdate();
+            connection.close();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    void hobbyUpdate(String hobby, String voidtxt) {
+        String sql= "INSERT INTO HOBBIESTABLE (USERNAME, HOBBY , VOID) VALUES ('" + user + "',?,?)";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, hobby);
+            ps.setString(2, voidtxt);
             ps.executeUpdate();
             connection.close();
         } catch (SQLException e1) {
