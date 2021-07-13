@@ -186,7 +186,10 @@ saveBtn.addActionListener(new ActionListener() {
         educationData.add(clgPerformance.getText());
 
         dbms add = new dbms();
-        add.educationUpdate(educationData);
+        if(add.educationUpdate(educationData))
+        {
+            JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 });        
 

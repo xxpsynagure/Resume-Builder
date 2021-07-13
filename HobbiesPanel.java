@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class HobbiesPanel extends dbms{
     HobbiesPanel(JFrame frame,JPanel panel) {
@@ -86,11 +84,8 @@ public class HobbiesPanel extends dbms{
             public void actionPerformed(ActionEvent e) {
                 dbms add = new dbms();
                 add.hobbyUpdate(hobbies.getText(), voidTxt.getText());
-
             }
         });
-
-    
 
         frame.add(panel);
         frame.pack();

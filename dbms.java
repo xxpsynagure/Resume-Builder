@@ -90,8 +90,9 @@ public class dbms {
             System.out.println(ex);
         }
     }
-    void profileUpdate(ArrayList<String> profileData) {
+    Boolean profileUpdate(ArrayList<String> profileData) {
         System.out.println(user);
+        Boolean update=false;
         String sql= "INSERT INTO PROFILETABLE (USERNAME, TITLE, FNAME, LNAME, PHNO, EMAIL, GENDER, DOB, NATIONALITY, HOUSENO, AREA, CITY, DISTRICT, STATE, COUNTRY) VALUES ('" + user + "',?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -101,12 +102,15 @@ public class dbms {
             //ps.setString(i+1, user);
             ps.executeUpdate();
             connection.close();
+            update=true;
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+        return update;
     }
 
-    void educationUpdate(ArrayList<String> educationData) {
+    Boolean educationUpdate(ArrayList<String> educationData) {
+        Boolean update=false;
         String sql= "INSERT INTO EDUCATIONTABLE (USERNAME, SCHOOL, SYEAR, SPERFORMANCE, HSCHOOL, HSYEAR, HSPERFORMANCE, HSTREAM, COLLEGE, STARTYEAR, ENDYEAR, DEGREE, CLGSTREAM, CLGPERFORMANCE) VALUES ('" + user + "',?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -115,13 +119,16 @@ public class dbms {
             }
             ps.executeUpdate();
             connection.close();
+            update=true;
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+        return update;
     }
     
 
-    void skillUpdate(ArrayList<String> skillsData) {
+    Boolean skillUpdate(ArrayList<String> skillsData) {
+        Boolean update=false;
         String sql= "INSERT INTO SKILLTABLE (USERNAME, JOBEXP, INTERNSHIP, COURSES, SKLANDLANG, PORTFOLIO, ACHIEVEMENTS) VALUES ('" + user + "',?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -130,9 +137,11 @@ public class dbms {
             }
             ps.executeUpdate();
             connection.close();
+            update=true;
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+        return update;
     }
 
     void hobbyUpdate(String hobby, String voidtxt) {
