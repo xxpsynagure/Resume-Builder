@@ -42,7 +42,7 @@ public abstract class BaseTemplate {
 
             public void actionPerformed(ActionEvent e){
 
-                LoginFrame login = new LoginFrame();
+                new LoginFrame();
                 frame.dispose();
 
             }
@@ -71,7 +71,7 @@ public abstract class BaseTemplate {
         navPanel1.setBackground(Color.lightGray);
         navPanel1.setBounds(12, 34, 75, 75);
         mouseFunctions(navPanel1, 6);
-        ImageIcon navImage1 = new ImageIcon("home.png");
+        ImageIcon navImage1 = new ImageIcon(System.getProperty("user.dir")+"\\images\\home.png");
         navImage1=navResizer(navImage1);
         JLabel navLabel1 = new JLabel();
         navLabel1.setIcon(navImage1);
@@ -82,7 +82,7 @@ public abstract class BaseTemplate {
         navPanel2.setBackground(Color.lightGray);
         navPanel2.setBounds(12, 129, 75, 75);
         mouseFunctions(navPanel2, 1);
-        ImageIcon navImage2 = new ImageIcon("man-user.png");
+        ImageIcon navImage2 = new ImageIcon(System.getProperty("user.dir")+"\\images\\man-user.png");
         navImage2=navResizer(navImage2);
         JLabel navLabel2 = new JLabel();
         navLabel2.setIcon(navImage2);
@@ -93,7 +93,7 @@ public abstract class BaseTemplate {
         navPanel3.setBackground(Color.lightGray);
         navPanel3.setBounds(12, 224, 75, 75);
         mouseFunctions(navPanel3, 2);
-        ImageIcon navImage3 = new ImageIcon("graduation-cap.png");
+        ImageIcon navImage3 = new ImageIcon(System.getProperty("user.dir")+"\\images\\graduation-cap.png");
         navImage3=navResizer(navImage3);
         JLabel navLabel3 = new JLabel();
         navLabel3.setIcon(navImage3);
@@ -104,7 +104,7 @@ public abstract class BaseTemplate {
         navPanel4.setBackground(Color.lightGray);
         navPanel4.setBounds(12, 319, 75, 75);
         mouseFunctions(navPanel4, 3);
-        ImageIcon navImage4 = new ImageIcon("portfolio.png");
+        ImageIcon navImage4 = new ImageIcon(System.getProperty("user.dir")+"\\images\\portfolio.png");
         navImage4=navResizer(navImage4);
         JLabel navLabel4 = new JLabel();
         navLabel4.setIcon(navImage4);
@@ -115,7 +115,7 @@ public abstract class BaseTemplate {
         navPanel5.setBackground(Color.lightGray);
         navPanel5.setBounds(12, 414, 75, 75);
         mouseFunctions(navPanel5, 4);
-        ImageIcon navImage5 = new ImageIcon("hobbie.png");
+        ImageIcon navImage5 = new ImageIcon(System.getProperty("user.dir")+"\\images\\hobbie.png");
         navImage5=navResizer(navImage5);
         JLabel navLabel5 = new JLabel();
         navLabel5.setIcon(navImage5);

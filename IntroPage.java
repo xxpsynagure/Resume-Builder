@@ -29,7 +29,7 @@ public class IntroPage extends BaseTemplate {
         panelBtn1.setBackground(Color.lightGray);
         panelBtn1.setBounds(93, 207, 216, 150);
         mouseFunctions(panelBtn1,1);
-        ImageIcon profileImage = new ImageIcon("man-user.png");
+        ImageIcon profileImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\man-user.png");
         profileImage=resizer(profileImage);
         JLabel profileLabel = new JLabel("Profile");
         profileLabel.setIcon(profileImage);
@@ -42,7 +42,7 @@ public class IntroPage extends BaseTemplate {
         panelBtn2.setBackground(Color.lightGray);
         panelBtn2.setBounds(381, 207, 216, 150);
         mouseFunctions(panelBtn2,2);
-        ImageIcon eduImage = new ImageIcon("graduation-cap.png");
+        ImageIcon eduImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\graduation-cap.png");
         eduImage=resizer(eduImage);
         JLabel eduLabel = new JLabel("Education");
         eduLabel.setIcon(eduImage);
@@ -55,7 +55,7 @@ public class IntroPage extends BaseTemplate {
         panelBtn3.setBackground(Color.lightGray);
         panelBtn3.setBounds(690, 207, 216, 150);
         mouseFunctions(panelBtn3,3);
-        ImageIcon skillImage = new ImageIcon("portfolio.png");
+        ImageIcon skillImage = new ImageIcon(System.getProperty("user.dir")+"\\images\\portfolio.png");
         skillImage=resizer(skillImage);
         JLabel skillLabel = new JLabel("Skills and work experience");
         skillLabel.setIcon(skillImage);
@@ -68,7 +68,7 @@ public class IntroPage extends BaseTemplate {
         panelBtn4.setBackground(Color.lightGray);
         panelBtn4.setBounds(230, 412, 216, 150);
         mouseFunctions(panelBtn4,4);
-        ImageIcon hobbiesImage = new ImageIcon("hobbie.png");
+        ImageIcon hobbiesImage = new ImageIcon(System.getProperty("user.dir")+"\\images\\hobbie.png");
         hobbiesImage=resizer(hobbiesImage);
         JLabel hobbiesLabel = new JLabel("Hobbies");
         hobbiesLabel.setIcon(hobbiesImage);
@@ -81,7 +81,7 @@ public class IntroPage extends BaseTemplate {
         panelBtn5.setBackground(Color.lightGray);
         panelBtn5.setBounds(550, 412, 216, 150);
         mouseFunctions(panelBtn5,5);
-        ImageIcon summarizeImage = new ImageIcon("summarize.png");
+        ImageIcon summarizeImage = new ImageIcon(System.getProperty("user.dir")+"\\images\\summarize.png");
         summarizeImage = resizer(summarizeImage);
         JLabel summarizeLabel = new JLabel("Summarize      ");
         summarizeLabel.setIcon(summarizeImage);

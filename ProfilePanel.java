@@ -22,7 +22,7 @@ public class ProfilePanel {
         panel.add(ttl);
 
         String ttls[] = {"Ms", "Mr", "Mrs"};
-        JComboBox ttlBox = new JComboBox(ttls);
+        JComboBox<String> ttlBox = new JComboBox<String>(ttls);
         ttlBox.setBounds(161, 141, 67, 22);
         panel.add(ttlBox);
 
