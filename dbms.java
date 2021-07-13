@@ -163,4 +163,61 @@ public class dbms {
             e1.printStackTrace();
         }
     }
+    //___________________________________________________________________________________________________________
+
+    ArrayList<String> profilepreDefault()
+    {
+        String sql="SELECT NAME, EMAIL FROM REGISTRATION WHERE USERNAME='"+user+"'";
+        ArrayList <String> preDefault = new ArrayList<String>();
+        try{
+            PreparedStatement ps= connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(); 
+            while(rs.next())
+            {
+                preDefault.add(rs.getString("NAME"));
+                preDefault.add(rs.getString("EMAIL")); 
+            }
+            connection.close();
+        }
+        catch(SQLException e){
+            System.out.println(e);
+        }
+        return preDefault;
+    }
+ /*   
+    ArrayList<String> profileDefault()
+    {
+        String sql="SELECT * FROM SKILLTABLE WHERE USERNAME= '"+user+"'";
+        ArrayList <String> profile = new ArrayList<String>();
+        try{
+            PreparedStatement ps= connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            rs.next();//skips username
+            while(rs.next())
+            {
+                profile.add(rs.getString("TITLE"));//0
+                profile.add(rs.getString("FNAME"));//1
+                profile.add(rs.getString("LNAME"));//2
+                profile.add(rs.getString("PHNO"));//3
+                profile.add(rs.getString("EMAIL"));//4
+                profile.add(rs.getString("GENDER"));//5
+                profile.add(rs.getString("DOB"));//6
+                profile.add(rs.getString("NATIONALITY"));//7
+                profile.add(rs.getString("HOUSENO"));//8
+                profile.add(rs.getString("AREA"));//9
+                profile.add(rs.getString("CITY"));//10
+                profile.add(rs.getString("DISTRICT"));//11
+                profile.add(rs.getString("STATE"));//12
+                profile.add(rs.getString("COUNTRY"));//13
+                connection.close();
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return profile;
+    }   */
 }
+
+
+
+

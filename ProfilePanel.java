@@ -5,6 +5,12 @@ import java.util.ArrayList;
 
 public class ProfilePanel {
     ProfilePanel(JFrame frame,JPanel panel) {
+        dbms add=new dbms();
+        ArrayList<String> preDefault=add.profilepreDefault();
+
+        //dbms infoadd=new dbms();
+        //ArrayList <String> infoDefault=infoadd.profileDefault();
+
         //panel = new JPanel();
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
@@ -31,7 +37,7 @@ public class ProfilePanel {
         fNameL.setFont(new Font("Roboto", 0, 14));
         panel.add(fNameL);
 
-        JTextField fName = new JTextField();
+        JTextField fName = new JTextField(preDefault.get(0));
         fName.setBounds(265, 141, 147, 22);
         panel.add(fName);
 
@@ -60,7 +66,7 @@ public class ProfilePanel {
         emailL.setFont(new Font("Roboto", 0, 14));
         panel.add(emailL);
 
-        JTextField email = new JTextField();
+        JTextField email = new JTextField(preDefault.get(1));
         email.setBounds(381, 226, 200, 22);
         panel.add(email);
 
@@ -181,7 +187,8 @@ public class ProfilePanel {
         saveBtn.setOpaque(true);
         saveBtn.setFocusable(false);
         panel.add(saveBtn);
-
+//____________________________________________________________________________________________________
+        
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> profileData = new ArrayList<String>();
