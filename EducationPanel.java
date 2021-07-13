@@ -22,7 +22,7 @@ public class EducationPanel {
         subtitle1.setForeground(Color.RED);
         panel.add(subtitle1);
 
-        JLabel schoolL = new JLabel("School");
+        JLabel schoolL = new JLabel("School ");
         schoolL.setBounds(150, 113, 60, 25);
         schoolL.setFont(new Font("Roboto", Font.PLAIN, 14));
         schoolL.setForeground(Color.decode("#000000"));
@@ -32,7 +32,7 @@ public class EducationPanel {
         school.setBounds(150, 135, 187, 25);
         panel.add(school);
 
-        JLabel SYearL = new JLabel("Year of Completion");
+        JLabel SYearL = new JLabel("Year of Completion ");
         SYearL.setBounds(404, 113, 130, 16);
         SYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
         SYearL.setForeground(Color.decode("#000000"));
@@ -61,7 +61,7 @@ public class EducationPanel {
         subtitle2.setForeground(Color.RED);
         panel.add(subtitle2);
 
-        JLabel HschoolL = new JLabel("School");
+        JLabel HschoolL = new JLabel("School *");
         HschoolL.setBounds(153, 249, 60, 25);
         HschoolL.setFont(new Font("Roboto", Font.PLAIN, 14));
         HschoolL.setForeground(Color.decode("#000000"));
@@ -71,7 +71,7 @@ public class EducationPanel {
         Hschool.setBounds(150, 271, 187, 25);
         panel.add(Hschool);
 
-        JLabel HSYearL = new JLabel("Year of Completion");
+        JLabel HSYearL = new JLabel("Year of Completion *");
         HSYearL.setBounds(404, 249, 130, 16);
         HSYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
         panel.add(HSYearL);
@@ -80,7 +80,7 @@ public class EducationPanel {
         HSYear.setBounds(404, 271, 187, 25);
         panel.add(HSYear);
 
-        JLabel HSPerformanceL = new JLabel("Performance");
+        JLabel HSPerformanceL = new JLabel("Performance *");
         HSPerformanceL.setBounds(665, 249, 100, 16);
         HSPerformanceL.setFont(new Font("Roboto", 0, 14));
         HSPerformanceL.setForeground(Color.decode("#000000"));
@@ -109,7 +109,7 @@ public class EducationPanel {
         subtitle3.setForeground(Color.RED);
         panel.add(subtitle3);
 
-        JLabel collegeL = new JLabel("College");
+        JLabel collegeL = new JLabel("College *");
         collegeL.setBounds(153, 433, 60, 25);
         collegeL.setFont(new Font("Roboto", Font.PLAIN, 14));
         collegeL.setForeground(Color.decode("#000000"));
@@ -119,7 +119,7 @@ public class EducationPanel {
         college.setBounds(150, 455, 187, 25);
         panel.add(college);
 
-        JLabel startYearL = new JLabel("Start Year");
+        JLabel startYearL = new JLabel("Start Year *");
         startYearL.setBounds(404, 433, 130, 16);
         startYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
         startYearL.setForeground(Color.decode("#000000"));
@@ -139,7 +139,7 @@ public class EducationPanel {
         endYear.setBounds(665, 455, 187, 25);
         panel.add(endYear);
 
-        JLabel DegreeL = new JLabel("Degree");
+        JLabel DegreeL = new JLabel("Degree *");
         DegreeL.setBounds(150, 505, 60, 25);
         DegreeL.setFont(new Font("Roboto", 0, 14));
         DegreeL.setForeground(Color.decode("#000000"));
@@ -149,7 +149,7 @@ public class EducationPanel {
         Degree.setBounds(150, 530, 187, 25);
         panel.add(Degree);    
         
-        JLabel clgStreamL = new JLabel("Stream");
+        JLabel clgStreamL = new JLabel("Stream *");
         clgStreamL.setBounds(404, 508, 130, 16);
         clgStreamL.setFont(new Font("Roboto", Font.PLAIN, 14));
         clgStreamL.setForeground(Color.decode("#000000"));
@@ -159,7 +159,7 @@ public class EducationPanel {
         clgStream.setBounds(404, 530, 187, 25);
         panel.add(clgStream);
 
-        JLabel clgPerformanceL = new JLabel("Performance");
+        JLabel clgPerformanceL = new JLabel("Performance *");
         clgPerformanceL.setBounds(665, 508, 100, 16);
         clgPerformanceL.setFont(new Font("Roboto", 0, 14));
         clgPerformanceL.setForeground(Color.decode("#000000"));
@@ -183,24 +183,30 @@ panel.add(saveBtn);
 saveBtn.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
         ArrayList<String> educationData = new ArrayList<String>();
-        educationData.add(school.getText());
-        educationData.add(SYear.getText());
-        educationData.add(SPerformance.getText());
-        educationData.add(Hschool.getText());
-        educationData.add(HSYear.getText());
-        educationData.add(HSPerformance.getText());
-        educationData.add(HStream.getText());
-        educationData.add(college.getText());
-        educationData.add(startYear.getText());
-        educationData.add(endYear.getText());
-        educationData.add(Degree.getText());
-        educationData.add(clgStream.getText());
-        educationData.add(clgPerformance.getText());
+        educationData.add(school.getText());//0
+        educationData.add(SYear.getText());//1
+        educationData.add(SPerformance.getText());//2
+        educationData.add(Hschool.getText());//3
+        educationData.add(HSYear.getText());//4
+        educationData.add(HSPerformance.getText());//5
+        educationData.add(HStream.getText());//6
+        educationData.add(college.getText());//7
+        educationData.add(startYear.getText());//8
+        educationData.add(endYear.getText());//9
+        educationData.add(Degree.getText());//10
+        educationData.add(clgStream.getText());//11
+        educationData.add(clgPerformance.getText());//12
 
-        dbms add = new dbms();
-        if(add.educationUpdate(educationData))
+        if(educationData.get(3).trim().equals("")||educationData.get(4).trim().equals("")||educationData.get(5).trim().equals("")||educationData.get(7).trim().equals("")||educationData.get(8).trim().equals("")||educationData.get(10).trim().equals("")||educationData.get(11).trim().equals("")||educationData.get(12).trim().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"*  Fields Cannot Be Empty","Empty Fields",2);
+        }
+        else{
+            dbms add = new dbms();
+            if(add.educationUpdate(educationData))
+            {
+                JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 });        

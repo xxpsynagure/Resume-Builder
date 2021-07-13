@@ -266,7 +266,6 @@ class LoginFrame extends dbms
         registerBtnR.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                // create a function to verify the empty fields  
                 String fname = nametxt.getText();
                 String uname = usernametxt.getText();
                 String emaill = emailtxt.getText();
@@ -316,9 +315,6 @@ class LoginFrame extends dbms
                 loginPanel(frame);
             }
         });
-
-        
-        //registerBtnR.setMnemonic(KeyEvent.VK_ENTER);
 
         Passwordtxt.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {}

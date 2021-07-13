@@ -26,7 +26,7 @@ public class ProfilePanel {
         ttlBox.setBounds(161, 141, 67, 22);
         panel.add(ttlBox);
 
-        JLabel fNameL = new JLabel("First Name");
+        JLabel fNameL = new JLabel("First Name *");
         fNameL.setBounds(265, 118, 100, 16);
         fNameL.setFont(new Font("Roboto", 0, 14));
         panel.add(fNameL);
@@ -55,7 +55,7 @@ public class ProfilePanel {
         phno.setToolTipText("Enter the phone number followed by your country code");
         panel.add(phno);
 
-        JLabel emailL = new JLabel("Email Address");
+        JLabel emailL = new JLabel("Email Address *");
         emailL.setBounds(381, 203, 100, 16);
         emailL.setFont(new Font("Roboto", 0, 14));
         panel.add(emailL);
@@ -94,7 +94,7 @@ public class ProfilePanel {
 
 
 
-        JLabel dobL = new JLabel("Date of Birth");
+        JLabel dobL = new JLabel("Date of Birth *");
         dobL.setBounds(161, 284, 100, 16);
         dobL.setFont(new Font("Roboto", 0, 14));
         panel.add(dobL);
@@ -104,7 +104,7 @@ public class ProfilePanel {
         dob.setToolTipText("YYYY-MM-DD");
         panel.add(dob);
 
-        JLabel nationL = new JLabel("Nationality");
+        JLabel nationL = new JLabel("Nationality *");
         nationL.setBounds(381, 281, 100, 16);
         nationL.setFont(new Font("Roboto", 0, 14));
         panel.add(nationL);
@@ -137,7 +137,7 @@ public class ProfilePanel {
         area.setBounds(420, 428, 215, 22);
         panel.add(area);
 
-        JLabel cityL = new JLabel("City");
+        JLabel cityL = new JLabel("City *");
         cityL.setBounds(696, 405, 37, 16);
         cityL.setFont(new Font("Roboto", 0, 14));
         panel.add(cityL);
@@ -146,8 +146,8 @@ public class ProfilePanel {
         city.setBounds(696, 428, 215, 22);
         panel.add(city);
 
-        JLabel districtL = new JLabel("District");
-        districtL.setBounds(161, 482, 50, 16);
+        JLabel districtL = new JLabel("District *");
+        districtL.setBounds(161, 482, 60, 16);
         districtL.setFont(new Font("Roboto", 0, 14));
         panel.add(districtL);
 
@@ -155,8 +155,8 @@ public class ProfilePanel {
         district.setBounds(161, 505, 215, 22);
         panel.add(district);
 
-        JLabel stateL = new JLabel("State");
-        stateL.setBounds(420, 482, 37, 16);
+        JLabel stateL = new JLabel("State *");
+        stateL.setBounds(420, 482, 50, 16);
         stateL.setFont(new Font("Roboto", 0, 14));
         panel.add(stateL);
 
@@ -164,8 +164,8 @@ public class ProfilePanel {
         state.setBounds(420, 505, 215, 22);
         panel.add(state);
 
-        JLabel countryL = new JLabel("Country");
-        countryL.setBounds(696, 482, 50, 16);
+        JLabel countryL = new JLabel("Country *");
+        countryL.setBounds(696, 482, 60, 16);
         countryL.setFont(new Font("Roboto", 0, 14));
         panel.add(countryL);
 
@@ -185,26 +185,35 @@ public class ProfilePanel {
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> profileData = new ArrayList<String>();
-                profileData.add(String.valueOf(ttlBox.getSelectedItem()));
-                profileData.add(fName.getText());
-                profileData.add(lName.getText());
-                profileData.add(phno.getText());
-                profileData.add(email.getText());
-                profileData.add(bgGender.getSelection().getActionCommand());
-                profileData.add(dob.getText());
-                profileData.add(nationality.getText());
-                profileData.add(houseNo.getText());
-                profileData.add(area.getText());
-                profileData.add(city.getText());
-                profileData.add(district.getText());
-                profileData.add(state.getText());
-                profileData.add(country.getText());
-
-                dbms add = new dbms();
-                if(add.profileUpdate(profileData))
+                profileData.add(String.valueOf(ttlBox.getSelectedItem()));//0
+                profileData.add(fName.getText());//1
+                profileData.add(lName.getText());//2
+                profileData.add(phno.getText());//3
+                profileData.add(email.getText());//4
+                profileData.add(bgGender.getSelection().getActionCommand());//5
+                profileData.add(dob.getText());//6
+                profileData.add(nationality.getText());//7
+                profileData.add(houseNo.getText());//8
+                profileData.add(area.getText());//9
+                profileData.add(city.getText());//10
+                profileData.add(district.getText());//11
+                profileData.add(state.getText());//12
+                profileData.add(country.getText());//13
+              
+                System.out.println(fName.getText().trim());
+                if(profileData.get(1).trim().equals("")||profileData.get(4).trim().equals("")||profileData.get(6).trim().equals("")||profileData.get(7).trim().equals("")||profileData.get(10).trim().equals("")||profileData.get(11).trim().equals("")||profileData.get(12).trim().equals("")||profileData.get(13).trim().equals(""))
                 {
-                    JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"*  Fields Cannot Be Empty","Empty Fields",2);
                 }
+                else
+                {
+                    dbms add = new dbms();
+                    if(add.profileUpdate(profileData))
+                    {
+                        JOptionPane.showMessageDialog(null, "Save Successful","Message Box", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+                
             }
         });
 
