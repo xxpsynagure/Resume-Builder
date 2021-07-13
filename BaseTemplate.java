@@ -63,12 +63,12 @@ public abstract class BaseTemplate {
 
 
         //Demo navigation Bar
-        navBar.setBackground(Color.white);
+        navBar.setBackground(Color.decode("#1c2e4a"));
         navBar.setBounds(0, 0, 100, 600);
         navBar.setLayout(null);
 
         JPanel navPanel1 = new JPanel();
-        navPanel1.setBackground(Color.lightGray);
+        navPanel1.setBackground(Color.decode("#D88C9A"));
         navPanel1.setBounds(12, 34, 75, 75);
         mouseFunctions(navPanel1, 6);
         ImageIcon navImage1 = new ImageIcon(System.getProperty("user.dir")+"\\images\\home.png");
@@ -79,7 +79,7 @@ public abstract class BaseTemplate {
         navBar.add(navPanel1);
 
         JPanel navPanel2 = new JPanel();
-        navPanel2.setBackground(Color.lightGray);
+        navPanel2.setBackground(Color.decode("#D88C9A"));
         navPanel2.setBounds(12, 129, 75, 75);
         mouseFunctions(navPanel2, 1);
         ImageIcon navImage2 = new ImageIcon(System.getProperty("user.dir")+"\\images\\man-user.png");
@@ -90,7 +90,7 @@ public abstract class BaseTemplate {
         navBar.add(navPanel2);
 
         JPanel navPanel3 = new JPanel();
-        navPanel3.setBackground(Color.lightGray);
+        navPanel3.setBackground(Color.decode("#D88C9A"));
         navPanel3.setBounds(12, 224, 75, 75);
         mouseFunctions(navPanel3, 2);
         ImageIcon navImage3 = new ImageIcon(System.getProperty("user.dir")+"\\images\\graduation-cap.png");
@@ -101,7 +101,7 @@ public abstract class BaseTemplate {
         navBar.add(navPanel3);
 
         JPanel navPanel4 = new JPanel();
-        navPanel4.setBackground(Color.lightGray);
+        navPanel4.setBackground(Color.decode("#D88C9A"));
         navPanel4.setBounds(12, 319, 75, 75);
         mouseFunctions(navPanel4, 3);
         ImageIcon navImage4 = new ImageIcon(System.getProperty("user.dir")+"\\images\\portfolio.png");
@@ -112,7 +112,7 @@ public abstract class BaseTemplate {
         navBar.add(navPanel4);
 
         JPanel navPanel5 = new JPanel();
-        navPanel5.setBackground(Color.lightGray);
+        navPanel5.setBackground(Color.decode("#D88C9A"));
         navPanel5.setBounds(12, 414, 75, 75);
         mouseFunctions(navPanel5, 4);
         ImageIcon navImage5 = new ImageIcon(System.getProperty("user.dir")+"\\images\\hobbie.png");
@@ -129,10 +129,10 @@ public abstract class BaseTemplate {
     void mouseFunctions(JPanel panel, int i){
         panel.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent e){
-                panel.setBackground(Color.decode("#4895ef"));
+                panel.setBackground(Color.gray);
             }
             public void mouseExited(MouseEvent e){
-                panel.setBackground(Color.lightGray);
+                panel.setBackground(Color.decode("#D88C9A"));
             }
              public void mouseClicked(MouseEvent e){
                  // switch statement used to correctly identify which panel is clicked and

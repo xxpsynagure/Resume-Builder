@@ -7,12 +7,13 @@ public class SkillsPanel {
     SkillsPanel(JFrame frame, JPanel panel) {
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
-        panel.setBackground(Color.gray);
+        panel.setBackground(Color.decode("#F6D9A1"));
         panel.setLayout(null);
 
         JLabel welcomeSkills = new JLabel("SKILLS & EXPERIENCES ");
-        welcomeSkills.setBounds(310,24,379,43);
-        welcomeSkills.setFont(new Font("Roboto",Font.BOLD, 24));
+        welcomeSkills.setBounds(310,24,500,43);
+        welcomeSkills.setFont(new Font("Roboto",Font.BOLD, 37));
+        welcomeSkills.setForeground(Color.decode("#000000"));
         panel.add(welcomeSkills);
 
         frame.add(panel);
@@ -24,6 +25,7 @@ public class SkillsPanel {
         JLabel jobL= new JLabel("Job  Experience / Position of Responsibility");
         jobL.setBounds(177,81,270,16);
         jobL.setFont(new Font("Roboto",Font.PLAIN, 14));
+        jobL.setForeground(Color.decode("#000000"));
         panel.add(jobL);
 
         JTextArea job = new JTextArea();
@@ -38,6 +40,7 @@ public class SkillsPanel {
         JLabel internL= new JLabel("Internship");
         internL.setFont(new Font("Roboto",Font.PLAIN, 14));
         internL.setBounds(177,185,70,16);
+        internL.setForeground(Color.decode("#000000"));
         panel.add(internL);
 
         JTextArea intern=new JTextArea();
@@ -52,6 +55,7 @@ public class SkillsPanel {
         JLabel coursesL =new JLabel("Courses");
         coursesL.setBounds(177,289,60,19);
         coursesL.setFont(new Font("Roboto",Font.PLAIN, 14));
+        coursesL.setForeground(Color.decode("#000000"));
         panel.add(coursesL);
 
         JTextArea courses =new JTextArea();
@@ -66,6 +70,7 @@ public class SkillsPanel {
         JLabel skillL=new JLabel("Skills & languages known");
         skillL.setBounds(177,402,200,21);
         skillL.setFont(new Font("Roboto",Font.PLAIN, 14));
+        skillL.setForeground(Color.decode("#000000"));
         panel.add(skillL);
 
         JTextArea skill=new JTextArea();
@@ -80,6 +85,7 @@ public class SkillsPanel {
         JLabel portL=new JLabel("Portfolio / Work Examples"); 
         portL.setBounds(738,146,163,16);
         portL.setFont(new Font("Roboto",Font.PLAIN, 14));
+        portL.setForeground(Color.decode("#000000"));
         panel.add(portL);
 
         JTextArea port=new JTextArea();
@@ -94,6 +100,7 @@ public class SkillsPanel {
         JLabel achieveL=new JLabel("Achievements");
         achieveL.setBounds(738,338,89,16);
         achieveL.setFont(new Font("Roboto",Font.PLAIN, 14));
+        achieveL.setForeground(Color.decode("#000000"));
         panel.add(achieveL);
 
         JTextArea achieve=new JTextArea();
@@ -106,8 +113,8 @@ public class SkillsPanel {
         JButton saveBtn = new JButton("SAVE");
         saveBtn.setBounds(908, 572, 100, 20);
         saveBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
-        saveBtn.setBackground(new Color(0, 95, 135));
-        saveBtn.setForeground(new Color(255, 255, 255));
+        saveBtn.setBackground(Color.decode("#a5a58d"));
+        saveBtn.setForeground(Color.decode("#000000"));
         saveBtn.setOpaque(true);
         saveBtn.setFocusable(false);
         panel.add(saveBtn);

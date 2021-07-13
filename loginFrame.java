@@ -26,7 +26,7 @@ class LoginFrame extends dbms
         // Testing JPanel and adding components
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 350, 600);
-        panel.setBackground(new Color(150,150,150));
+        panel.setBackground(Color.decode("#F6D9A1"));
         panel.setBorder(BorderFactory.createBevelBorder(0));
         //panel.setLayout(new BorderLayout());
         panel.setLayout(null);
@@ -34,6 +34,7 @@ class LoginFrame extends dbms
         JLabel username = new JLabel("Username:");
         username.setBounds(50, 170, 100, 25);
         username.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        username.setForeground(Color.decode("#000000"));
         panel.add(username);
 
         JTextField Usernametxt = new JTextField();
@@ -43,6 +44,7 @@ class LoginFrame extends dbms
         JLabel password = new JLabel("Password: ");
         password.setBounds(50, 225, 100, 25);
         password.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        password.setForeground(Color.decode("#000000"));
         panel.add(password);
 
         JPasswordField Passwordtxt = new JPasswordField();
@@ -53,14 +55,15 @@ class LoginFrame extends dbms
         chkbox.setBounds(52, 282, 150, 20);
         chkbox.setFont(new Font("Montserrat", Font.PLAIN, 12));
         chkbox.setFocusable(false);
-        chkbox.setBackground(new Color(150,150,150));
+        chkbox.setBackground(Color.decode("#F6D9A1"));
+        chkbox.setForeground(Color.decode("#000000"));
         panel.add(chkbox);
 
         JButton loginBtn = new JButton("Sign in");
         loginBtn.setBounds(50, 310, 100, 25);
         loginBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
-        loginBtn.setBackground(new Color(0, 95, 135));
-        loginBtn.setForeground(new Color(255, 255, 255));
+        loginBtn.setBackground(Color.decode("#a5a58d"));
+        loginBtn.setForeground(Color.decode("#000000"));
         loginBtn.setOpaque(true);
         loginBtn.setFocusable(false);
         panel.add(loginBtn);
@@ -68,8 +71,8 @@ class LoginFrame extends dbms
         JButton registerBtn = new JButton("Sign up");
         registerBtn.setBounds(175, 310, 100, 25);
         registerBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
-        registerBtn.setBackground(new Color(0, 95, 135));
-        registerBtn.setForeground(new Color(255, 255, 255));
+        registerBtn.setBackground(Color.decode("#a5a58d"));
+        registerBtn.setForeground(Color.decode("#000000"));
         registerBtn.setOpaque(true);
         registerBtn.setFocusable(false);
         panel.add(registerBtn);
@@ -185,12 +188,13 @@ class LoginFrame extends dbms
     public void registerPanel() {
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 0, 350, 600);
-        panel2.setBackground(new Color(150, 150, 150));
+        panel2.setBackground(Color.decode("#F6D9A1"));
         panel2.setLayout(null);
         
         JLabel name = new JLabel("Enter your name");
         name.setBounds(50, 100, 150, 25);
         name.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        name.setForeground(Color.decode("#000000"));
         panel2.add(name);
         
         JTextField nametxt = new JTextField();
@@ -200,6 +204,7 @@ class LoginFrame extends dbms
         JLabel email = new JLabel("Email Id");
         email.setBounds(50, 160, 100, 25);
         email.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        email.setForeground(Color.decode("#000000"));
         panel2.add(email);
         
         JTextField emailtxt = new JTextField();
@@ -209,6 +214,7 @@ class LoginFrame extends dbms
         JLabel usernameR = new JLabel("Username");
         usernameR.setBounds(50, 220, 100, 25);
         usernameR.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        usernameR.setForeground(Color.decode("#000000"));
         panel2.add(usernameR);
         
         JTextField usernametxt = new JTextField();
@@ -218,6 +224,7 @@ class LoginFrame extends dbms
         JLabel password = new JLabel("Password");
         password.setBounds(50, 280, 100, 25);
         password.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        password.setForeground(Color.decode("#000000"));
         panel2.add(password);
         
         JPasswordField Passwordtxt = new JPasswordField();
@@ -228,6 +235,7 @@ class LoginFrame extends dbms
         JLabel confirmpassword = new JLabel("Confirm Password");
         confirmpassword.setBounds(50, 340, 160, 25);
         confirmpassword.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        confirmpassword.setForeground(Color.decode("#000000"));
         panel2.add(confirmpassword);
         
         JPasswordField ConfirmPasswordtxt = new JPasswordField();
@@ -238,8 +246,8 @@ class LoginFrame extends dbms
         JButton registerBtnR = new JButton("Sign up");
         registerBtnR.setBounds(170, 410, 100, 25);
         registerBtnR.setFont(new Font("Montserrat", Font.PLAIN, 15));
-        registerBtnR.setBackground(new Color(0, 95, 135));
-        registerBtnR.setForeground(new Color(255, 255, 255));
+        registerBtnR.setBackground(Color.decode("#a5a58d"));
+        registerBtnR.setForeground(Color.decode("#000000"));
         registerBtnR.setOpaque(true);
         registerBtnR.setFocusable(false);
         panel2.add(registerBtnR);
@@ -249,8 +257,8 @@ class LoginFrame extends dbms
         JButton backBtn = new JButton("Back");
         backBtn.setBounds(50, 410, 100, 25);
         backBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
-        backBtn.setBackground(new Color(0, 95, 135));
-        backBtn.setForeground(new Color(255, 255, 255));
+        backBtn.setBackground(Color.decode("#a5a58d"));
+        backBtn.setForeground(Color.decode("#000000"));
         backBtn.setOpaque(true);
         backBtn.setFocusable(false);
         panel2.add(backBtn);

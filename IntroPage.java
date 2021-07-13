@@ -11,22 +11,24 @@ public class IntroPage extends BaseTemplate {
         //demo code
         navBar.setVisible(false);
         intro.setPreferredSize(new Dimension(1000,600));
-        intro.setBackground(Color.gray);
+        intro.setBackground(Color.decode("#F6D9A1"));
         //intro.setSize(1000, 600);
         intro.setLayout(null);
         
         JLabel mainttl=new JLabel("BUILD YOUR RESUME");
         mainttl.setBounds(93,55,450,42);
         mainttl.setFont(new Font("Roboto", Font.BOLD, 36));
+        mainttl.setForeground(Color.decode("#1c2e4a"));
         intro.add(mainttl);
 
         JLabel welcome = new JLabel("BUILD YOUR FUTURE");
         welcome.setBounds(169,97,450,42);
         welcome.setFont(new Font("Roboto",Font.BOLD,36));
+        welcome.setForeground(Color.decode("#1c2e4a"));
         intro.add(welcome);
          
         JPanel panelBtn1 = new JPanel();
-        panelBtn1.setBackground(Color.lightGray);
+        panelBtn1.setBackground(Color.decode("#D88C9A"));
         panelBtn1.setBounds(93, 207, 216, 150);
         mouseFunctions(panelBtn1,1);
         ImageIcon profileImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\man-user.png");
@@ -39,7 +41,7 @@ public class IntroPage extends BaseTemplate {
         intro.add(panelBtn1);
         
         JPanel panelBtn2 = new JPanel();
-        panelBtn2.setBackground(Color.lightGray);
+        panelBtn2.setBackground(Color.decode("#D88C9A"));
         panelBtn2.setBounds(381, 207, 216, 150);
         mouseFunctions(panelBtn2,2);
         ImageIcon eduImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\graduation-cap.png");
@@ -52,7 +54,7 @@ public class IntroPage extends BaseTemplate {
         intro.add(panelBtn2);
         
         JPanel panelBtn3 = new JPanel();
-        panelBtn3.setBackground(Color.lightGray);
+        panelBtn3.setBackground(Color.decode("#D88C9A"));
         panelBtn3.setBounds(690, 207, 216, 150);
         mouseFunctions(panelBtn3,3);
         ImageIcon skillImage = new ImageIcon(System.getProperty("user.dir")+"\\images\\portfolio.png");
@@ -65,7 +67,7 @@ public class IntroPage extends BaseTemplate {
         intro.add(panelBtn3);
         
         JPanel panelBtn4 = new JPanel();
-        panelBtn4.setBackground(Color.lightGray);
+        panelBtn4.setBackground(Color.decode("#D88C9A"));
         panelBtn4.setBounds(230, 412, 216, 150);
         mouseFunctions(panelBtn4,4);
         ImageIcon hobbiesImage = new ImageIcon(System.getProperty("user.dir")+"\\images\\hobbie.png");
@@ -78,7 +80,7 @@ public class IntroPage extends BaseTemplate {
         intro.add(panelBtn4);
         
         JPanel panelBtn5 = new JPanel();
-        panelBtn5.setBackground(Color.lightGray);
+        panelBtn5.setBackground(Color.decode("#D88C9A"));
         panelBtn5.setBounds(550, 412, 216, 150);
         mouseFunctions(panelBtn5,5);
         ImageIcon summarizeImage = new ImageIcon(System.getProperty("user.dir")+"\\images\\summarize.png");

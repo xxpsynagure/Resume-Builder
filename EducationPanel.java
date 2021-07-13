@@ -7,7 +7,7 @@ public class EducationPanel {
     EducationPanel(JFrame frame,JPanel panel) {
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
-        panel.setBackground(Color.cyan);
+        panel.setBackground(Color.decode("#F6D9A1"));
         panel.setLayout(null);
 
         JLabel title = new JLabel("EDUCATION");
@@ -25,6 +25,7 @@ public class EducationPanel {
         JLabel schoolL = new JLabel("School");
         schoolL.setBounds(150, 113, 60, 25);
         schoolL.setFont(new Font("Roboto", Font.PLAIN, 14));
+        schoolL.setForeground(Color.decode("#000000"));
         panel.add(schoolL);
 
         JTextField school = new JTextField();
@@ -34,6 +35,7 @@ public class EducationPanel {
         JLabel SYearL = new JLabel("Year of Completion");
         SYearL.setBounds(404, 113, 130, 16);
         SYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
+        SYearL.setForeground(Color.decode("#000000"));
         panel.add(SYearL);
 
         JTextField SYear = new JTextField();
@@ -43,6 +45,7 @@ public class EducationPanel {
         JLabel SPerformanceL = new JLabel("Performance");
         SPerformanceL.setBounds(665, 113, 100, 16);
         SPerformanceL.setFont(new Font("Roboto", 0, 14));
+        SPerformanceL.setForeground(Color.decode("#000000"));
         panel.add(SPerformanceL);
 
         JTextField SPerformance = new JTextField();
@@ -61,6 +64,7 @@ public class EducationPanel {
         JLabel HschoolL = new JLabel("School");
         HschoolL.setBounds(153, 249, 60, 25);
         HschoolL.setFont(new Font("Roboto", Font.PLAIN, 14));
+        HschoolL.setForeground(Color.decode("#000000"));
         panel.add(HschoolL);
 
         JTextField Hschool = new JTextField();
@@ -79,6 +83,7 @@ public class EducationPanel {
         JLabel HSPerformanceL = new JLabel("Performance");
         HSPerformanceL.setBounds(665, 249, 100, 16);
         HSPerformanceL.setFont(new Font("Roboto", 0, 14));
+        HSPerformanceL.setForeground(Color.decode("#000000"));
         panel.add(HSPerformanceL);
 
         JTextField HSPerformance = new JTextField();
@@ -89,6 +94,7 @@ public class EducationPanel {
         JLabel HStreamL = new JLabel("Stream");
         HStreamL.setBounds(150, 321, 60, 25);
         HStreamL.setFont(new Font("Roboto", 0, 14));
+        HStreamL.setForeground(Color.decode("#000000"));
         panel.add(HStreamL);
 
         JTextField HStream = new JTextField();
@@ -106,6 +112,7 @@ public class EducationPanel {
         JLabel collegeL = new JLabel("College");
         collegeL.setBounds(153, 433, 60, 25);
         collegeL.setFont(new Font("Roboto", Font.PLAIN, 14));
+        collegeL.setForeground(Color.decode("#000000"));
         panel.add(collegeL);
 
         JTextField college = new JTextField();
@@ -115,6 +122,7 @@ public class EducationPanel {
         JLabel startYearL = new JLabel("Start Year");
         startYearL.setBounds(404, 433, 130, 16);
         startYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
+        startYearL.setForeground(Color.decode("#000000"));
         panel.add(startYearL);
 
         JTextField startYear = new JTextField();
@@ -124,6 +132,7 @@ public class EducationPanel {
         JLabel endYearL = new JLabel("End Year");
         endYearL.setBounds(665, 433, 100, 16);
         endYearL.setFont(new Font("Roboto", 0, 14));
+        endYearL.setForeground(Color.decode("#000000"));
         panel.add(endYearL);
 
         JTextField endYear = new JTextField();
@@ -133,6 +142,7 @@ public class EducationPanel {
         JLabel DegreeL = new JLabel("Degree");
         DegreeL.setBounds(150, 505, 60, 25);
         DegreeL.setFont(new Font("Roboto", 0, 14));
+        DegreeL.setForeground(Color.decode("#000000"));
         panel.add(DegreeL);
 
         JTextField Degree = new JTextField();
@@ -142,6 +152,7 @@ public class EducationPanel {
         JLabel clgStreamL = new JLabel("Stream");
         clgStreamL.setBounds(404, 508, 130, 16);
         clgStreamL.setFont(new Font("Roboto", Font.PLAIN, 14));
+        clgStreamL.setForeground(Color.decode("#000000"));
         panel.add(clgStreamL);
 
         JTextField clgStream = new JTextField();
@@ -151,6 +162,7 @@ public class EducationPanel {
         JLabel clgPerformanceL = new JLabel("Performance");
         clgPerformanceL.setBounds(665, 508, 100, 16);
         clgPerformanceL.setFont(new Font("Roboto", 0, 14));
+        clgPerformanceL.setForeground(Color.decode("#000000"));
         panel.add(clgPerformanceL);
 
         JTextField clgPerformance = new JTextField();
@@ -162,8 +174,8 @@ public class EducationPanel {
 JButton saveBtn = new JButton("SAVE");
 saveBtn.setBounds(908, 572, 100, 20);
 saveBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
-saveBtn.setBackground(new Color(0, 95, 135));
-saveBtn.setForeground(new Color(255, 255, 255));
+saveBtn.setBackground(Color.decode("#a5a58d"));
+saveBtn.setForeground(Color.decode("#000000"));
 saveBtn.setOpaque(true);
 saveBtn.setFocusable(false);
 panel.add(saveBtn);

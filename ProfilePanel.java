@@ -8,7 +8,7 @@ public class ProfilePanel {
         //panel = new JPanel();
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
-        panel.setBackground(Color.gray);
+        panel.setBackground(Color.decode("#F6D9A1"));
         panel.setLayout(null);
 
         JLabel title = new JLabel("PERSONAL INFORMATION");
@@ -70,20 +70,20 @@ public class ProfilePanel {
 
         JRadioButton male = new JRadioButton("Male");
         male.setActionCommand("Male");
-        male.setBackground(Color.gray);
+        male.setBackground(Color.decode("#F6D9A1"));
         male.setBounds(620, 231, 70, 11);
         male.setSelected(true);
         panel.add(male);
 
         JRadioButton female = new JRadioButton("Female");
         female.setActionCommand("Female");
-        female.setBackground(Color.gray);
+        female.setBackground(Color.decode("#F6D9A1"));
         female.setBounds(708, 231, 70, 11);
         panel.add(female);
 
         JRadioButton other = new JRadioButton("Others");
         female.setActionCommand("Others");
-        other.setBackground(Color.gray);
+        other.setBackground(Color.decode("#F6D9A1"));
         other.setBounds(808, 231, 70, 11);
         panel.add(other);
 
@@ -120,7 +120,7 @@ public class ProfilePanel {
         panel.add(subtitle);
 
         JLabel houseNoL = new JLabel("House Number");
-        houseNoL.setBounds(161, 405, 50, 16);
+        houseNoL.setBounds(161, 405, 110, 16);
         houseNoL.setFont(new Font("Roboto", 0, 14));
         panel.add(houseNoL);
 
@@ -176,8 +176,8 @@ public class ProfilePanel {
         JButton saveBtn = new JButton("SAVE");
         saveBtn.setBounds(908, 572, 100, 20);
         saveBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
-        saveBtn.setBackground(new Color(0, 95, 135));
-        saveBtn.setForeground(new Color(255, 255, 255));
+        saveBtn.setBackground(Color.decode("#a5a58d"));
+        saveBtn.setForeground(Color.decode("#000000"));
         saveBtn.setOpaque(true);
         saveBtn.setFocusable(false);
         panel.add(saveBtn);

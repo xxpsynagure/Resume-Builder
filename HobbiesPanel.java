@@ -8,7 +8,7 @@ public class HobbiesPanel extends dbms{
     HobbiesPanel(JFrame frame,JPanel panel) {
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
-        panel.setBackground(Color.gray);
+        panel.setBackground(Color.decode("#F6D9A1"));
         panel.setLayout(null);
 
         JLabel title1 = new JLabel("EXTRA CURRICULUM");
@@ -20,6 +20,7 @@ public class HobbiesPanel extends dbms{
         JLabel hobbiesL = new JLabel("Hobbies");
         hobbiesL.setBounds(210, 114, 100, 14);
         hobbiesL.setFont(new Font("Roboto", 0, 14));
+        hobbiesL.setForeground(Color.decode("#000000"));
         panel.add(hobbiesL);
 
         JTextArea hobbies = new JTextArea();
@@ -32,6 +33,7 @@ public class HobbiesPanel extends dbms{
         JLabel voidL = new JLabel("VOID");
         voidL.setBounds(607, 114, 100, 14);
         voidL.setFont(new Font("Roboto", 0, 14));
+        voidL.setForeground(Color.decode("#000000"));
         panel.add(voidL);
 
         JTextArea voidTxt = new JTextArea();
@@ -49,13 +51,14 @@ public class HobbiesPanel extends dbms{
         panel.add(dec);
 
         JTextArea decText = new JTextArea();
-        decText.setText("I John Doe hereby declare that the above information is true to the best of my knowledge and also try to" +
+        decText.setText("I *Enter your name here* hereby declare that the above information is true to the best of my knowledge and also try to" +
         " be involved in the work where I can utilize skills and creativity involved in the system contributes to the" +
-        " growth of organization");
+        " growth of organization.");
         decText.setFont(new Font("Serif", 1, 20));
         decText.setBounds(184, 405, 749, 111);
         decText.setLineWrap(true);
         decText.setWrapStyleWord(true);
+        decText.setToolTipText("Change as per your requirment");
         decText.setOpaque(false);
         panel.add(decText);
 
@@ -63,13 +66,15 @@ public class HobbiesPanel extends dbms{
         agree.setBounds(189, 508, 150, 20);
         agree.setFocusable(false);
         agree.setFont(new Font("Montserrat", 0, 16));
-        agree.setBackground(Color.gray);
+        agree.setBackground(Color.decode("#F6D9A1"));
+        agree.setForeground(Color.decode("#000000"));
         panel.add(agree);
 
         JButton submitBtn = new JButton("Submit");
         submitBtn.setBounds(850, 540, 100, 50);
         submitBtn.setOpaque(true);
         submitBtn.setFocusable(false);
+        submitBtn.setBackground(Color.decode("#a5a58d"));
         submitBtn.setVisible(false);
         panel.add(submitBtn);
 
