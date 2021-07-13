@@ -95,11 +95,12 @@ public class dbms {
         Boolean update=false;
         String sql= "INSERT INTO PROFILETABLE (USERNAME, TITLE, FNAME, LNAME, PHNO, EMAIL, GENDER, DOB, NATIONALITY, HOUSENO, AREA, CITY, DISTRICT, STATE, COUNTRY) VALUES ('" + user + "',?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            PreparedStatement del = connection.prepareStatement("DELETE IGNORE FROM PROFILETABLE WHERE USERNAME='" + user + "'");
             PreparedStatement ps = connection.prepareStatement(sql);
             for(int i=0; i<profileData.size(); i++){
             ps.setString(i+1, profileData.get(i));
             }
-            //ps.setString(i+1, user);
+            del.executeUpdate();
             ps.executeUpdate();
             connection.close();
             update=true;
@@ -113,10 +114,12 @@ public class dbms {
         Boolean update=false;
         String sql= "INSERT INTO EDUCATIONTABLE (USERNAME, SCHOOL, SYEAR, SPERFORMANCE, HSCHOOL, HSYEAR, HSPERFORMANCE, HSTREAM, COLLEGE, STARTYEAR, ENDYEAR, DEGREE, CLGSTREAM, CLGPERFORMANCE) VALUES ('" + user + "',?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            PreparedStatement del = connection.prepareStatement("DELETE IGNORE FROM EDUCATIONTABLE WHERE USERNAME='" + user + "'");
             PreparedStatement ps = connection.prepareStatement(sql);
             for(int i=0; i<educationData.size(); i++){
             ps.setString(i+1, educationData.get(i));
             }
+            del.executeUpdate();
             ps.executeUpdate();
             connection.close();
             update=true;
@@ -129,12 +132,14 @@ public class dbms {
 
     Boolean skillUpdate(ArrayList<String> skillsData) {
         Boolean update=false;
-        String sql= "INSERT INTO SKILLTABLE (USERNAME, JOBEXP, INTERNSHIP, COURSES, SKLANDLANG, PORTFOLIO, ACHIEVEMENTS) VALUES ('" + user + "',?,?,?,?,?,?)";
+        String sql= "INSERT INTO SKILLTABLE (USERNAME, JOBEXP, INTERNSHIP, COURSES, SKLANDLANG, PORTFOLIO, ACHIEVEMENTS) VALUES ('" + user + "',?,?,?,?,?,?);";
         try {
+            PreparedStatement del = connection.prepareStatement("DELETE IGNORE FROM SKILLTABLE WHERE USERNAME='" + user + "'");
             PreparedStatement ps = connection.prepareStatement(sql);
             for(int i=0; i<skillsData.size(); i++){
             ps.setString(i+1, skillsData.get(i));
             }
+            del.executeUpdate();
             ps.executeUpdate();
             connection.close();
             update=true;
@@ -145,11 +150,13 @@ public class dbms {
     }
 
     void hobbyUpdate(String hobby, String voidtxt) {
-        String sql= "INSERT INTO HOBBIESTABLE (USERNAME, HOBBY , VOID) VALUES ('" + user + "',?,?)";
+        String sql = "INSERT INTO HOBBIESTABLE (USERNAME, HOBBY , VOID) VALUES ('" + user + "',?,?)";
         try {
+            PreparedStatement del = connection.prepareStatement("DELETE IGNORE FROM HOBBIESTABLE WHERE USERNAME = '" + user + "'");
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, hobby);
             ps.setString(2, voidtxt);
+            del.executeUpdate();
             ps.executeUpdate();
             connection.close();
         } catch (SQLException e1) {
