@@ -75,7 +75,7 @@ public class ProfilePanel {
         male.setActionCommand("Male");
         male.setBackground(Color.decode("#F6D9A1"));
         male.setBounds(620, 231, 70, 11);
-        male.setSelected(true);
+        //male.setSelected(true);
         panel.add(male);
 
         JRadioButton female = new JRadioButton("Female");
@@ -84,7 +84,7 @@ public class ProfilePanel {
         female.setBounds(708, 231, 70, 11);
         panel.add(female);
 
-        JRadioButton other = new JRadioButton("Others");
+        JRadioButton other = new JRadioButton("Other");
         other.setActionCommand("Others");
         other.setBackground(Color.decode("#F6D9A1"));
         other.setBounds(808, 231, 70, 11);
@@ -195,7 +195,14 @@ public class ProfilePanel {
         lName.setText(profileRecieved[2]);
         phno.setText(profileRecieved[3]);
         email.setEditable(false);
-        bgGender.clearSelection();
+        if(profileRecieved[5]!=null && profileRecieved[5].equals("Male"))
+        {
+            male.setSelected(true);
+        }else if(profileRecieved[5]!=null && profileRecieved[5].equals("Female")){
+            female.setSelected(true);
+        }else if(profileRecieved[5]!=null && profileRecieved[5].equals("Others")){
+            other.setSelected(true);
+        }
         dob.setText(profileRecieved[6]);
         nationality.setText(profileRecieved[7]);
         houseNo.setText(profileRecieved[8]);
