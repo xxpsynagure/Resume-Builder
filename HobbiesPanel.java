@@ -4,6 +4,17 @@ import java.awt.event.*;
 
 public class HobbiesPanel extends dbms{
     HobbiesPanel(JFrame frame,JPanel panel) {
+
+        dbms checkadd=new dbms();
+        if(checkadd.rowcheck("HOBBIESTABLE"))
+        {   
+            System.out.println("Hobbies exists");  
+        }
+        else
+        {
+            System.out.println("Hobbies doesn't exist");
+        }
+
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));

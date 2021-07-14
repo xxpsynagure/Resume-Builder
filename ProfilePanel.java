@@ -8,8 +8,19 @@ public class ProfilePanel {
         dbms add=new dbms();
         ArrayList<String> preDefault=add.profilepreDefault();
 
-        //dbms infoadd=new dbms();
-        //ArrayList <String> infoDefault=infoadd.profileDefault();
+        dbms checkadd=new dbms();
+        if(checkadd.rowcheck("PROFILETABLE"))
+        {   
+            System.out.println("Profile exists");
+            //dbms  infoadd=new dbms();
+            //ArrayList <String> infoDefault=infoadd.profileDefault();
+        }
+        else
+        {
+            System.out.println("Profile doesn't exist");
+            //ArrayList<String> preDefault=add.profilepreDefault();
+        }
+        
 
         //panel = new JPanel();
         panel.setVisible(true);
