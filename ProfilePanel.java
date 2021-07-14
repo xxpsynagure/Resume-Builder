@@ -7,21 +7,7 @@ public class ProfilePanel {
     ProfilePanel(JFrame frame,JPanel panel) {
         dbms add=new dbms();
         ArrayList<String> preDefault=add.profilepreDefault();
-
-        dbms checkadd=new dbms();
-        if(checkadd.rowcheck("PROFILETABLE"))
-        {   
-            System.out.println("Profile exists");
-            //dbms  infoadd=new dbms();
-            //ArrayList <String> infoDefault=infoadd.profileDefault();
-        }
-        else
-        {
-            System.out.println("Profile doesn't exist");
-            //ArrayList<String> preDefault=add.profilepreDefault();
-        }
         
-
         //panel = new JPanel();
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
@@ -72,7 +58,7 @@ public class ProfilePanel {
         phno.setToolTipText("Enter the phone number followed by your country code");
         panel.add(phno);
 
-        JLabel emailL = new JLabel("Email Address *");
+        JLabel emailL = new JLabel("Email Address");
         emailL.setBounds(381, 203, 100, 16);
         emailL.setFont(new Font("Roboto", 0, 14));
         panel.add(emailL);
@@ -198,6 +184,26 @@ public class ProfilePanel {
         saveBtn.setOpaque(true);
         saveBtn.setFocusable(false);
         panel.add(saveBtn);
+
+//-------------------------------------------------------------------------------------------------
+        String[] profileRecieved = new String[15];
+        dbms profileGet=new dbms();
+        profileRecieved = profileGet.getProfileData();
+        
+        ttlBox.setSelectedItem(profileRecieved[0]);
+        fName.setText(profileRecieved[1]);
+        lName.setText(profileRecieved[2]);
+        phno.setText(profileRecieved[3]);
+        email.setEditable(false);
+        bgGender.clearSelection();
+        dob.setText(profileRecieved[6]);
+        nationality.setText(profileRecieved[7]);
+        houseNo.setText(profileRecieved[8]);
+        area.setText(profileRecieved[9]);
+        city.setText(profileRecieved[10]);
+        district.setText(profileRecieved[11]);
+        state.setText(profileRecieved[12]);
+        country.setText(profileRecieved[13]);
 //____________________________________________________________________________________________________
         
         saveBtn.addActionListener(new ActionListener() {

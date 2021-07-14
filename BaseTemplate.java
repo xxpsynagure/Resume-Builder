@@ -203,10 +203,10 @@ public abstract class BaseTemplate {
 
     }
     void initializer(){
-        new EducationPanel(frame,eduPanel);
-        eduPanel.setVisible(false);
         new ProfilePanel(frame,profPanel);
         profPanel.setVisible(false);
+        new EducationPanel(frame,eduPanel);
+        eduPanel.setVisible(false);
         new SkillsPanel(frame,skillPanel);
         skillPanel.setVisible(false);
         new HobbiesPanel(frame,curPanel);

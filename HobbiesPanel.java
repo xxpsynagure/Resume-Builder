@@ -5,16 +5,6 @@ import java.awt.event.*;
 public class HobbiesPanel extends dbms{
     HobbiesPanel(JFrame frame,JPanel panel) {
 
-        dbms checkadd=new dbms();
-        if(checkadd.rowcheck("HOBBIESTABLE"))
-        {   
-            System.out.println("Hobbies exists");  
-        }
-        else
-        {
-            System.out.println("Hobbies doesn't exist");
-        }
-
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));
@@ -39,7 +29,7 @@ public class HobbiesPanel extends dbms{
         hobbies.setToolTipText("do not exceed more than 30 words");
         panel.add(hobbies);
 
-        JLabel voidL = new JLabel("VOID");
+        JLabel voidL = new JLabel("Additional Info");
         voidL.setBounds(607, 114, 100, 14);
         voidL.setFont(new Font("Roboto", 0, 14));
         voidL.setForeground(Color.decode("#000000"));
@@ -60,7 +50,7 @@ public class HobbiesPanel extends dbms{
         panel.add(dec);
 
         JTextArea decText = new JTextArea();
-        decText.setText("I *Enter your name here* hereby declare that the above information is true to the best of my knowledge and also try to" +
+        decText.setText("I *Enter your name here*, hereby declare that the above information is true to the best of my knowledge and also try to" +
         " be involved in the work where I can utilize skills and creativity involved in the system contributes to the" +
         " growth of organization.");
         decText.setFont(new Font("Serif", 1, 20));
@@ -87,6 +77,16 @@ public class HobbiesPanel extends dbms{
         submitBtn.setVisible(false);
         panel.add(submitBtn);
 
+//___________________________________________________________________________________________
+        String[] hobbiesReceived = new String[4];
+        dbms hobbiesGet=new dbms();
+        hobbiesReceived = hobbiesGet.getHobbiesData();
+
+        hobbies.setText(hobbiesReceived[0]);
+        voidTxt.setText(hobbiesReceived[1]);
+        if(hobbiesReceived[2]!=null||hobbiesReceived[2].trim()!="")
+            decText.setText(hobbiesReceived[2]);
+//__________________________________________________________________________________________        
         agree.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(agree.isSelected())
@@ -99,7 +99,10 @@ public class HobbiesPanel extends dbms{
         submitBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dbms add = new dbms();
-                add.hobbyUpdate(hobbies.getText(), voidTxt.getText());
+                add.hobbyUpdate(hobbies.getText(), voidTxt.getText(),decText.getText());
+                frame.dispose();
+                new SummarizeFinal();
+
             }
         });
 

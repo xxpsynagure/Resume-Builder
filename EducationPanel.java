@@ -6,15 +6,6 @@ import java.util.ArrayList;
 public class EducationPanel {
     EducationPanel(JFrame frame,JPanel panel) {
 
-        dbms checkadd=new dbms();
-        if(checkadd.rowcheck("EDUCATIONTABLE"))
-        {   
-            System.out.println("Education exists");  
-        }
-        else
-        {
-            System.out.println("Education doesn't exist");
-        }
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));
@@ -43,7 +34,7 @@ public class EducationPanel {
         panel.add(school);
 
         JLabel SYearL = new JLabel("Year of Completion ");
-        SYearL.setBounds(404, 113, 130, 16);
+        SYearL.setBounds(404, 113, 150, 16);
         SYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
         SYearL.setForeground(Color.decode("#000000"));
         panel.add(SYearL);
@@ -52,7 +43,7 @@ public class EducationPanel {
         SYear.setBounds(404, 135, 187, 25);
         panel.add(SYear);
 
-        JLabel SPerformanceL = new JLabel("Performance");
+        JLabel SPerformanceL = new JLabel("Performance *");
         SPerformanceL.setBounds(665, 113, 100, 16);
         SPerformanceL.setFont(new Font("Roboto", 0, 14));
         SPerformanceL.setForeground(Color.decode("#000000"));
@@ -82,7 +73,7 @@ public class EducationPanel {
         panel.add(Hschool);
 
         JLabel HSYearL = new JLabel("Year of Completion *");
-        HSYearL.setBounds(404, 249, 130, 16);
+        HSYearL.setBounds(404, 249, 150, 16);
         HSYearL.setFont(new Font("Roboto", Font.PLAIN, 14));
         panel.add(HSYearL);
 
@@ -180,6 +171,25 @@ public class EducationPanel {
         clgPerformance.setToolTipText("Enter in %age ");
         panel.add(clgPerformance);
 //----------------------------------------------------------
+        String[] educationReceived = new String[14];
+        dbms educationGet = new dbms();
+        educationReceived = educationGet.getEducationData();
+        
+        school.setText(educationReceived[0]);
+        SYear.setText(educationReceived[1]);
+        SPerformance.setText(educationReceived[2]);
+        Hschool.setText(educationReceived[3]);
+        HSYear.setText(educationReceived[4]);
+        HSPerformance.setText(educationReceived[5]);
+        HStream.setText(educationReceived[6]);
+        college.setText(educationReceived[7]);
+        startYear.setText(educationReceived[8]);
+        endYear.setText(educationReceived[9]);
+        Degree.setText(educationReceived[10]);
+        clgStream.setText(educationReceived[11]);
+        clgPerformance.setText(educationReceived[12]);
+
+//----------------------------------------------------------
 
 JButton saveBtn = new JButton("SAVE");
 saveBtn.setBounds(908, 572, 100, 20);
@@ -207,7 +217,7 @@ saveBtn.addActionListener(new ActionListener() {
         educationData.add(clgStream.getText());//11
         educationData.add(clgPerformance.getText());//12
 
-        if(educationData.get(3).trim().equals("")||educationData.get(4).trim().equals("")||educationData.get(5).trim().equals("")||educationData.get(7).trim().equals("")||educationData.get(8).trim().equals("")||educationData.get(10).trim().equals("")||educationData.get(11).trim().equals("")||educationData.get(12).trim().equals(""))
+        if(educationData.get(2).trim().equals("")||educationData.get(3).trim().equals("")||educationData.get(4).trim().equals("")||educationData.get(5).trim().equals("")||educationData.get(7).trim().equals("")||educationData.get(8).trim().equals("")||educationData.get(10).trim().equals("")||educationData.get(11).trim().equals("")||educationData.get(12).trim().equals(""))
         {
             JOptionPane.showMessageDialog(null,"*  Fields Cannot Be Empty","Empty Fields",2);
         }

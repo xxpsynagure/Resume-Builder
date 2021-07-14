@@ -6,15 +6,6 @@ import java.util.ArrayList;
 public class SkillsPanel {
     SkillsPanel(JFrame frame, JPanel panel) {
 
-        dbms checkadd=new dbms();
-        if(checkadd.rowcheck("SKILLTABLE"))
-        {   
-            System.out.println("Skills exists");  
-        }
-        else
-        {
-            System.out.println("Skills doesn't exist");
-        }
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));
@@ -33,7 +24,7 @@ public class SkillsPanel {
     
     //JOB DETAILS
         JLabel jobL= new JLabel("Job  Experience / Position of Responsibility");
-        jobL.setBounds(177,81,270,16);
+        jobL.setBounds(177,81,300,16);
         jobL.setFont(new Font("Roboto",Font.PLAIN, 14));
         jobL.setForeground(Color.decode("#000000"));
         panel.add(jobL);
@@ -93,7 +84,7 @@ public class SkillsPanel {
 
     //PORTFOLIO
         JLabel portL=new JLabel("Portfolio / Work Examples"); 
-        portL.setBounds(738,146,163,16);
+        portL.setBounds(738,146,200,16);
         portL.setFont(new Font("Roboto",Font.PLAIN, 14));
         portL.setForeground(Color.decode("#000000"));
         panel.add(portL);
@@ -129,15 +120,27 @@ public class SkillsPanel {
         saveBtn.setFocusable(false);
         panel.add(saveBtn);
 
+//_________________________________________________________________________________________________
+        String[] skillReceived = new String[7];
+        dbms skillGet=new dbms();
+        skillReceived = skillGet.getSkillData();
+
+        job.setText(skillReceived[0]);
+        intern.setText(skillReceived[1]);
+        courses.setText(skillReceived[2]);
+        skill.setText(skillReceived[3]);
+        port.setText(skillReceived[4]);
+        achieve.setText(skillReceived[5]);
+//_________________________________________________________________________________________________        
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> skillsData = new ArrayList<String>();
-                skillsData.add(job.getText());
-                skillsData.add(intern.getText());
-                skillsData.add(courses.getText());
-                skillsData.add(skill.getText());
-                skillsData.add(port.getText());
-                skillsData.add(achieve.getText());
+                skillsData.add(job.getText());//0
+                skillsData.add(intern.getText());//1
+                skillsData.add(courses.getText());//2
+                skillsData.add(skill.getText());//3
+                skillsData.add(port.getText());//4
+                skillsData.add(achieve.getText());//5
                 
                 dbms add = new dbms();
                 if(add.skillUpdate(skillsData))

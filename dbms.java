@@ -149,13 +149,14 @@ public class dbms {
         return update;
     }
 
-    void hobbyUpdate(String hobby, String voidtxt) {
-        String sql = "INSERT INTO HOBBIESTABLE (USERNAME, HOBBY , VOID) VALUES ('" + user + "',?,?)";
+    void hobbyUpdate(String hobby, String voidtxt, String decText) {
+        String sql = "INSERT INTO HOBBIESTABLE (USERNAME, HOBBY , VOID, DECLARATION) VALUES ('" + user + "',?,?,?)";
         try {
             PreparedStatement del = connection.prepareStatement("DELETE IGNORE FROM HOBBIESTABLE WHERE USERNAME = '" + user + "'");
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, hobby);
             ps.setString(2, voidtxt);
+            ps.setString(3, decText);
             del.executeUpdate();
             ps.executeUpdate();
             connection.close();
@@ -171,7 +172,7 @@ public class dbms {
         ArrayList <String> preDefault = new ArrayList<String>();
         try{
             PreparedStatement ps= connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery(); 
+            ResultSet rs = ps.executeQuery();    
             while(rs.next())
             {
                 preDefault.add(rs.getString("NAME"));
@@ -180,59 +181,130 @@ public class dbms {
             connection.close();
         }
         catch(SQLException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return preDefault;
     }
 
-    Boolean rowcheck(String tablename)
+//_______________________________________________________________________________________________________________
+  
+   String[] getProfileData()
     {
-        boolean username_exist = false;
-        String sql="SELECT USERNAME FROM "+tablename +" WHERE USERNAME = '"+ user +"'";
-        try {
-            PreparedStatement st =connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            if(rs.next())
-            {
-                username_exist=true;
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return username_exist;
-    }
-  /*
-    ArrayList<String> profileDefault()
-    {
-        String sql="SELECT * FROM SKILLTABLE WHERE USERNAME= '"+user+"'";
-        ArrayList <String> profile = new ArrayList<String>();
+        String sql="SELECT * FROM PROFILETABLE WHERE USERNAME= '"+user+"'";
+        String[] profile = new String[15];
         try{
             PreparedStatement ps= connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            rs.next();//skips username
             while(rs.next())
             {
-                profile.add(rs.getString("TITLE"));//0
-                profile.add(rs.getString("FNAME"));//1
-                profile.add(rs.getString("LNAME"));//2
-                profile.add(rs.getString("PHNO"));//3
-                profile.add(rs.getString("EMAIL"));//4
-                profile.add(rs.getString("GENDER"));//5
-                profile.add(rs.getString("DOB"));//6
-                profile.add(rs.getString("NATIONALITY"));//7
-                profile.add(rs.getString("HOUSENO"));//8
-                profile.add(rs.getString("AREA"));//9
-                profile.add(rs.getString("CITY"));//10
-                profile.add(rs.getString("DISTRICT"));//11
-                profile.add(rs.getString("STATE"));//12
-                profile.add(rs.getString("COUNTRY"));//13
-                connection.close();
+                int i=2;
+                while(i <= 15) {
+                    if(rs.wasNull())
+                    {
+                        profile[i-2] = "";
+                        i++;
+                    }
+                    else{
+                        profile[i-2] = rs.getString(i++);
+                    }
+                    
+                }
             }
+            connection.close(); 
         }catch(SQLException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return profile;
-    } */  
+    } 
+
+    String[] getEducationData()
+    {
+        String sql="SELECT * FROM EDUCATIONTABLE WHERE USERNAME= '"+user+"'";
+        String[] education = new String[14];
+        try{
+            PreparedStatement ps= connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                int i=2;
+                while(i <= 14) {
+                    if(rs.wasNull())
+                    {
+                        education[i-2] = "";
+                        i++;
+                    }
+                    else{
+                        education[i-2] = rs.getString(i++);
+                    }
+                    
+                }
+            }
+            connection.close(); 
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return education;
+    }
+
+    String[] getSkillData()
+    {
+        String sql="SELECT * FROM SKILLTABLE WHERE USERNAME= '"+user+"'";
+        String[] skill = new String[7];
+        try{
+            PreparedStatement ps= connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                int i=2;
+                while(i <= 7) {
+                    if(rs.wasNull())
+                    {
+                        skill[i-2] = "";
+                        i++;
+                    }
+                    else{
+                        skill[i-2] = rs.getString(i++);
+                    }
+                    
+                }
+            }
+            connection.close(); 
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return skill; 
+
+    } 
+
+    String[] getHobbiesData()
+    {
+        String sql="SELECT * FROM HOBBIESTABLE WHERE USERNAME= '"+user+"'";
+        String[] hobbies = new String[4];
+        try{
+            PreparedStatement ps= connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                int i=2;
+                while(i <= 4) {
+                    if(rs.wasNull())
+                    {
+                        hobbies[i-2] = "";
+                        i++;
+                    }
+                    else{
+                        hobbies[i-2] = rs.getString(i++);
+                    }
+                    
+                }
+            } 
+            connection.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return hobbies;
+    }
+    
 }
 
 
