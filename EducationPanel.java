@@ -5,6 +5,16 @@ import java.util.ArrayList;
 
 public class EducationPanel {
     EducationPanel(JFrame frame,JPanel panel) {
+
+        dbms checkadd=new dbms();
+        if(checkadd.rowcheck("EDUCATIONTABLE"))
+        {   
+            System.out.println("Education exists");  
+        }
+        else
+        {
+            System.out.println("Education doesn't exist");
+        }
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));

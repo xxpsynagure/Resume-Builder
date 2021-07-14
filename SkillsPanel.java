@@ -5,6 +5,16 @@ import java.util.ArrayList;
 
 public class SkillsPanel {
     SkillsPanel(JFrame frame, JPanel panel) {
+
+        dbms checkadd=new dbms();
+        if(checkadd.rowcheck("SKILLTABLE"))
+        {   
+            System.out.println("Skills exists");  
+        }
+        else
+        {
+            System.out.println("Skills doesn't exist");
+        }
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));
@@ -128,7 +138,7 @@ public class SkillsPanel {
                 skillsData.add(skill.getText());
                 skillsData.add(port.getText());
                 skillsData.add(achieve.getText());
-
+                
                 dbms add = new dbms();
                 if(add.skillUpdate(skillsData))
                 {

@@ -184,7 +184,24 @@ public class dbms {
         }
         return preDefault;
     }
- /*   
+
+    Boolean rowcheck(String tablename)
+    {
+        boolean username_exist = false;
+        String sql="SELECT USERNAME FROM "+tablename +" WHERE USERNAME = '"+ user +"'";
+        try {
+            PreparedStatement st =connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if(rs.next())
+            {
+                username_exist=true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return username_exist;
+    }
+  /*
     ArrayList<String> profileDefault()
     {
         String sql="SELECT * FROM SKILLTABLE WHERE USERNAME= '"+user+"'";
@@ -215,7 +232,7 @@ public class dbms {
             System.out.println(e);
         }
         return profile;
-    }   */
+    } */  
 }
 
 
