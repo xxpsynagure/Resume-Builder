@@ -84,7 +84,7 @@ public class HobbiesPanel extends dbms{
 
         hobbies.setText(hobbiesReceived[0]);
         voidTxt.setText(hobbiesReceived[1]);
-        if(hobbiesReceived[2]!=null||hobbiesReceived[2]!="")
+        if(hobbiesReceived[2]!=null)
             decText.setText(hobbiesReceived[2]);
 //__________________________________________________________________________________________        
         agree.addActionListener(new ActionListener() {
