@@ -101,7 +101,7 @@ public class HobbiesPanel extends dbms{
                 dbms add = new dbms();
                 add.hobbyUpdate(hobbies.getText(), voidTxt.getText(),decText.getText());
                 frame.dispose();
-                new SummarizeFinal();
+                new Summarize2();
 
             }
         });

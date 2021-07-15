@@ -1,6 +1,8 @@
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class dbms {
     // REMOTE SERVER
     private String database = "jdbc:mysql://sql6.freemysqlhosting.net/sql6424721";
@@ -8,9 +10,9 @@ public class dbms {
     private String password = "hektpFek6Y";
 
     // LOCAL CONNECTION
-    //private String database = "jdbc:mysql://127.0.0.1/project";
-    //private String username = "root";
-    //private String password = "your_password";
+    //private String database = "jdbc:mysql://127.0.0.1/sql6424721";
+    //private String username = "sql6424721";
+    //private String password = "hektpFek6Y";
     
     Connection connection = null;
     
@@ -105,6 +107,7 @@ public class dbms {
             connection.close();
             update=true;
         } catch (SQLException e1) {
+            JOptionPane.showMessageDialog(null,"Enter Date in yyyy-mm-dd format","Incorrect Date format",JOptionPane.WARNING_MESSAGE);
             e1.printStackTrace();
         }
         return update;

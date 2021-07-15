@@ -156,8 +156,11 @@ public abstract class BaseTemplate {
                         curPanel.setVisible(true);
                         break;
                      case 5:
+                        JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
                         panelAdjuster();
-                        sumPanel.setVisible(true);
+                        navBar.setVisible(false);
+                        intro.setVisible(true);
+                        //sumPanel.setVisible(true);
                         break;
                      case 6:
                         panelAdjuster();
@@ -178,7 +181,7 @@ public abstract class BaseTemplate {
         profPanel.setVisible(false);
         curPanel.setVisible(false);
         skillPanel.setVisible(false);
-        sumPanel.setVisible(false);
+        //sumPanel.setVisible(false);
         navBar.setVisible(true);
 
     }

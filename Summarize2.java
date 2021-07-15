@@ -5,8 +5,26 @@ import java.awt.*;
  * Summarize
  */
 public class Summarize2 {
+    static dbms place;
 
     Summarize2(){
+
+        // STRING TO STORE THE DATA RECEIVED FROM DATABASE
+        String[] profileReceived = new String[15];
+        String[] educationReceived = new String[14];
+        String[] skillReceived = new String[7];
+        String[] hobbiesReceived = new String[4];
+
+        // MAKING A CONNECTION TO DATABASE AND GETTING DATA
+        place = new dbms();
+        profileReceived =  place.getProfileData();
+        place = new dbms();
+        educationReceived = place.getEducationData();
+        place = new dbms();
+        skillReceived = place.getSkillData();
+        place = new dbms();
+        hobbiesReceived = place.getHobbiesData();
+        //---------------------------------------------------
 
         JFrame frame = new JFrame();
         frame.setSize(1400, 900);
@@ -32,27 +50,27 @@ public class Summarize2 {
         greenpanel.setLayout(null);
         panel.add(greenpanel);
         
-        JLabel sign = new JLabel("Mohammed Shehzad");
+        JLabel sign = new JLabel(profileReceived[1] +" " + profileReceived[2]);
         sign.setBounds(0, 0, 400, 40);
         sign.setFont(new Font("Roboto",Font.PLAIN,36));
         greenpanel.add(sign);
         
         ImageIcon phoneImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\phone-call.png");
-        JLabel phoneL = new JLabel("8618782292");
+        JLabel phoneL = new JLabel(profileReceived[3]);
         phoneL.setIcon(resizer(phoneImage));
         phoneL.setBounds(10, 42, 150, 30);
         phoneL.setIconTextGap(10);
         greenpanel.add(phoneL);
 
         ImageIcon mailImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\email.png");
-        JLabel mailL = new JLabel("m.shehzadsajid@gmail.com");
+        JLabel mailL = new JLabel(profileReceived[4]);
         mailL.setIcon(resizer(mailImage));
         mailL.setBounds(10, 70, 220, 30);
         mailL.setIconTextGap(10);
         greenpanel.add(mailL);
 
         ImageIcon dobImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\date-of-birth.png");
-        JLabel dobL = new JLabel("2001-08-04");
+        JLabel dobL = new JLabel(profileReceived[6]);
         dobL.setIcon(resizer(dobImage));
         dobL.setBounds(10, 110, 220, 30);
         dobL.setIconTextGap(10);
@@ -65,8 +83,9 @@ public class Summarize2 {
         locationL.setIconTextGap(10);
         panel.add(locationL);
 
-        JTextArea locationArea = new JTextArea("Bleh");
-        locationArea.setBounds(45, 160, 220, 70);
+        JTextArea locationArea = new JTextArea(" " +profileReceived[8]+ ",\n " + profileReceived[9] + ", " + profileReceived[10] + ", " +
+                                                profileReceived[11] + ",\n " + profileReceived[12] + ", " + profileReceived[13]);
+        locationArea.setBounds(45, 155, 220, 75);
         panel.add(textPreset(locationArea));
 
         JLabel line2 = new JLabel();
@@ -78,7 +97,9 @@ public class Summarize2 {
         educationL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(educationL);
 
-        JTextArea educationArea = new JTextArea("Bleh");
+        JTextArea educationArea = new JTextArea(educationReceived[0]+"  "+educationReceived[1]+"  "+educationReceived[2]+"\n"+
+                                                educationReceived[3]+"  "+educationReceived[4]+"  "+educationReceived[5]+"\n"+
+                                                educationReceived[7]+"  "+educationReceived[10]+"  "+educationReceived[11]+"  "+educationReceived[12]);
         educationArea.setBounds(10, 265, 260, 100);
         panel.add(textPreset(educationArea));
 
@@ -91,7 +112,7 @@ public class Summarize2 {
         coursesL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(coursesL);
 
-        JTextArea coursesArea = new JTextArea("Bleh");
+        JTextArea coursesArea = new JTextArea(skillReceived[2]);
         coursesArea.setBounds(10, 410, 260, 90);
         panel.add(textPreset(coursesArea));
 
@@ -104,7 +125,7 @@ public class Summarize2 {
         achievementsL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(achievementsL);
 
-        JTextArea achievementsArea = new JTextArea("Bleh");
+        JTextArea achievementsArea = new JTextArea(skillReceived[5]);
         achievementsArea.setBounds(10, 540, 260, 110);
         panel.add(textPreset(achievementsArea));
 
@@ -113,7 +134,7 @@ public class Summarize2 {
         skillsL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(skillsL);
 
-        JTextArea skillsArea = new JTextArea("Bleh");
+        JTextArea skillsArea = new JTextArea(skillReceived[3]);
         skillsArea.setBounds(290, 130, 250, 80);
         panel.add(textPreset(skillsArea));
 
@@ -122,7 +143,7 @@ public class Summarize2 {
         jobL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(jobL);
 
-        JTextArea jobArea = new JTextArea("Bleh");
+        JTextArea jobArea = new JTextArea(skillReceived[0]);
         jobArea.setBounds(290, 245, 250, 70);
         panel.add(textPreset(jobArea));
 
@@ -131,7 +152,7 @@ public class Summarize2 {
         internshipL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(internshipL);
 
-        JTextArea internshipArea = new JTextArea("Bleh");
+        JTextArea internshipArea = new JTextArea(skillReceived[1]);
         internshipArea.setBounds(290, 345, 250, 80);
         panel.add(textPreset(internshipArea));
 
@@ -140,7 +161,7 @@ public class Summarize2 {
         portfolioL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(portfolioL);
 
-        JTextArea portfolioArea = new JTextArea("Bleh");
+        JTextArea portfolioArea = new JTextArea(skillReceived[4]);
         portfolioArea.setBounds(290, 450, 250, 80);
         panel.add(textPreset(portfolioArea));
 
@@ -149,7 +170,7 @@ public class Summarize2 {
         hobbiesL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(hobbiesL);
 
-        JTextArea hobbiesArea = new JTextArea("Bleh");
+        JTextArea hobbiesArea = new JTextArea(hobbiesReceived[0]);
         hobbiesArea.setBounds(290, 570, 250, 80);
         panel.add(textPreset(hobbiesArea));
 
@@ -158,7 +179,7 @@ public class Summarize2 {
         declarationL.setFont(new Font("Seriff",Font.BOLD,14));
         panel.add(declarationL);
 
-        JTextArea declarationArea = new JTextArea("Bleh");
+        JTextArea declarationArea = new JTextArea(hobbiesReceived[2]);
         declarationArea.setBounds(10, 680, 530, 40);
         panel.add(textPreset(declarationArea));
 
@@ -186,7 +207,7 @@ public class Summarize2 {
         text.setLineWrap(true);
         text.setWrapStyleWord(true);
         text.setOpaque(true);
-        text.setEditable(true);
+        text.setEditable(false);
         return text;
     }
     JLabel linepreset(JLabel line){
