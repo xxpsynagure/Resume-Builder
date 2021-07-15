@@ -17,7 +17,6 @@ public abstract class BaseTemplate {
     JPanel profPanel= new JPanel();
     JPanel curPanel= new JPanel();
     JPanel skillPanel= new JPanel();
-    JPanel sumPanel= new JPanel();
 
     BaseTemplate(){
         //demo code
@@ -137,7 +136,6 @@ public abstract class BaseTemplate {
              public void mouseClicked(MouseEvent e){
                  // switch statement used to correctly identify which panel is clicked and
                  // call the constructor of the respective panel
-                        intro.setVisible(false);
                  switch (i) {
                      case 1:
                         panelAdjuster();
@@ -156,11 +154,23 @@ public abstract class BaseTemplate {
                         curPanel.setVisible(true);
                         break;
                      case 5:
-                        JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
-                        panelAdjuster();
-                        navBar.setVisible(false);
-                        intro.setVisible(true);
-                        //sumPanel.setVisible(true);
+                        dbms show = new dbms();
+                        Boolean yes = show.showSummarize();
+                        if(yes) {
+                            new Summarize2();
+                            panelAdjuster();
+                            navBar.setVisible(false);
+                            intro.setVisible(true);
+                        }
+                        
+                        else {
+                            JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
+                            panelAdjuster();
+                            navBar.setVisible(false);
+                            intro.setVisible(true);
+                            //sumPanel.setVisible(true);
+                        }
+                            
                         break;
                      case 6:
                         panelAdjuster();
@@ -176,7 +186,7 @@ public abstract class BaseTemplate {
     }
 
     void panelAdjuster(){
-
+        intro.setVisible(false);
         eduPanel.setVisible(false);
         profPanel.setVisible(false);
         curPanel.setVisible(false);
@@ -193,7 +203,7 @@ public abstract class BaseTemplate {
     ImageIcon resizer(ImageIcon image){
 
         Image imageget = image.getImage(); // transform it 
-        Image newimg = imageget.getScaledInstance(110, 110,  java.awt.Image.SCALE_SMOOTH);
+        Image newimg = imageget.getScaledInstance(110, 110,  Image.SCALE_SMOOTH);
         return new ImageIcon(newimg);
 
     }
@@ -201,7 +211,7 @@ public abstract class BaseTemplate {
     ImageIcon navResizer(ImageIcon image){
 
         Image navImage = image.getImage(); // transform it 
-        Image newNavImg = navImage.getScaledInstance(65, 65,  java.awt.Image.SCALE_SMOOTH);
+        Image newNavImg = navImage.getScaledInstance(65, 65,  Image.SCALE_SMOOTH);
         return new ImageIcon(newNavImg);
 
     }
@@ -214,8 +224,6 @@ public abstract class BaseTemplate {
         skillPanel.setVisible(false);
         new HobbiesPanel(frame,curPanel);
         curPanel.setVisible(false);
-        new Summarize(frame,sumPanel);
-        sumPanel.setVisible(false);
     }
 }
     

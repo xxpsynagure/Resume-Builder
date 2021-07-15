@@ -100,7 +100,6 @@ public class HobbiesPanel extends dbms{
             public void actionPerformed(ActionEvent e) {
                 dbms add = new dbms();
                 add.hobbyUpdate(hobbies.getText(), voidTxt.getText(),decText.getText());
-                frame.dispose();
                 new Summarize2();
 
             }

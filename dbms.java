@@ -307,6 +307,21 @@ public class dbms {
         }
         return hobbies;
     }
+
+    Boolean showSummarize() {
+        try{
+            PreparedStatement ps= connection.prepareStatement("SELECT DECLARATION FROM HOBBIESTABLE WHERE USERNAME = '" + user + "'");
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                connection.close();
+                return true;
+            }
+            connection.close();   
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
     
 }
 

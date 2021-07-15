@@ -131,30 +131,6 @@ class LoginFrame extends dbms
                     panel.repaint();
                 }
                 
- /*               if(usertxt.equals("resume") && passtxt.equals("resume")){
-                    //IntroPage intro = new IntroPage();
-                    JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
-                    frame.dispose();
-                    IntroPage intro = new IntroPage();
-                }
-                else{
-                    loginBtn.remove(loginBtn);
-                    JLabel incorrect = new JLabel("Incorrect Username or Password");
-                    incorrect.setForeground(Color.red);
-                    incorrect.setBounds(50, 300, 200, 25);
-                    
-                    loginBtn.setBounds(50, 330, 100, 25);
-                    registerBtn.setBounds(175, 330, 100, 25);
-                    
-                    panel.add(incorrect);
-                    panel.add(loginBtn);
-                    panel.add(registerBtn);
-    
-                    panel.revalidate();
-                    panel.repaint();
-                }*/
-                
-                
             }
         });
 
@@ -316,15 +292,14 @@ class LoginFrame extends dbms
             }
         });
 
-        Passwordtxt.addKeyListener(new KeyListener() {
+        confirmpassword.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {}
             public void keyPressed(KeyEvent f) {
-                if( f.getKeyCode()  == KeyEvent.VK_ENTER){
-                    registerBtnR.doClick();
-                }
+                registerBtnR.doClick();
             }
             public void keyReleased(KeyEvent g) {}
-        });;
+
+        });
         
         frame.add(panel2);//add to the frame
     }

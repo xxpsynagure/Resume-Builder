@@ -34,7 +34,8 @@ public class ProfilePanel {
         fNameL.setFont(new Font("Roboto", 0, 14));
         panel.add(fNameL);
 
-        JTextField fName = new JTextField(preDefault.get(0));
+        String[] names = preDefault.get(0).split("\\s+");
+        JTextField fName = new JTextField(names[0]);
         fName.setBounds(265, 141, 147, 22);
         panel.add(fName);
 
@@ -43,7 +44,7 @@ public class ProfilePanel {
         lNameL.setFont(new Font("Roboto", 0, 14));
         panel.add(lNameL);
 
-        JTextField lName = new JTextField();
+        JTextField lName = new JTextField(names[1]);
         lName.setBounds(473, 141, 147, 22);
         panel.add(lName);
 
@@ -191,7 +192,8 @@ public class ProfilePanel {
         profileRecieved = profileGet.getProfileData();
         
         ttlBox.setSelectedItem(profileRecieved[0]);
-        fName.setText(profileRecieved[1]);
+        if (profileRecieved[1] != null)
+            fName.setText(profileRecieved[1]);
         lName.setText(profileRecieved[2]);
         phno.setText(profileRecieved[3]);
         email.setEditable(false);

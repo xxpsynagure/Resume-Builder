@@ -28,7 +28,7 @@ public class Summarize2 {
 
         JFrame frame = new JFrame();
         frame.setSize(1400, 900);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.darkGray);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
@@ -180,7 +180,7 @@ public class Summarize2 {
         panel.add(declarationL);
 
         JTextArea declarationArea = new JTextArea(hobbiesReceived[2]);
-        declarationArea.setBounds(10, 680, 530, 40);
+        declarationArea.setBounds(10, 680, 530, 60);
         panel.add(textPreset(declarationArea));
 
         JLabel signL = new JLabel("SIGNATURE");
@@ -197,13 +197,13 @@ public class Summarize2 {
     ImageIcon resizer(ImageIcon image){
 
         Image imageget = image.getImage(); // transform it 
-        Image newimg = imageget.getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH);
+        Image newimg = imageget.getScaledInstance(20, 20,  Image.SCALE_SMOOTH);
         return new ImageIcon(newimg);
 
     }
 
     JTextArea textPreset(JTextArea text){
-        text.setFont(new Font("Serif",Font.PLAIN , 14));
+        text.setFont(new Font("Montserrat",Font.PLAIN , 14));
         text.setLineWrap(true);
         text.setWrapStyleWord(true);
         text.setOpaque(true);
