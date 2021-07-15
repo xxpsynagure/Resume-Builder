@@ -34,8 +34,7 @@ public class ProfilePanel {
         fNameL.setFont(new Font("Roboto", 0, 14));
         panel.add(fNameL);
 
-        String[] names = preDefault.get(0).split("\\s+");
-        JTextField fName = new JTextField(names[0]);
+        JTextField fName = new JTextField(preDefault.get(0).split("\\s+")[0]);
         fName.setBounds(265, 141, 147, 22);
         panel.add(fName);
 
@@ -44,7 +43,7 @@ public class ProfilePanel {
         lNameL.setFont(new Font("Roboto", 0, 14));
         panel.add(lNameL);
 
-        JTextField lName = new JTextField(names[1]);
+        JTextField lName = new JTextField();
         lName.setBounds(473, 141, 147, 22);
         panel.add(lName);
 
