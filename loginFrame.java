@@ -151,7 +151,7 @@ class LoginFrame extends dbms
                 }
             }
             public void keyReleased(KeyEvent g) {}
-        });;
+        });
         
 
         frame.setLocationRelativeTo(null);
@@ -292,13 +292,14 @@ class LoginFrame extends dbms
             }
         });
 
-        confirmpassword.addKeyListener(new KeyListener() {
+        ConfirmPasswordtxt.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {}
             public void keyPressed(KeyEvent f) {
-                registerBtnR.doClick();
+                if( f.getKeyCode()  == KeyEvent.VK_ENTER){
+                    registerBtnR.doClick();
+                }
             }
             public void keyReleased(KeyEvent g) {}
-
         });
         
         frame.add(panel2);//add to the frame

@@ -7,15 +7,16 @@
 * education panel - done
 * skill panel - done
 * hobbies panel - done
-* summarize - 
+* summarize - done
 
-# deadline 15 july 2021
+
+# deadline 15 july 2021 - checked
 
 8 among the following 10 must be mandatorily included in our source code
 * JLabel - checked
 * JTextField - checked
 * JButton - checked
-* JToggleButoon
+* JToggleButoon - checked
 * JCheckBox - checked
 * JRadioButton - checked
 * JTabbedButton
@@ -25,3 +26,5 @@
 * JTree
 * JTable
 * JMenu - checked
+
+# PROJECT COMPLETE

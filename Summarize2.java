@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /**
  * Summarize
@@ -8,7 +9,7 @@ public class Summarize2 {
     static dbms place;
 
     Summarize2(){
-
+        
         // STRING TO STORE THE DATA RECEIVED FROM DATABASE
         String[] profileReceived = new String[15];
         String[] educationReceived = new String[14];
@@ -27,21 +28,21 @@ public class Summarize2 {
         //---------------------------------------------------
 
         JFrame frame = new JFrame();
-        frame.setSize(1400, 900);
+        frame.setSize(700, 850);
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(Color.darkGray);
+        frame.getContentPane().setBackground(Color.decode("#F6D9A1"));
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         
         //--------------------------------------------------
         //page start
         JPanel panel = new JPanel();
-        panel.setBounds(350, 0, 565, 780);
+        panel.setBounds(40, 0, 565, 780);
         panel.setBackground(Color.white);
         panel.setLayout(null);
 
         JLabel line1 = new JLabel();
-        line1.setBounds(281, 103, 1, 553);
+        line1.setBounds(281, 103, 2, 553);
         panel.add(linepreset(line1));
         
         JPanel greenpanel = new JPanel();
@@ -89,17 +90,18 @@ public class Summarize2 {
         panel.add(textPreset(locationArea));
 
         JLabel line2 = new JLabel();
-        line2.setBounds(10, 240, 260, 1);
+        line2.setBounds(10, 240, 260, 2);
         panel.add(linepreset(line2));
 
         JLabel educationL = new JLabel("EDUCATION");
         educationL.setBounds(10,245,150,20);
         educationL.setFont(new Font("Seriff",Font.BOLD,14));
+        educationL.setForeground(Color.decode("#343A40"));
         panel.add(educationL);
 
-        JTextArea educationArea = new JTextArea(educationReceived[0]+"  "+educationReceived[1]+"  "+educationReceived[2]+"\n"+
-                                                educationReceived[3]+"  "+educationReceived[4]+"  "+educationReceived[5]+"\n"+
-                                                educationReceived[7]+"  "+educationReceived[10]+"  "+educationReceived[11]+"  "+educationReceived[12]);
+        JTextArea educationArea = new JTextArea("SSLC  :- "+educationReceived[0]+"  "+educationReceived[1]+"  "+educationReceived[2]+"\n"+
+                                                "PUC  :- "+educationReceived[3]+"  "+educationReceived[4]+"  "+educationReceived[5]+"\n"+
+                                                "College  :- "+educationReceived[7]+"  "+educationReceived[10]+"  "+educationReceived[11]+"  "+educationReceived[12]);
         educationArea.setBounds(10, 265, 260, 100);
         panel.add(textPreset(educationArea));
 
@@ -110,6 +112,7 @@ public class Summarize2 {
         JLabel coursesL = new JLabel("COURSES");
         coursesL.setBounds(10,380,150,20);
         coursesL.setFont(new Font("Seriff",Font.BOLD,14));
+        coursesL.setForeground(Color.decode("#343A40"));
         panel.add(coursesL);
 
         JTextArea coursesArea = new JTextArea(skillReceived[2]);
@@ -123,6 +126,7 @@ public class Summarize2 {
         JLabel achievementsL = new JLabel("ACHIEVEMENTS");
         achievementsL.setBounds(10,515,150,20);
         achievementsL.setFont(new Font("Seriff",Font.BOLD,14));
+        achievementsL.setForeground(Color.decode("#343A40"));
         panel.add(achievementsL);
 
         JTextArea achievementsArea = new JTextArea(skillReceived[5]);
@@ -132,6 +136,7 @@ public class Summarize2 {
         JLabel skillsL = new JLabel("SKILLS");
         skillsL.setBounds(290,105,150,20);
         skillsL.setFont(new Font("Seriff",Font.BOLD,14));
+        skillsL.setForeground(Color.decode("#343A40"));
         panel.add(skillsL);
 
         JTextArea skillsArea = new JTextArea(skillReceived[3]);
@@ -141,6 +146,7 @@ public class Summarize2 {
         JLabel jobL = new JLabel("JOB/EXPERIENCE");
         jobL.setBounds(290,220,150,20);
         jobL.setFont(new Font("Seriff",Font.BOLD,14));
+        jobL.setForeground(Color.decode("#343A40"));
         panel.add(jobL);
 
         JTextArea jobArea = new JTextArea(skillReceived[0]);
@@ -150,6 +156,7 @@ public class Summarize2 {
         JLabel internshipL = new JLabel("INTERNSHIPS");
         internshipL.setBounds(290,322,150,20);
         internshipL.setFont(new Font("Seriff",Font.BOLD,14));
+        internshipL.setForeground(Color.decode("#343A40"));
         panel.add(internshipL);
 
         JTextArea internshipArea = new JTextArea(skillReceived[1]);
@@ -159,6 +166,7 @@ public class Summarize2 {
         JLabel portfolioL = new JLabel("PORTFOLIO");
         portfolioL.setBounds(290,432,150,20);
         portfolioL.setFont(new Font("Seriff",Font.BOLD,14));
+        portfolioL.setForeground(Color.decode("#343A40"));
         panel.add(portfolioL);
 
         JTextArea portfolioArea = new JTextArea(skillReceived[4]);
@@ -168,6 +176,7 @@ public class Summarize2 {
         JLabel hobbiesL = new JLabel("HOBBIES");
         hobbiesL.setBounds(290,550,150,20);
         hobbiesL.setFont(new Font("Seriff",Font.BOLD,14));
+        hobbiesL.setForeground(Color.decode("#343A40"));
         panel.add(hobbiesL);
 
         JTextArea hobbiesArea = new JTextArea(hobbiesReceived[0]);
@@ -177,6 +186,7 @@ public class Summarize2 {
         JLabel declarationL = new JLabel("DECLARATION");
         declarationL.setBounds(10,655,150,20);
         declarationL.setFont(new Font("Seriff",Font.BOLD,14));
+        declarationL.setForeground(Color.decode("#343A40"));
         panel.add(declarationL);
 
         JTextArea declarationArea = new JTextArea(hobbiesReceived[2]);
@@ -186,9 +196,59 @@ public class Summarize2 {
         JLabel signL = new JLabel("SIGNATURE");
         signL.setBounds(480,760,70,20);
         signL.setFont(new Font("Seriff",Font.BOLD,12));
+        signL.setForeground(Color.decode("#343A40"));
         panel.add(signL);
-        
 
+        ImageIcon darkImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\dark.png");
+        JToggleButton toggle = new JToggleButton();
+        toggle.setIcon(resizer(darkImage));
+        toggle.setBounds(630, 20, 30, 30);
+        toggle.setFocusable(false);
+        toggle.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AbstractButton abstractButton = (AbstractButton)e.getSource();
+                boolean selected = abstractButton.getModel().isSelected();
+                if(selected) {
+                    panel.setBackground(Color.decode("#6C757D"));
+                    greenpanel.setBackground(Color.decode("#343A40"));
+                    sign.setForeground(Color.white);
+                    mailL.setForeground(Color.white);
+                    phoneL.setForeground(Color.white);
+                    dobL.setForeground(Color.white);
+                    locationArea.setForeground(Color.white);
+                    educationArea.setForeground(Color.white);
+                    coursesArea.setForeground(Color.white);
+                    achievementsArea.setForeground(Color.white);
+                    skillsArea.setForeground(Color.white);
+                    jobArea.setForeground(Color.white);
+                    internshipArea.setForeground(Color.white);
+                    portfolioArea.setForeground(Color.white);
+                    hobbiesArea.setForeground(Color.white);
+                    declarationArea.setForeground(Color.white);
+                }
+                else {
+                    panel.setBackground(Color.white);
+                    greenpanel.setBackground(Color.decode("#99D6B9"));
+                    sign.setForeground(Color.black);
+                    mailL.setForeground(Color.black);
+                    phoneL.setForeground(Color.black);
+                    dobL.setForeground(Color.black);
+                    locationArea.setForeground(Color.black);
+                    educationArea.setForeground(Color.black);
+                    coursesArea.setForeground(Color.black);
+                    achievementsArea.setForeground(Color.black);
+                    skillsArea.setForeground(Color.black);
+                    jobArea.setForeground(Color.black);
+                    internshipArea.setForeground(Color.black);
+                    portfolioArea.setForeground(Color.black);
+                    hobbiesArea.setForeground(Color.black);
+                    declarationArea.setForeground(Color.black);
+
+                }
+            }
+        });
+        
+        frame.add(toggle);
         frame.add(panel);
         frame.setVisible(true);
         
@@ -206,13 +266,17 @@ public class Summarize2 {
         text.setFont(new Font("Montserrat",Font.PLAIN , 14));
         text.setLineWrap(true);
         text.setWrapStyleWord(true);
-        text.setOpaque(true);
+        text.setOpaque(false);
         text.setEditable(false);
         return text;
     }
     JLabel linepreset(JLabel line){
-        line.setBackground(Color.decode("#000000"));
+        line.setBackground(Color.decode("#99D6B9"));
         line.setOpaque(true);
         return line;
     }
+    
+    
 }
+
+
