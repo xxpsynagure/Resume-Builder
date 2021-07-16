@@ -51,7 +51,7 @@ public abstract class BaseTemplate {
 /*        
         goback.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                panelAdjuster();
+                panelAddjuster();
                 intro.setVisible(true);
             }
         }); */
@@ -138,21 +138,22 @@ public abstract class BaseTemplate {
              public void mouseClicked(MouseEvent e){
                  // switch statement used to correctly identify which panel is clicked and
                  // call the constructor of the respective panel
+                 panelAdjuster();
                  switch (i) {
                      case 1:
-                        panelAdjuster();
+                        
                         profPanel.setVisible(true);
                         break;
                      case 2:
-                        panelAdjuster();
+                        
                         eduPanel.setVisible(true);
                         break;
                      case 3:
-                        panelAdjuster();
+                        
                         skillPanel.setVisible(true);
                         break;
                      case 4:
-                        panelAdjuster();
+                        
                         curPanel.setVisible(true);
                         break;
                      case 5:
@@ -160,22 +161,22 @@ public abstract class BaseTemplate {
                         Boolean yes = show.showSummarize();
                         if(yes) {
                             new Summarize2();
-                            panelAdjuster();
+                            
                             navBar.setVisible(false);
                             intro.setVisible(true);
                         }
                         
                         else {
-                            JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
-                            panelAdjuster();
-                            navBar.setVisible(false);
                             intro.setVisible(true);
+                            navBar.setVisible(false);
+                            JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
+                            
                             //sumPanel.setVisible(true);
                         }
                             
                         break;
                      case 6:
-                        panelAdjuster();
+                        
                         navBar.setVisible(false);
                         intro.setVisible(true);
                         break;
