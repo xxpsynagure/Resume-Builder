@@ -1,16 +1,17 @@
+package Resume_Builder;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.regex.*;
 import java.util.ArrayList;
 //loginframe
-class LoginFrame extends dbms
+public class LoginFrame extends dbms
  {
 
     JFrame frame;
     JPanel panel, panel2;
     //separated the constructor LoginFrame and loginPanel to implement the backBtn
-    LoginFrame(){
+    public LoginFrame(){
         
         frame = new JFrame();
         frame.setTitle("Resume Builder");

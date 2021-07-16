@@ -1,3 +1,4 @@
+package Resume_Builder;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class dbms {
     
     Connection connection = null;
     
-    dbms() {
+    public dbms() {
     try {
         connection = (Connection) DriverManager.getConnection(database, username,password);
     } catch (SQLException e) {
