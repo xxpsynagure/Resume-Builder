@@ -3,6 +3,10 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  * Summarize
@@ -249,7 +253,31 @@ public class Summarize2 {
                 }
             }
         });
+
+
+        ImageIcon donwload = new ImageIcon(System.getProperty("user.dir") + "\\images\\download.png");
+        JButton downloadBtn = new JButton();
+        downloadBtn.setIcon(resizer(donwload));
+        downloadBtn.setBounds(630, 60, 30, 30);
+        downloadBtn.setFocusable(false);
+
+        downloadBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Container content = panel;
+                BufferedImage img = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
+                Graphics2D g2d = img.createGraphics();
+                content.printAll(g2d);
+                g2d.dispose();
+
+                try {
+                    ImageIO.write(img, "png", new File(System.getProperty("user.dir") + "\\resume.png"));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
         
+        frame.add(downloadBtn);
         frame.add(toggle);
         frame.add(panel);
         frame.setVisible(true);

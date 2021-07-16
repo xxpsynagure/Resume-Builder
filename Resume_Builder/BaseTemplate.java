@@ -31,11 +31,11 @@ public abstract class BaseTemplate {
         //menuBar added to abstract class
         JMenuBar menuBar = new JMenuBar();
         JMenu settings = new JMenu("Help");
-        JMenuItem logout = new JMenuItem("Log out");
-        //JMenuItem goback = new JMenuItem("Go Back");
+        JMenuItem logout = new JMenuItem("Log out   alt+L");
+        JMenuItem exitThing = new JMenuItem("Exit   alt+f4");
         
         settings.add(logout);
-        //settings.add(goback);
+        settings.add(exitThing);
         menuBar.add(settings);
 
         //actionListener added to logout menuitem which leads back to the login page
@@ -48,19 +48,18 @@ public abstract class BaseTemplate {
 
             }
         });
-/*        
-        goback.addActionListener(new ActionListener() {
+        
+        exitThing.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                panelAddjuster();
-                intro.setVisible(true);
+                System.exit(0);
             }
-        }); */
+        }); 
         
         frame.setJMenuBar(menuBar);
 
         settings.setMnemonic(KeyEvent.VK_H); // access the help menu by pressing the key alt+H
         logout.setMnemonic(KeyEvent.VK_L); // logouts of the introPage by pressing the L key
-        //goback.setMnemonic(KeyEvent.VK_B);
+        exitThing.setMnemonic(KeyEvent.VK_F4);
 
 
         //Demo navigation Bar
