@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.util.regex.*;
 import java.util.ArrayList;
 //loginframe
 class LoginFrame extends dbms
@@ -110,7 +110,7 @@ class LoginFrame extends dbms
             public void actionPerformed(ActionEvent e) {
                 dbms loginadd = new dbms();
                if( loginadd.loginUpdate(Usernametxt.getText(),String.valueOf(Passwordtxt.getPassword()))){
-                    JOptionPane.showMessageDialog(null, "Login Successfull", "Message box", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Login Successful", "Message box", JOptionPane.INFORMATION_MESSAGE);
                     frame.dispose();
                     new IntroPage();
                 }
@@ -195,6 +195,7 @@ class LoginFrame extends dbms
         
         JTextField usernametxt = new JTextField();
         usernametxt.setBounds(50, 245, 200, 25);
+        usernametxt.setToolTipText("5-20 lower case characters/ numbers/ special characters(_.-) can't begin or end with special characters");
         panel2.add(usernametxt);
         
         JLabel password = new JLabel("Password");
@@ -205,7 +206,7 @@ class LoginFrame extends dbms
         
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 305, 200, 25);
-        Passwordtxt.setToolTipText("must contain 8 characters with atleast one special character eg:@#$");
+        //Passwordtxt.setToolTipText("must contain 8 characters with atleast one special character eg:@#$");
         panel2.add(Passwordtxt);
 
         JLabel confirmpassword = new JLabel("Confirm Password");
@@ -247,6 +248,12 @@ class LoginFrame extends dbms
                 String emaill = emailtxt.getText();
                 String pass1 = String.valueOf(Passwordtxt.getPassword());
                 String pass2 = String.valueOf(ConfirmPasswordtxt.getPassword());
+                String emailregex="^[A-Za-z0-9+_.-]+@(.+)$";
+                Pattern pattern = Pattern.compile(emailregex);
+                Matcher matcher = pattern.matcher(emaill);
+                String userregex="^[a-z0-9]([._-](?![._-])|[a-z0-9]){3,18}[a-z0-9]$";
+                Pattern userpattern = Pattern.compile(userregex);
+                Matcher usermatcher = userpattern.matcher(uname);
                 dbms add=new dbms();
 
                 // check empty fields
@@ -254,14 +261,19 @@ class LoginFrame extends dbms
                 {
                     JOptionPane.showMessageDialog(null, "One Or More Fields Are Empty","Empty Fields",2);
                 }
-        
+                else if(!usermatcher.matches())
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid username \ncan include lowercase characters, numbers, special characters(underscore_, dot., hyphen-) \ncharacter limit: 5-20 characters\ncannot begin or end with special characters","Username Failed", 2);
+                }
                 // check if the two password are equals or not
                 else if(!pass1.equals(pass2))
                 {
                     JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
                 } 
-
-                //true if username exists
+                else if(!matcher.matches())
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid Email Id","Email Failed",2);
+                }
                 //for validated credentials
                 else if(!add.checkUsername(uname))
                 {

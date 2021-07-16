@@ -84,8 +84,8 @@ public class Summarize2 {
         locationL.setIconTextGap(10);
         panel.add(locationL);
 
-        JTextArea locationArea = new JTextArea(" " +profileReceived[8]+ ",\n " + profileReceived[9] + ", " + profileReceived[10] + ", " +
-                                                profileReceived[11] + ",\n " + profileReceived[12] + ", " + profileReceived[13]);
+        JTextArea locationArea = new JTextArea(profileReceived[8]+ ",\n" + profileReceived[9] + ", " + profileReceived[10] + ", " +
+                                                profileReceived[11] + ",\n" + profileReceived[12] + ", " + profileReceived[13]);
         locationArea.setBounds(45, 155, 220, 75);
         panel.add(textPreset(locationArea));
 
