@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-//base template of where the panes should be added
+//All the frames and panels are declared in the BaseTemplate which is an abstract class
 
 
 public abstract class BaseTemplate {
-    //demo code 
+
     JFrame frame = new JFrame();
     JPanel intro = new JPanel();
 
@@ -21,12 +21,12 @@ public abstract class BaseTemplate {
     JPanel skillPanel= new JPanel();
 
     BaseTemplate(){
-        //demo code
+
         frame.setTitle("Resume Builder");
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setLocationRelativeTo(null);
-        //setLayout(null);
+        ImageIcon image = new ImageIcon(System.getProperty("user.dir") + "\\images\\logo.png");
+        frame.setIconImage(image.getImage());
 
         //menuBar added to abstract class
         JMenuBar menuBar = new JMenuBar();
@@ -62,7 +62,7 @@ public abstract class BaseTemplate {
         exitThing.setMnemonic(KeyEvent.VK_F4);
 
 
-        //Demo navigation Bar
+        //navigation Bar
         navBar.setBackground(Color.decode("#1c2e4a"));
         navBar.setBounds(0, 0, 100, 600);
         navBar.setLayout(null);
@@ -125,7 +125,7 @@ public abstract class BaseTemplate {
         frame.add(navBar);
 
     }
-    
+    //mouseFunctions changes the colour of the panelBtns and navPanels when the cursor is hovered on it
     void mouseFunctions(JPanel panel, int i){
         panel.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent e){
@@ -135,8 +135,7 @@ public abstract class BaseTemplate {
                 panel.setBackground(Color.decode("#D88C9A"));
             }
              public void mouseClicked(MouseEvent e){
-                 // switch statement used to correctly identify which panel is clicked and
-                 // call the constructor of the respective panel
+                 // switch statement used to correctly identify which panel is clicked and set visible
                  panelAdjuster();
                  switch (i) {
                      case 1:
@@ -169,8 +168,6 @@ public abstract class BaseTemplate {
                             intro.setVisible(true);
                             navBar.setVisible(false);
                             JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
-                            
-                            //sumPanel.setVisible(true);
                         }
                             
                         break;
@@ -193,15 +190,11 @@ public abstract class BaseTemplate {
         profPanel.setVisible(false);
         curPanel.setVisible(false);
         skillPanel.setVisible(false);
-        //sumPanel.setVisible(false);
         navBar.setVisible(true);
 
     }
 
-    //ImageIcon imageIcon1 = new ImageIcon("portfolio.png"); // load the image to a imageIcon
-        // Image image = imageIcon1.getImage(); // transform it 
-        // Image newimg = image.getScaledInstance(110, 110,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-        //imageIcon1 = new ImageIcon(newimg);
+    //resizer resizes the panelBtn icons
     ImageIcon resizer(ImageIcon image){
 
         Image imageget = image.getImage(); // transform it 
@@ -210,6 +203,7 @@ public abstract class BaseTemplate {
 
     }
 
+    //navResizer resizes the navPanel icons
     ImageIcon navResizer(ImageIcon image){
 
         Image navImage = image.getImage(); // transform it 
@@ -217,6 +211,8 @@ public abstract class BaseTemplate {
         return new ImageIcon(newNavImg);
 
     }
+
+    //inittializer invokes the constructors of all classes and sets their visibility to false
     void initializer(){
         new ProfilePanel(frame,profPanel);
         profPanel.setVisible(false);

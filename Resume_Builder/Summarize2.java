@@ -39,6 +39,8 @@ public class Summarize2 {
         frame.getContentPane().setBackground(Color.decode("#F6D9A1"));
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
+        ImageIcon image = new ImageIcon(System.getProperty("user.dir") + "\\images\\logo.png");
+        frame.setIconImage(image.getImage());
         
         //--------------------------------------------------
         //page start

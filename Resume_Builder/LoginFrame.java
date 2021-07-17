@@ -19,6 +19,8 @@ public class LoginFrame extends dbms
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
+        ImageIcon image = new ImageIcon(System.getProperty("user.dir") + "\\images\\logo.png");
+        frame.setIconImage(image.getImage());
         loginPanel(frame);
 
     }
