@@ -15,18 +15,24 @@ public class IntroPage extends BaseTemplate {
         intro.setBackground(Color.decode("#F6D9A1"));
         //intro.setSize(1000, 600);
         intro.setLayout(null);
+
+        JPanel head = new JPanel();
+        head.setBackground(Color.decode("#1C2E4A"));
+        head.setBounds(0, 0, 1000, 162);
+        head.setLayout(null);
+        intro.add(head); 
         
         JLabel mainttl=new JLabel("BUILD YOUR RESUME");
-        mainttl.setBounds(93,55,450,42);
-        mainttl.setFont(new Font("Roboto", Font.BOLD, 36));
-        mainttl.setForeground(Color.decode("#1c2e4a"));
-        intro.add(mainttl);
+        mainttl.setBounds(100,30,450,50);
+        mainttl.setFont(new Font("Montserrat", Font.BOLD, 36));
+        mainttl.setForeground(Color.decode("#F6D9A1"));
+        head.add(mainttl);
 
         JLabel welcome = new JLabel("BUILD YOUR FUTURE");
-        welcome.setBounds(169,97,450,42);
-        welcome.setFont(new Font("Roboto",Font.BOLD,36));
-        welcome.setForeground(Color.decode("#1c2e4a"));
-        intro.add(welcome);
+        welcome.setBounds(246,92,450,50);
+        welcome.setFont(new Font("Montserrat",Font.BOLD,36));
+        welcome.setForeground(Color.decode("#F6D9A1"));
+        head.add(welcome);
          
         JPanel panelBtn1 = new JPanel();
         panelBtn1.setBackground(Color.decode("#D88C9A"));
@@ -94,7 +100,7 @@ public class IntroPage extends BaseTemplate {
         intro.add(panelBtn5);
 
         initializer();
-        
+
         frame.add(intro);
         frame.pack();
         frame.setLocationRelativeTo(null);

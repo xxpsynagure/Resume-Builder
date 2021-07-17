@@ -274,6 +274,7 @@ public class Summarize2 {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+                JOptionPane.showMessageDialog(null, "Download Successful","Task Completed", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         

@@ -24,7 +24,7 @@ public class LoginFrame extends dbms
     }
 
     public void loginPanel(JFrame frame){
-        // Testing JPanel and adding components
+        //adding components to panel
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 350, 600);
         panel.setBackground(Color.decode("#F6D9A1"));
@@ -80,18 +80,18 @@ public class LoginFrame extends dbms
 
         //ImageIcon image = new ImageIcon("logo.png");
         JLabel lbl = new JLabel();
-        lbl.setBounds(55, 10, 350, 100);
+        lbl.setBounds(50, 10, 350, 100);
         //lbl.setIcon(image);
-        lbl.setText("Resume Builder");
+        lbl.setText("RESUME BUILDER");
         lbl.setVerticalTextPosition(JLabel.TOP);
         lbl.setHorizontalTextPosition(JLabel.CENTER);
         lbl.setIconTextGap(-10);
-        lbl.setFont(new Font("Mv Boli", Font.BOLD, 26));
+        lbl.setFont(new Font("Calibri", Font.ITALIC + Font.BOLD,30));
         panel.add(lbl);
 
         JLabel ttl=new JLabel("Create your own professional cv");
-        ttl.setBounds(55,70,300,30);
-        ttl.setFont(new Font("Mv Boli", Font.BOLD, 14));
+        ttl.setBounds(50,70,300,30);
+        ttl.setFont(new Font("Mv boli", Font.BOLD, 14));
         panel.add(ttl);
 
         chkbox.addActionListener(new ActionListener() {
@@ -207,7 +207,6 @@ public class LoginFrame extends dbms
         
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 305, 200, 25);
-        //Passwordtxt.setToolTipText("must contain 8 characters with atleast one special character eg:@#$");
         panel2.add(Passwordtxt);
 
         JLabel confirmpassword = new JLabel("Confirm Password");
@@ -241,6 +240,7 @@ public class LoginFrame extends dbms
         backBtn.setFocusable(false);
         panel2.add(backBtn);
 
+        //sign up button checks for all the conditions and then registers the details
         registerBtnR.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -249,6 +249,7 @@ public class LoginFrame extends dbms
                 String emaill = emailtxt.getText();
                 String pass1 = String.valueOf(Passwordtxt.getPassword());
                 String pass2 = String.valueOf(ConfirmPasswordtxt.getPassword());
+
                 String emailregex="^[A-Za-z0-9+_.-]+@(.+)$";
                 Pattern pattern = Pattern.compile(emailregex);
                 Matcher matcher = pattern.matcher(emaill);
@@ -257,25 +258,29 @@ public class LoginFrame extends dbms
                 Matcher usermatcher = userpattern.matcher(uname);
                 dbms add=new dbms();
 
-                // check empty fields
+                //checks for empty fields
                 if(fname.trim().equals("") || uname.trim().equals("") || emaill.trim().equals("") || pass1.trim().equals("") || pass2.trim().equals(""))
                 {
                     JOptionPane.showMessageDialog(null, "One Or More Fields Are Empty","Empty Fields",2);
                 }
+                //regex check for valid username format
                 else if(!usermatcher.matches())
                 {
-                    JOptionPane.showMessageDialog(null, "Invalid username \ncan include lowercase characters, numbers, special characters(underscore_, dot., hyphen-) \ncharacter limit: 5-20 characters\ncannot begin or end with special characters","Username Failed", 2);
+                    JOptionPane.showMessageDialog(null, "Invalid username \n[can include lowercase characters, numbers, special characters(underscore_, dot., hyphen-) \ncharacter limit: 5-20 characters\ncannot begin or end with special characters]","Username Failed", 2);
                 }
-                // check if the two password are equals or not
+                //checks if the two passwords are equals or not
                 else if(!pass1.equals(pass2))
                 {
                     JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
                 } 
+                //regex check for valid email format
                 else if(!matcher.matches())
                 {
                     JOptionPane.showMessageDialog(null, "Invalid Email Id","Email Failed",2);
                 }
-                //for validated credentials
+
+                //checkUsername() method checks whether username already exists in the database
+                //if username doesn't exist
                 else if(!add.checkUsername(uname))
                 {
                     ArrayList<String> registerData = new ArrayList<String>();
@@ -289,11 +294,10 @@ public class LoginFrame extends dbms
                     frame.dispose();
                     new IntroPage();
                 }
+                //if username is already taken
                 else{
                     JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
                 }
-                       
-            
             }
         });
         
