@@ -1,4 +1,6 @@
-import Resume_Builder.*;
+package src;
+import Resume_Builder.LoginFrame;
+import Resume_Builder.dbms;
 
 
 public class Main {
