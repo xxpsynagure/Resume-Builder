@@ -53,7 +53,7 @@ public class Summarize2 {
         
         JPanel greenpanel = new JPanel();
         greenpanel.setBounds(0, 0, 565, 100);
-        greenpanel.setBackground(Color.decode("#99D6B9"));
+        greenpanel.setBackground(Color.decode("#99D6B9"));//use of hex code to import colors
         greenpanel.setLayout(null);
         panel.add(greenpanel);
         
@@ -99,6 +99,7 @@ public class Summarize2 {
         line2.setBounds(10, 240, 260, 2);
         panel.add(linepreset(line2));
 
+        //label to to display "EDUCATION"
         JLabel educationL = new JLabel("EDUCATION");
         educationL.setBounds(10,245,150,20);
         educationL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -115,6 +116,7 @@ public class Summarize2 {
         line3.setBounds(10, 375, 260, 2);
         panel.add(linepreset(line3));
 
+        //label to to display "COURSES"
         JLabel coursesL = new JLabel("COURSES");
         coursesL.setBounds(10,380,150,20);
         coursesL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -129,6 +131,7 @@ public class Summarize2 {
         line4.setBounds(10, 510, 260, 2);
         panel.add(linepreset(line4));
 
+        //label to to display "ACHIEMENTS"
         JLabel achievementsL = new JLabel("ACHIEVEMENTS");
         achievementsL.setBounds(10,515,150,20);
         achievementsL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -139,6 +142,7 @@ public class Summarize2 {
         achievementsArea.setBounds(10, 540, 260, 110);
         panel.add(textPreset(achievementsArea));
 
+        //label to to display "SKILLS"
         JLabel skillsL = new JLabel("SKILLS");
         skillsL.setBounds(290,105,150,20);
         skillsL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -149,6 +153,7 @@ public class Summarize2 {
         skillsArea.setBounds(290, 130, 250, 80);
         panel.add(textPreset(skillsArea));
 
+        //label to to display "JOB/EXPERIENCE"
         JLabel jobL = new JLabel("JOB/EXPERIENCE");
         jobL.setBounds(290,220,150,20);
         jobL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -159,6 +164,7 @@ public class Summarize2 {
         jobArea.setBounds(290, 245, 250, 70);
         panel.add(textPreset(jobArea));
 
+        //label to to display "INTERNSHIPS"
         JLabel internshipL = new JLabel("INTERNSHIPS");
         internshipL.setBounds(290,322,150,20);
         internshipL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -169,6 +175,7 @@ public class Summarize2 {
         internshipArea.setBounds(290, 345, 250, 80);
         panel.add(textPreset(internshipArea));
 
+        //label to to display "PORTFOLIO"
         JLabel portfolioL = new JLabel("PORTFOLIO");
         portfolioL.setBounds(290,432,150,20);
         portfolioL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -179,6 +186,7 @@ public class Summarize2 {
         portfolioArea.setBounds(290, 450, 250, 80);
         panel.add(textPreset(portfolioArea));
 
+        //label to to display "HOBBIES"
         JLabel hobbiesL = new JLabel("HOBBIES");
         hobbiesL.setBounds(290,550,150,20);
         hobbiesL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -189,6 +197,7 @@ public class Summarize2 {
         hobbiesArea.setBounds(290, 570, 250, 80);
         panel.add(textPreset(hobbiesArea));
 
+        //label to to display "DECLARATION"
         JLabel declarationL = new JLabel("DECLARATION");
         declarationL.setBounds(10,655,150,20);
         declarationL.setFont(new Font("Seriff",Font.BOLD,14));
@@ -199,6 +208,7 @@ public class Summarize2 {
         declarationArea.setBounds(10, 680, 530, 60);
         panel.add(textPreset(declarationArea));
 
+        //label to to display "SIGNATURE"
         JLabel signL = new JLabel("SIGNATURE");
         signL.setBounds(480,760,70,20);
         signL.setFont(new Font("Seriff",Font.BOLD,12));
