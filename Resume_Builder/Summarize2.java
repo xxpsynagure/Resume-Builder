@@ -108,9 +108,8 @@ public class Summarize2 {
         educationL.setForeground(Color.decode("#343A40"));
         panel.add(educationL);
 
-        JTextArea educationArea = new JTextArea("SSLC  :- "+educationReceived[0]+"  "+educationReceived[1]+"  "+educationReceived[2]+"\n"+
-                                                "PUC  :- "+educationReceived[3]+"  "+educationReceived[4]+"  "+educationReceived[5]+"\n"+
-                                                "College  :- "+educationReceived[7]+"  "+educationReceived[10]+"  "+educationReceived[11]+"  "+educationReceived[12]);
+        JTextArea educationArea = new JTextArea("PUC:\n"+educationReceived[3]+"  "+educationReceived[4]+"  "+educationReceived[5]+"\n"+
+                                                "COLLEGE:\n"+educationReceived[7]+"  "+educationReceived[10]+"  "+educationReceived[11]+"  "+educationReceived[12]);
         educationArea.setBounds(10, 265, 260, 100);
         panel.add(textPreset(educationArea));
 
