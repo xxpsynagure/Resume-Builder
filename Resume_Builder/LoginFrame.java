@@ -240,7 +240,7 @@ public class LoginFrame extends dbms
         backBtn.setFocusable(false);
         panel2.add(backBtn);
 
-        //sign up button checks for all the conditions and then registers the details
+        //sign up button checks for all the conditions to meet registers the details
         registerBtnR.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
