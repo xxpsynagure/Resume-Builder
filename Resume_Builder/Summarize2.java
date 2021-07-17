@@ -280,10 +280,14 @@ public class Summarize2 {
                 g2d.dispose();
 
                 try {
-                    ImageIO.write(img, "png", new File(System.getProperty("user.dir") + "\\resume.png"));
+                    JFileChooser j = new JFileChooser();
+                    j.setDialogTitle("save as .png");
+                    j.showSaveDialog(null);
+                    ImageIO.write(img, "png", new File(j.getSelectedFile().getAbsolutePath()));
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+                JOptionPane.showMessageDialog(null, "Download Successful","Task Completed", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         
