@@ -115,7 +115,7 @@ that invokes the constructor of every class and sets their panel visibility to f
 - Moreover, the database system must ensure the safety of the information stored, despite system crashes or attempts at unauthorized access.
 - We used the MySQL extension for Visual Studio code to create and manage tables and phpMyAdmin tool to handle the administration of MySQL over the web. 
 - We also connected our program with a remote server for online access to the database.
-- We used [freemysqlhosting](www.freemysqlhosting.net) for maintaining our data in remote database
+- We used [freemysqlhosting](https://www.freemysqlhosting.net/) for maintaining our data in remote database
 
 
 # **Outputs** 🖼️
