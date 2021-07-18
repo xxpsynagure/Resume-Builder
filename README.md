@@ -76,3 +76,42 @@ and store or retrieve the data. The username taken during registration acts as a
 key and connects all the foreign keys from other tables. Database connectivity is made
 available only when required.
 #### Entity Relationship Diagram
+![ERD](https://github.com/pravin-pk/Resume-Builder/images/unknown.png?raw=true)
+
+### Module 9: Additional functionalities
+When we access any of the panels from the home page, that panel will be provided with a
+navigation bar at the side so that the user can easily access other panels at any time at
+their convenience. Also each panel has a save button to save the user's information in the
+record. A user defined abstract class is made use of, which is inherited by the IntroPage to
+declare the frames and panels used in each class. It also maintains the navigation bar,
+methods to resize the icons for panels/navigation panels and also an initializer method
+that invokes the constructor of every class and sets their panel visibility to false.
+Users are provided with keyboard shortcuts to access help, logout or exit the application.
+
+# Tools
+### FRONT END : Java Swing
+Swing in Java is a Graphical User Interface (GUI) toolkit that includes the GUI components.
+Swing provides a rich set of widgets and packages to make sophisticated GUI components
+for Java applications. Swing is a part of Java Foundation Classes(JFC), which is an API for Java
+programs that provide GUI.
+The Java Swing library is built on top of the Java Abstract Widget Toolkit (AWT), an older,
+platform dependent GUI toolkit. The Java GUI programming components like button,
+textbox, etc. can be used from the library and do not have to create the components from
+scratch.
+We used Java extensions for Visual Studio Code and Java Development Kit to use the Java
+Swing library and code the application.
+
+### BACK END : DBMS
+A database management system (DBMS) refers to the technology for creating and
+managing databases.Basically DBMS is a software tool to organize (create, retrieve, update
+and manage) data in a database.
+The main aim of a DBMS is to supply a way to store up and retrieve database information
+that is both convenient and efficient. By data, we mean known facts that can be recorded
+and that have embedded meaning. Database systems are meant to handle large collections
+of information. Management of data involves both defining structures for storage of
+information and providing mechanisms that can do the manipulation of those stored
+information. Moreover, the database system must ensure the safety of the information
+stored, despite system crashes or attempts at unauthorized access.
+We used the MySQL extension for Visual Studio code to create and manage tables and
+phpMyAdmin tool to handle the administration of MySQL over the web. We also connected
+our program with a remote server for online access to the database.
