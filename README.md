@@ -76,7 +76,7 @@ and store or retrieve the data. The username taken during registration acts as a
 key and connects all the foreign keys from other tables. Database connectivity is made
 available only when required.
 #### Entity Relationship Diagram
-![ERD](https://github.com/pravin-pk/Resume-Builder/images/unknown.png?raw=true)
+![ERD](https://github.com/pravin-pk/Resume-Builder/images/unknown.png)
 
 ### Module 9: Additional functionalities
 When we access any of the panels from the home page, that panel will be provided with a
