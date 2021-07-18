@@ -88,6 +88,18 @@ public class LoginFrame
         registerBtn.setFocusable(false);
         panel.add(registerBtn);
 
+        JLabel line1 = new JLabel();
+        line1.setBounds(48, 34, 352 , 3);
+        line1.setBackground(Color.decode("#1C2E4A"));
+        line1.setOpaque(true);
+        panel.add(line1);
+
+        JLabel line2 = new JLabel();
+        line2.setBounds(2, 100, 268 , 3);
+        line2.setBackground(Color.decode("#1C2E4A"));
+        line2.setOpaque(true);
+        panel.add(line2);
+
         //label to display RESUME BUILDER
         JLabel lbl = new JLabel();
         lbl.setBounds(50, 10, 350, 100);
@@ -261,7 +273,7 @@ public class LoginFrame
         backBtn.setFocusable(false);
         panel2.add(backBtn);
 
-        //sign up button checks for all the conditions to meet registers the details
+        //sign up button checks for all the conditions to meet and registers the details
         registerBtnR.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -301,7 +313,7 @@ public class LoginFrame
                 }
 
                 //checkUsername() method checks whether username already exists in the database
-                //if username doesn't exist
+                //if username doesn't exist following is executed
                 else if(!add.checkUsername(uname))
                 {
                     ArrayList<String> registerData = new ArrayList<String>();
