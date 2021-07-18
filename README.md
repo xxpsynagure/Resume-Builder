@@ -119,8 +119,7 @@ that invokes the constructor of every class and sets their panel visibility to f
 
 
 # **Outputs** 🖼️
-![login](/images/output/image1.png)
-![register](/images/output/image5.png)
+![login](/images/output/image1.png)    ![register](/images/output/image5.png)
 ![intro](/images/output/image9.png)
 ![profile](/images/output/image7.png)
 ![education](/images/output/image3.png)
