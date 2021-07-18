@@ -1,16 +1,17 @@
 package Resume_Builder;
-import javax.swing.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
 public class ProfilePanel {
+    
     ProfilePanel(JFrame frame,JPanel panel) {
+        // establishing connection with the database and retrieving Name and Email data
         dbms add=new dbms();
         ArrayList<String> preDefault=add.profilepreDefault();
         
-        //panel = new JPanel();
         panel.setVisible(true);
         panel.setPreferredSize(new Dimension(1000,600));
         panel.setBackground(Color.decode("#F6D9A1"));//use of hex code to import colors
@@ -41,7 +42,7 @@ public class ProfilePanel {
         panel.add(fNameL);
 
         //text field to enter the name
-        JTextField fName = new JTextField(preDefault.get(0).split("\\s+")[0]);
+        JTextField fName = new JTextField(preDefault.get(0).split("\\s+")[0]); // The name is split by using "space" as delimeter
         fName.setBounds(265, 141, 147, 22);
         panel.add(fName);
 
@@ -219,10 +220,12 @@ public class ProfilePanel {
         panel.add(saveBtn);
 
 //-------------------------------------------------------------------------------------------------
+    // establishing connection with the database and retrieving Profile Data 
         String[] profileRecieved = new String[15];
         dbms profileGet=new dbms();
         profileRecieved = profileGet.getProfileData();
-        
+
+    // filling the data into respective textFields    
         ttlBox.setSelectedItem(profileRecieved[0]);
         if (profileRecieved[1] != null)
             fName.setText(profileRecieved[1]);
@@ -246,7 +249,7 @@ public class ProfilePanel {
         state.setText(profileRecieved[12]);
         country.setText(profileRecieved[13]);
 //____________________________________________________________________________________________________
-        
+// When save button is clicked the data are stored into an ArrayList and passed to method in dbms class
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> profileData = new ArrayList<String>();

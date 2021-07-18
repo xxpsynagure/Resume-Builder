@@ -1,11 +1,12 @@
 package Resume_Builder;
-import javax.swing.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-//HobbiesPanel as child class of dbms class
-public class HobbiesPanel extends dbms{
+
+public class HobbiesPanel{
+    
     HobbiesPanel(JFrame frame,JPanel panel) {
 
         panel.setVisible(true);
@@ -79,7 +80,7 @@ public class HobbiesPanel extends dbms{
         agree.setForeground(Color.decode("#000000"));
         panel.add(agree);
         
-        //"Submit" button to submit the entered details 
+        //"Submit" button to submit the entered details and open up Summarize Page
         JButton submitBtn = new JButton("Submit");
         submitBtn.setBounds(850, 540, 100, 50);
         submitBtn.setOpaque(true);
@@ -89,10 +90,11 @@ public class HobbiesPanel extends dbms{
         panel.add(submitBtn);
 
 //___________________________________________________________________________________________
+    // establishing connection with the database and retrieving Hobbies Data 
         String[] hobbiesReceived = new String[4];
         dbms hobbiesGet=new dbms();
         hobbiesReceived = hobbiesGet.getHobbiesData();
-
+    // Filling the data into respective textFields
         hobbies.setText(hobbiesReceived[0]);
         voidTxt.setText(hobbiesReceived[1]);
         if(hobbiesReceived[2]!=null)
@@ -108,6 +110,7 @@ public class HobbiesPanel extends dbms{
             }
         });
     
+    // When save button is clicked the data are passed as arguments to method in dbms class
         submitBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dbms add = new dbms();

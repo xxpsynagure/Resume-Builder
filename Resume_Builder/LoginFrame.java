@@ -1,16 +1,19 @@
 package Resume_Builder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.regex.*;
 import java.util.ArrayList;
+
 //loginframe
-public class LoginFrame extends dbms
+public class LoginFrame
  {
 
     JFrame frame;
     JPanel panel, panel2;
-    //separated the constructor LoginFrame and loginPanel to implement the backBtn
+
+    // Constructor that initializes a Frame
     public LoginFrame(){
         
         frame = new JFrame();
@@ -24,36 +27,41 @@ public class LoginFrame extends dbms
         loginPanel(frame);
 
     }
-
+    //------------------------------------------------------------------------
+    //loginPanel
     public void loginPanel(JFrame frame){
-        //adding components to panel
+
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 350, 600);
         panel.setBackground(Color.decode("#F6D9A1"));
         panel.setBorder(BorderFactory.createBevelBorder(0));
-        //panel.setLayout(new BorderLayout());
         panel.setLayout(null);
 
+        //label to display "Username"
         JLabel username = new JLabel("Username:");
         username.setBounds(50, 170, 100, 25);
         username.setFont(new Font("Montserrat", Font.PLAIN, 15));
         username.setForeground(Color.decode("#000000"));
         panel.add(username);
 
+        //text field to enter username
         JTextField Usernametxt = new JTextField();
         Usernametxt.setBounds(50, 195, 200, 25);
         panel.add(Usernametxt);
 
+        //label to display "Password"
         JLabel password = new JLabel("Password: ");
         password.setBounds(50, 225, 100, 25);
         password.setFont(new Font("Montserrat", Font.PLAIN, 15));
         password.setForeground(Color.decode("#000000"));
         panel.add(password);
 
+        //text field to enter password
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 250, 200, 25);
         panel.add(Passwordtxt);
 
+        //chekbox asking whether to show password or not
         JCheckBox chkbox = new JCheckBox("Show Password");
         chkbox.setBounds(52, 282, 150, 20);
         chkbox.setFont(new Font("Montserrat", Font.PLAIN, 12));
@@ -80,10 +88,9 @@ public class LoginFrame extends dbms
         registerBtn.setFocusable(false);
         panel.add(registerBtn);
 
-        //ImageIcon image = new ImageIcon("logo.png");
+        //label to display RESUME BUILDER
         JLabel lbl = new JLabel();
         lbl.setBounds(50, 10, 350, 100);
-        //lbl.setIcon(image);
         lbl.setText("RESUME BUILDER");
         lbl.setVerticalTextPosition(JLabel.TOP);
         lbl.setHorizontalTextPosition(JLabel.CENTER);
@@ -91,11 +98,13 @@ public class LoginFrame extends dbms
         lbl.setFont(new Font("Calibri", Font.ITALIC + Font.BOLD,30));
         panel.add(lbl);
 
+        //Label to display "Create your own professional cv"
         JLabel ttl=new JLabel("Create your own professional cv");
         ttl.setBounds(50,70,300,30);
         ttl.setFont(new Font("Mv boli", Font.BOLD, 14));
         panel.add(ttl);
 
+        //Reveals the password depending on whether the checkbox is selected or not
         chkbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (chkbox.isSelected()) {
@@ -107,8 +116,7 @@ public class LoginFrame extends dbms
 
         });
 
-        //String uname=Usernametxt.getText();
-        //String pword=String.valueOf(Passwordtxt.getPassword());
+        //Checks whether the Username and password are valid before logging you in the application
         loginBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dbms loginadd = new dbms();
@@ -137,6 +145,7 @@ public class LoginFrame extends dbms
             }
         });
 
+        //Leads you to the registration Panel
         registerBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panel.setVisible(false);
@@ -144,8 +153,7 @@ public class LoginFrame extends dbms
             }
         });
 
-        //loginBtn.setMnemonic(KeyEvent.VK_ENTER);
-
+    // performs the loginBtn action when "Enter" key is pressed while cursor is in ConfirmPasswordtxt
         Passwordtxt.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {}
             public void keyPressed(KeyEvent f) {
@@ -163,6 +171,7 @@ public class LoginFrame extends dbms
         
     }
     
+    //-----------------------------------------------------------------
     //register panel
     public void registerPanel() {
         JPanel panel2 = new JPanel();
@@ -170,53 +179,63 @@ public class LoginFrame extends dbms
         panel2.setBackground(Color.decode("#F6D9A1"));
         panel2.setLayout(null);
         
+        //label to display "Enter your name"
         JLabel name = new JLabel("Enter your name");
         name.setBounds(50, 100, 150, 25);
         name.setFont(new Font("Montserrat", Font.PLAIN, 15));
         name.setForeground(Color.decode("#000000"));
         panel2.add(name);
         
+        //textfield to enter name
         JTextField nametxt = new JTextField();
         nametxt.setBounds(50, 125, 200, 25);
         panel2.add(nametxt);
         
+        //label to display Email Id
         JLabel email = new JLabel("Email Id");
         email.setBounds(50, 160, 100, 25);
         email.setFont(new Font("Montserrat", Font.PLAIN, 15));
         email.setForeground(Color.decode("#000000"));
         panel2.add(email);
         
+        //textfield to enter email
         JTextField emailtxt = new JTextField();
         emailtxt.setBounds(50, 185, 200, 25);
         panel2.add(emailtxt);
         
+        //label to display username
         JLabel usernameR = new JLabel("Username");
         usernameR.setBounds(50, 220, 100, 25);
         usernameR.setFont(new Font("Montserrat", Font.PLAIN, 15));
         usernameR.setForeground(Color.decode("#000000"));
         panel2.add(usernameR);
         
+        //textfield to enter username
         JTextField usernametxt = new JTextField();
         usernametxt.setBounds(50, 245, 200, 25);
         usernametxt.setToolTipText("5-20 lower case characters/ numbers/ special characters(_.-) can't begin or end with special characters");
         panel2.add(usernametxt);
         
+        //label to display password
         JLabel password = new JLabel("Password");
         password.setBounds(50, 280, 100, 25);
         password.setFont(new Font("Montserrat", Font.PLAIN, 15));
         password.setForeground(Color.decode("#000000"));
         panel2.add(password);
         
+        //textfield to enter password
         JPasswordField Passwordtxt = new JPasswordField();
         Passwordtxt.setBounds(50, 305, 200, 25);
         panel2.add(Passwordtxt);
 
+        //label to display Confirm password
         JLabel confirmpassword = new JLabel("Confirm Password");
         confirmpassword.setBounds(50, 340, 160, 25);
         confirmpassword.setFont(new Font("Montserrat", Font.PLAIN, 15));
         confirmpassword.setForeground(Color.decode("#000000"));
         panel2.add(confirmpassword);
         
+        //textfield to enter the confirmed password
         JPasswordField ConfirmPasswordtxt = new JPasswordField();
         ConfirmPasswordtxt.setBounds(50, 365, 200, 25);
         ConfirmPasswordtxt.setToolTipText("confirm your password");
@@ -270,7 +289,7 @@ public class LoginFrame extends dbms
                 {
                     JOptionPane.showMessageDialog(null, "Invalid username \n[can include lowercase characters, numbers, special characters(underscore_, dot., hyphen-) \ncharacter limit: 5-20 characters\ncannot begin or end with special characters]","Username Failed", 2);
                 }
-                //checks if the two passwords are equals or not
+                //checks if the two passwords match or not
                 else if(!pass1.equals(pass2))
                 {
                     JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
@@ -303,6 +322,7 @@ public class LoginFrame extends dbms
             }
         });
         
+        //leads back to the loginPanel
         backBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panel2.setVisible(false);
@@ -311,6 +331,7 @@ public class LoginFrame extends dbms
             }
         });
 
+    // performs the registerBtnR action when "Enter" key is pressed while cursor is in ConfirmPasswordtxt
         ConfirmPasswordtxt.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {}
             public void keyPressed(KeyEvent f) {

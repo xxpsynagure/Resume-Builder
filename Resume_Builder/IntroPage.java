@@ -16,6 +16,7 @@ public class IntroPage extends BaseTemplate {
         //intro.setSize(1000, 600);
         intro.setLayout(null);
 
+        // Panel with color #1C2E4A added at top of panel for the looks
         JPanel head = new JPanel();
         head.setBackground(Color.decode("#1C2E4A"));
         head.setBounds(0, 0, 1000, 162);
@@ -34,7 +35,8 @@ public class IntroPage extends BaseTemplate {
         welcome.setFont(new Font("Montserrat",Font.BOLD,36));
         welcome.setForeground(Color.decode("#F6D9A1"));
         head.add(welcome);
-         
+//---------------------------------------------------------------------------        
+        // panel that leads to Profile page
         JPanel panelBtn1 = new JPanel();
         panelBtn1.setBackground(Color.decode("#D88C9A"));
         panelBtn1.setBounds(93, 207, 216, 150);
@@ -43,7 +45,6 @@ public class IntroPage extends BaseTemplate {
         //adding profile image icon in profile panel
         ImageIcon profileImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\man-user.png");
         profileImage=resizer(profileImage);
-        
         //label to display "Profile" in panel
         JLabel profileLabel = new JLabel("Profile");
         profileLabel.setIcon(profileImage);
@@ -51,8 +52,9 @@ public class IntroPage extends BaseTemplate {
         profileLabel.setVerticalTextPosition(JLabel.BOTTOM);//setting the icon position in the panel
         panelBtn1.add(profileLabel);
         intro.add(panelBtn1);
-        
-        //panel for education page
+//---------------------------------------------------------------------------------        
+       
+        //panel that leads to Education page
         JPanel panelBtn2 = new JPanel();
         panelBtn2.setBackground(Color.decode("#D88C9A"));
         panelBtn2.setBounds(381, 207, 216, 150);
@@ -69,8 +71,8 @@ public class IntroPage extends BaseTemplate {
         eduLabel.setVerticalTextPosition(JLabel.BOTTOM);
         panelBtn2.add(eduLabel);
         intro.add(panelBtn2);
-        
-        //panel for skills and experience page
+ //-------------------------------------------------------------------------------------       
+        //panel that leads to skills and experience page
         JPanel panelBtn3 = new JPanel();
         panelBtn3.setBackground(Color.decode("#D88C9A"));
         panelBtn3.setBounds(690, 207, 216, 150);
@@ -87,8 +89,9 @@ public class IntroPage extends BaseTemplate {
         skillLabel.setVerticalTextPosition(JLabel.BOTTOM);
         panelBtn3.add(skillLabel);
         intro.add(panelBtn3);
-        
-        //panel for hobbies page
+ //-------------------------------------------------------------------------------------       
+               
+        //panel that leads to hobbies page
         JPanel panelBtn4 = new JPanel();
         panelBtn4.setBackground(Color.decode("#D88C9A"));
         panelBtn4.setBounds(230, 412, 216, 150);
@@ -105,8 +108,9 @@ public class IntroPage extends BaseTemplate {
         hobbiesLabel.setVerticalTextPosition(JLabel.BOTTOM);
         panelBtn4.add(hobbiesLabel);
         intro.add(panelBtn4);
-        
-        //panel for summarize page
+ //-------------------------------------------------------------------------------------       
+       
+        //panel that leads to summarize page
         JPanel panelBtn5 = new JPanel();
         panelBtn5.setBackground(Color.decode("#D88C9A"));
         panelBtn5.setBounds(550, 412, 216, 150);
@@ -123,8 +127,9 @@ public class IntroPage extends BaseTemplate {
         summarizeLabel.setVerticalTextPosition(JLabel.BOTTOM);
         panelBtn5.add(summarizeLabel);
         intro.add(panelBtn5);
+ //-------------------------------------------------------------------------------------       
 
-        initializer();
+        initializer(); // calling initailizer method of class BaseTemplate
 
         frame.add(intro);
         frame.pack();

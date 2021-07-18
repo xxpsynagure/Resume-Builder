@@ -1,10 +1,12 @@
 package Resume_Builder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
 public class EducationPanel {
+
     EducationPanel(JFrame frame,JPanel panel) {
         
         panel.setVisible(true);
@@ -202,10 +204,11 @@ public class EducationPanel {
         clgPerformance.setToolTipText("Enter in %age ");
         panel.add(clgPerformance);
 //----------------------------------------------------------
+    // establishing connection with the database and retrieving Hobbies Data 
         String[] educationReceived = new String[14];
         dbms educationGet = new dbms();
         educationReceived = educationGet.getEducationData();
-        
+    // filling the data into respective textFields
         school.setText(educationReceived[0]);
         SYear.setText(educationReceived[1]);
         SPerformance.setText(educationReceived[2]);
@@ -231,6 +234,7 @@ saveBtn.setOpaque(true);
 saveBtn.setFocusable(false);
 panel.add(saveBtn);
 
+// When save button is clicked the data is stored into an ArrayList and passed to method in dbms class
 saveBtn.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
         ArrayList<String> educationData = new ArrayList<String>();

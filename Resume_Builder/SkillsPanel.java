@@ -1,11 +1,12 @@
 package Resume_Builder;
-import javax.swing.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
 public class SkillsPanel {
+
     SkillsPanel(JFrame frame, JPanel panel) {
 
         panel.setVisible(true);
@@ -137,17 +138,20 @@ public class SkillsPanel {
         panel.add(saveBtn);
 
 //_________________________________________________________________________________________________
+    // establishing connection with the database and retrieving Skill Data
         String[] skillReceived = new String[7];
         dbms skillGet=new dbms();
         skillReceived = skillGet.getSkillData();
 
+    // filling the data into the respective fields
         job.setText(skillReceived[0]);
         intern.setText(skillReceived[1]);
         courses.setText(skillReceived[2]);
         skill.setText(skillReceived[3]);
         port.setText(skillReceived[4]);
         achieve.setText(skillReceived[5]);
-//_________________________________________________________________________________________________        
+//_________________________________________________________________________________________________   
+// When save button is clicked the data are stored into an ArrayList and passed to method in dbms class
         saveBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> skillsData = new ArrayList<String>();

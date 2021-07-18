@@ -1,8 +1,7 @@
 package Resume_Builder;
-import javax.swing.*;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
 import java.awt.event.*;
 
 //All the frames and panels are declared in the BaseTemplate which is an abstract class
@@ -48,7 +47,8 @@ public abstract class BaseTemplate {
 
             }
         });
-        
+
+        //actionListener added to exitThing menuitem which closes the application
         exitThing.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -57,12 +57,13 @@ public abstract class BaseTemplate {
         
         frame.setJMenuBar(menuBar);
 
-        settings.setMnemonic(KeyEvent.VK_H); // access the help menu by pressing the key alt+H
-        logout.setMnemonic(KeyEvent.VK_L); // logouts of the introPage by pressing the L key
-        exitThing.setMnemonic(KeyEvent.VK_F4);
+        // key Mnemonics added so that user can perform cetain actions with the keys
+        settings.setMnemonic(KeyEvent.VK_H); // alt+H to open the Help Menu
+        logout.setMnemonic(KeyEvent.VK_L); // alt+L to perform logout operation
+        exitThing.setMnemonic(KeyEvent.VK_F4); // alt+f4 to exit the application
 
-
-        //navigation Bar
+// ------------------------------------------------------------------------------------------
+        //navigation Bar which allows you to access any other page at any time at your convenience
         navBar.setBackground(Color.decode("#1c2e4a"));
         navBar.setBounds(0, 0, 100, 600);
         navBar.setLayout(null);
@@ -125,8 +126,11 @@ public abstract class BaseTemplate {
         frame.add(navBar);
 
     }
+//----------------------------------------------------------------------------------------------------------
+    
     //mouseFunctions changes the colour of the panelBtns and navPanels when the cursor is hovered on it
     void mouseFunctions(JPanel panel, int i){
+        //mouseListener indicates whether a mouse action has been performed on a component or not
         panel.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent e){
                 panel.setBackground(Color.gray);
@@ -139,19 +143,15 @@ public abstract class BaseTemplate {
                  panelAdjuster();
                  switch (i) {
                      case 1:
-                        
                         profPanel.setVisible(true);
                         break;
-                     case 2:
-                        
+                     case 2:                       
                         eduPanel.setVisible(true);
                         break;
-                     case 3:
-                        
+                     case 3:                       
                         skillPanel.setVisible(true);
                         break;
-                     case 4:
-                        
+                     case 4:                       
                         curPanel.setVisible(true);
                         break;
                      case 5:
@@ -162,17 +162,14 @@ public abstract class BaseTemplate {
                             
                             navBar.setVisible(false);
                             intro.setVisible(true);
-                        }
-                        
+                        }                       
                         else {
                             intro.setVisible(true);
                             navBar.setVisible(false);
                             JOptionPane.showMessageDialog(null,"Kindly fill all the details","No Data Entered",JOptionPane.ERROR_MESSAGE);
-                        }
-                            
+                        }                            
                         break;
-                     case 6:
-                        
+                     case 6:  
                         navBar.setVisible(false);
                         intro.setVisible(true);
                         break;
@@ -184,6 +181,7 @@ public abstract class BaseTemplate {
         });
     }
 
+    // method that sets visibility of navBar true and visibility of all other panels to false
     void panelAdjuster(){
         intro.setVisible(false);
         eduPanel.setVisible(false);
@@ -212,7 +210,8 @@ public abstract class BaseTemplate {
 
     }
 
-    //inittializer invokes the constructors of all classes and sets their visibility to false
+    //initializer invokes the constructors of all classes and sets their visibility to false
+    // frame and panel are passed as arguments to the respective classes
     void initializer(){
         new ProfilePanel(frame,profPanel);
         profPanel.setVisible(false);

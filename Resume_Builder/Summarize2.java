@@ -1,6 +1,7 @@
 package Resume_Builder;
-import javax.swing.*;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -8,21 +9,19 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-/**
- * Summarize
- */
+
 public class Summarize2 {
     static dbms place;
 
     Summarize2(){
         
-        // STRING TO STORE THE DATA RECEIVED FROM DATABASE
+        // ARRAYS OF STRING TO STORE THE DATA RECEIVED FROM DATABASE
         String[] profileReceived = new String[15];
         String[] educationReceived = new String[14];
         String[] skillReceived = new String[7];
         String[] hobbiesReceived = new String[4];
 
-        // MAKING A CONNECTION TO DATABASE AND GETTING DATA
+        // MAKING A CONNECTION TO DATABASE AND RETRIEVING THE DATA
         place = new dbms();
         profileReceived =  place.getProfileData();
         place = new dbms();
@@ -31,8 +30,9 @@ public class Summarize2 {
         skillReceived = place.getSkillData();
         place = new dbms();
         hobbiesReceived = place.getHobbiesData();
-        //---------------------------------------------------
+//-------------------------------------------------------------------
 
+    // A new frame for the summarize page
         JFrame frame = new JFrame();
         frame.setSize(700, 850);
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,8 +41,7 @@ public class Summarize2 {
         frame.setLayout(null);
         ImageIcon image = new ImageIcon(System.getProperty("user.dir") + "\\images\\logo.png");
         frame.setIconImage(image.getImage());
-        
-        //--------------------------------------------------
+    //--------------------------------------------------------------------
         //page start
         JPanel panel = new JPanel();
         panel.setBounds(40, 0, 565, 780);
@@ -64,6 +63,7 @@ public class Summarize2 {
         sign.setFont(new Font("Roboto",Font.PLAIN,36));
         greenpanel.add(sign);
         
+        //image icon to represent phone number in summarize page
         ImageIcon phoneImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\phone-call.png");
         JLabel phoneL = new JLabel(profileReceived[3]);
         phoneL.setIcon(resizer(phoneImage));
@@ -92,6 +92,7 @@ public class Summarize2 {
         locationL.setIconTextGap(10);
         panel.add(locationL);
 
+         
         JTextArea locationArea = new JTextArea(profileReceived[8]+ ",\n" + profileReceived[9] + ", " + profileReceived[10] + ", " +
                                                 profileReceived[11] + ",\n" + profileReceived[12] + ", " + profileReceived[13]);
         locationArea.setBounds(45, 155, 220, 75);
@@ -215,12 +216,14 @@ public class Summarize2 {
         signL.setFont(new Font("Seriff",Font.BOLD,12));
         signL.setForeground(Color.decode("#343A40"));
         panel.add(signL);
-
+//--------------------------------------------------------------------------------------------------------------
         ImageIcon darkImage = new ImageIcon(System.getProperty("user.dir") + "\\images\\dark.png");
         JToggleButton toggle = new JToggleButton();
         toggle.setIcon(resizer(darkImage));
         toggle.setBounds(630, 20, 30, 30);
         toggle.setFocusable(false);
+
+    // toggle button used to change the theme of the panel to "light theme" or "dark theme"    
         toggle.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AbstractButton abstractButton = (AbstractButton)e.getSource();
@@ -265,30 +268,38 @@ public class Summarize2 {
             }
         });
 
-
+//-----------------------------------------------------------------------------------------------------------
         ImageIcon donwload = new ImageIcon(System.getProperty("user.dir") + "\\images\\download.png");
         JButton downloadBtn = new JButton();
         downloadBtn.setIcon(resizer(donwload));
         downloadBtn.setBounds(630, 60, 30, 30);
         downloadBtn.setFocusable(false);
 
+    // download button that opens up JFileChooser to select the file from required directory and save the summarize panel as png image    
         downloadBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Container content = panel;
+                Container content = panel; // a container to hold the contents of the panel
+                // making an bufferedImage with the dimensions of the content and setting the type of image that has to be writtten
                 BufferedImage img = new BufferedImage(content.getWidth(), content.getHeight(), BufferedImage.TYPE_INT_RGB);
-                Graphics2D g2d = img.createGraphics();
-                content.printAll(g2d);
+                Graphics2D g2d = img.createGraphics(); // used for drawing into the BufferedImage
+                content.printAll(g2d); // content is printed into the buffered image using the graphics g2d
                 g2d.dispose();
 
-                try {
-                    JFileChooser j = new JFileChooser();
-                    j.setDialogTitle("save as .png");
-                    j.showSaveDialog(null);
-                    ImageIO.write(img, "png", new File(j.getSelectedFile().getAbsolutePath()));
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                // Providing a simple user interface to chose or select a file 
+                JFileChooser j = new JFileChooser();
+                j.setDialogTitle("save as .png"); // set the title for the file choser window
+                j.setSelectedFile(new File("resume.png"));
+
+                if(j.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    try {                  
+                        // write a buffered image into a png image file
+                        if(ImageIO.write(img, "png", new File(j.getSelectedFile().getAbsolutePath())))
+                            JOptionPane.showMessageDialog(null, "Download Successful","Task Completed", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
-                JOptionPane.showMessageDialog(null, "Download Successful","Task Completed", JOptionPane.INFORMATION_MESSAGE);
+                
             }
         });
         
@@ -299,6 +310,8 @@ public class Summarize2 {
         
 
     }
+//--------------------------------------------------------------------------------------------------    
+    //resizes the icons in summarize page
     ImageIcon resizer(ImageIcon image){
 
         Image imageget = image.getImage(); // transform it 
@@ -306,7 +319,8 @@ public class Summarize2 {
         return new ImageIcon(newimg);
 
     }
-
+    
+    //common attributes needed for all textAreas in summarize page
     JTextArea textPreset(JTextArea text){
         text.setFont(new Font("Montserrat",Font.PLAIN , 14));
         text.setLineWrap(true);
@@ -315,6 +329,8 @@ public class Summarize2 {
         text.setEditable(false);
         return text;
     }
+
+    //fills in the color for the lines in summarize page
     JLabel linepreset(JLabel line){
         line.setBackground(Color.decode("#99D6B9"));
         line.setOpaque(true);
