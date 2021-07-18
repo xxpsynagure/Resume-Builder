@@ -191,70 +191,98 @@ public class LoginFrame
         panel2.setBackground(Color.decode("#F6D9A1"));
         panel2.setLayout(null);
         
+        JLabel line1 = new JLabel();
+        line1.setBounds(48, 34, 352 , 3);
+        line1.setBackground(Color.decode("#1C2E4A"));
+        line1.setOpaque(true);
+        panel2.add(line1);
+
+        JLabel line2 = new JLabel();
+        line2.setBounds(2, 100, 268 , 3);
+        line2.setBackground(Color.decode("#1C2E4A"));
+        line2.setOpaque(true);
+        panel2.add(line2);
+
+        //label to display RESUME BUILDER
+        JLabel lbl = new JLabel();
+        lbl.setBounds(50, 10, 350, 100);
+        lbl.setText("RESUME BUILDER");
+        lbl.setVerticalTextPosition(JLabel.TOP);
+        lbl.setHorizontalTextPosition(JLabel.CENTER);
+        lbl.setIconTextGap(-10);
+        lbl.setFont(new Font("Calibri", Font.ITALIC + Font.BOLD,30));
+        panel2.add(lbl);
+
+        //Label to display "Create your own professional cv"
+        JLabel ttl=new JLabel("Create your own professional cv");
+        ttl.setBounds(50,70,300,30);
+        ttl.setFont(new Font("Mv boli", Font.BOLD, 14));
+        panel2.add(ttl);
+        
         //label to display "Enter your name"
         JLabel name = new JLabel("Enter your name");
-        name.setBounds(50, 100, 150, 25);
+        name.setBounds(50, 120, 150, 25);
         name.setFont(new Font("Montserrat", Font.PLAIN, 15));
         name.setForeground(Color.decode("#000000"));
         panel2.add(name);
         
         //textfield to enter name
         JTextField nametxt = new JTextField();
-        nametxt.setBounds(50, 125, 200, 25);
+        nametxt.setBounds(50, 145, 200, 25);
         panel2.add(nametxt);
         
         //label to display Email Id
         JLabel email = new JLabel("Email Id");
-        email.setBounds(50, 160, 100, 25);
+        email.setBounds(50, 180, 100, 25);
         email.setFont(new Font("Montserrat", Font.PLAIN, 15));
         email.setForeground(Color.decode("#000000"));
         panel2.add(email);
         
         //textfield to enter email
         JTextField emailtxt = new JTextField();
-        emailtxt.setBounds(50, 185, 200, 25);
+        emailtxt.setBounds(50, 205, 200, 25);
         panel2.add(emailtxt);
         
         //label to display username
         JLabel usernameR = new JLabel("Username");
-        usernameR.setBounds(50, 220, 100, 25);
+        usernameR.setBounds(50, 240, 100, 25);
         usernameR.setFont(new Font("Montserrat", Font.PLAIN, 15));
         usernameR.setForeground(Color.decode("#000000"));
         panel2.add(usernameR);
         
         //textfield to enter username
         JTextField usernametxt = new JTextField();
-        usernametxt.setBounds(50, 245, 200, 25);
+        usernametxt.setBounds(50, 265, 200, 25);
         usernametxt.setToolTipText("5-20 lower case characters/ numbers/ special characters(_.-) can't begin or end with special characters");
         panel2.add(usernametxt);
         
         //label to display password
         JLabel password = new JLabel("Password");
-        password.setBounds(50, 280, 100, 25);
+        password.setBounds(50, 300, 100, 25);
         password.setFont(new Font("Montserrat", Font.PLAIN, 15));
         password.setForeground(Color.decode("#000000"));
         panel2.add(password);
         
         //textfield to enter password
         JPasswordField Passwordtxt = new JPasswordField();
-        Passwordtxt.setBounds(50, 305, 200, 25);
+        Passwordtxt.setBounds(50, 325, 200, 25);
         panel2.add(Passwordtxt);
 
         //label to display Confirm password
         JLabel confirmpassword = new JLabel("Confirm Password");
-        confirmpassword.setBounds(50, 340, 160, 25);
+        confirmpassword.setBounds(50, 360, 160, 25);
         confirmpassword.setFont(new Font("Montserrat", Font.PLAIN, 15));
         confirmpassword.setForeground(Color.decode("#000000"));
         panel2.add(confirmpassword);
         
         //textfield to enter the confirmed password
         JPasswordField ConfirmPasswordtxt = new JPasswordField();
-        ConfirmPasswordtxt.setBounds(50, 365, 200, 25);
+        ConfirmPasswordtxt.setBounds(50, 385, 200, 25);
         ConfirmPasswordtxt.setToolTipText("confirm your password");
         panel2.add(ConfirmPasswordtxt);
 
         JButton registerBtnR = new JButton("Sign up");
-        registerBtnR.setBounds(170, 410, 100, 25);
+        registerBtnR.setBounds(170, 430, 100, 25);
         registerBtnR.setFont(new Font("Montserrat", Font.PLAIN, 15));
         registerBtnR.setBackground(Color.decode("#a5a58d"));
         registerBtnR.setForeground(Color.decode("#000000"));
@@ -265,7 +293,7 @@ public class LoginFrame
         
         //backBtn takes the panel back to the loginPanel
         JButton backBtn = new JButton("Back");
-        backBtn.setBounds(50, 410, 100, 25);
+        backBtn.setBounds(50, 430, 100, 25);
         backBtn.setFont(new Font("Montserrat", Font.PLAIN, 15));
         backBtn.setBackground(Color.decode("#a5a58d"));
         backBtn.setForeground(Color.decode("#000000"));
