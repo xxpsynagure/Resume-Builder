@@ -1,5 +1,5 @@
 # Resume-Builder 🏆
-*This project was made as an 4th sem assignment.*
+*This project was made as a part of 4th semester assignment.*
 
 ## Overview 🧩
 
